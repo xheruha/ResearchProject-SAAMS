@@ -1,5 +1,5 @@
 ﻿Public Class Form2
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
         Form1.Show()
         Me.Hide()
     End Sub
