@@ -62,7 +62,7 @@ Partial Class Form1
         '
         Me.btnContinue.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnContinue.Location = New System.Drawing.Point(572, 279)
+        Me.btnContinue.Location = New System.Drawing.Point(597, 279)
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.Size = New System.Drawing.Size(122, 42)
         Me.btnContinue.TabIndex = 9

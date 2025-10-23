@@ -74,8 +74,6 @@ Public Class Form2
         txtCpass.Clear()
     End Sub
 
-
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
         Form1.Show()
         Me.Hide()

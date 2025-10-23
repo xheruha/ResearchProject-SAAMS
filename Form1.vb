@@ -17,6 +17,7 @@ Public Class Form1
 
         If dr.Read() Then
             MsgBox("Login Successful", MsgBoxStyle.Information)
+            Form3.LoggedInEmail = dr("Email").ToString()
             Me.Hide()
             Form3.Show()
         Else
