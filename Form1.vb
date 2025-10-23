@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Public Class Form1
 
+Public Class Form1
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
@@ -15,17 +14,21 @@ Public Class Form1
 
         cn.Open()
         dr = cmd.ExecuteReader()
+
         If dr.Read() Then
-            MsgBox("Login Succesful", MsgBoxStyle.Information)
+            MsgBox("Login Successful", MsgBoxStyle.Information)
             Me.Hide()
             Form3.Show()
         Else
             MsgBox("Login Failed", MsgBoxStyle.Critical)
         End If
+
+        dr.Close()
         cn.Close()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
+
+    Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         Form2.Show()
         Me.Hide()
     End Sub
