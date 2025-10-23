@@ -56,14 +56,6 @@ Public Class Form2
         ClearFields()
     End Sub
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmbSyear.Items.Clear()
-        cmbSyear.Items.Add("1st Year")
-        cmbSyear.Items.Add("2nd Year")
-        cmbSyear.Items.Add("3rd Year")
-        cmbSyear.Items.Add("4th Year")
-    End Sub
-
     Private Sub ClearFields()
         txtFirstname.Clear()
         txtLastname.Clear()
@@ -72,6 +64,14 @@ Public Class Form2
         txtSection.Clear()
         txtPass.Clear()
         txtCpass.Clear()
+    End Sub
+
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbSyear.Items.Clear()
+        cmbSyear.Items.Add("1st Year")
+        cmbSyear.Items.Add("2nd Year")
+        cmbSyear.Items.Add("3rd Year")
+        cmbSyear.Items.Add("4th Year")
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click

@@ -24,6 +24,7 @@ Partial Class Form3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -32,7 +33,6 @@ Partial Class Form3
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -52,6 +52,21 @@ Partial Class Form3
         Me.Panel1.Size = New System.Drawing.Size(243, 576)
         Me.Panel1.TabIndex = 0
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Maroon
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button1.Image = Global.ResearchProject.My.Resources.Resources.student3
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(0, 281)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(243, 42)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -59,7 +74,7 @@ Partial Class Form3
         Me.Label2.ForeColor = System.Drawing.SystemColors.Control
         Me.Label2.Location = New System.Drawing.Point(68, 165)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(88, 16)
+        Me.Label2.Size = New System.Drawing.Size(91, 17)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "SchoolYear"
         '
@@ -70,7 +85,7 @@ Partial Class Form3
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
         Me.Label1.Location = New System.Drawing.Point(3, 138)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(212, 16)
+        Me.Label1.Size = New System.Drawing.Size(229, 18)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Department of Computer Studies"
         '
@@ -132,21 +147,6 @@ Partial Class Form3
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(840, 576)
         Me.Panel3.TabIndex = 2
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Maroon
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button1.Image = Global.ResearchProject.My.Resources.Resources.student3
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(0, 281)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(243, 42)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Form3
         '
