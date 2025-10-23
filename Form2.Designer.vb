@@ -23,10 +23,10 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbSyear = New System.Windows.Forms.ComboBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.txtSection = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.txtSyear = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtCpass = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -55,10 +55,10 @@ Partial Class Form2
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.cmbSyear)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.txtSection)
         Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Controls.Add(Me.txtSyear)
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.txtCpass)
         Me.Panel1.Controls.Add(Me.Label10)
@@ -79,6 +79,14 @@ Partial Class Form2
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(800, 450)
         Me.Panel1.TabIndex = 0
+        '
+        'cmbSyear
+        '
+        Me.cmbSyear.FormattingEnabled = True
+        Me.cmbSyear.Location = New System.Drawing.Point(555, 248)
+        Me.cmbSyear.Name = "cmbSyear"
+        Me.cmbSyear.Size = New System.Drawing.Size(206, 24)
+        Me.cmbSyear.TabIndex = 28
         '
         'btnClear
         '
@@ -109,14 +117,6 @@ Partial Class Form2
         Me.Label12.Size = New System.Drawing.Size(75, 22)
         Me.Label12.TabIndex = 25
         Me.Label12.Text = "Section:"
-        '
-        'txtSyear
-        '
-        Me.txtSyear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSyear.Location = New System.Drawing.Point(554, 251)
-        Me.txtSyear.Name = "txtSyear"
-        Me.txtSyear.Size = New System.Drawing.Size(207, 22)
-        Me.txtSyear.TabIndex = 24
         '
         'Label11
         '
@@ -365,7 +365,7 @@ Partial Class Form2
     Friend WithEvents Label9 As Label
     Friend WithEvents txtSection As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents txtSyear As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents btnClear As Button
+    Friend WithEvents cmbSyear As ComboBox
 End Class

@@ -43,7 +43,7 @@ Public Class Form2
             .AddWithValue("@Firstname", txtFirstname.Text.Trim())
             .AddWithValue("@Lastname", txtLastname.Text.Trim())
             .AddWithValue("@Email", txtEmail.Text.Trim())
-            .AddWithValue("@SchoolYear", txtSyear.Text.Trim())
+            .AddWithValue("@SchoolYear", cmbSyear.SelectedItem.ToString())
             .AddWithValue("@Section", txtSection.Text.Trim())
             .AddWithValue("@Password", txtPass.Text.Trim())
         End With
@@ -51,14 +51,24 @@ Public Class Form2
         cmd.ExecuteNonQuery()
         cn.Close()
         MsgBox("Account created succesfully!", MsgBoxStyle.Information)
+        Me.Hide()
+        Form1.Show()
         ClearFields()
+    End Sub
+
+    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbSyear.Items.Clear()
+        cmbSyear.Items.Add("1st Year")
+        cmbSyear.Items.Add("2nd Year")
+        cmbSyear.Items.Add("3rd Year")
+        cmbSyear.Items.Add("4th Year")
     End Sub
 
     Private Sub ClearFields()
         txtFirstname.Clear()
         txtLastname.Clear()
         txtEmail.Clear()
-        txtSyear.Clear()
+        cmbSyear.Text = ""
         txtSection.Clear()
         txtPass.Clear()
         txtCpass.Clear()
@@ -75,7 +85,7 @@ Public Class Form2
         txtFirstname.Text = ""
         txtLastname.Text = ""
         txtEmail.Text = ""
-        txtSyear.Text = ""
+        cmbSyear.Text = ""
         txtSection.Text = ""
         txtPass.Text = ""
         txtCpass.Text = ""
