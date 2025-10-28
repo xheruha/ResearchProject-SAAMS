@@ -37,12 +37,13 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, SchoolYear, Section, Password) VALUES (@Firstname, @Lastname, @Email, @SchoolYear, @Section, @Password)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, Section, Password) VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @Section, @Password)"
         cmd = New SqlCommand(sql, cn)
         With cmd.Parameters
             .AddWithValue("@Firstname", txtFirstname.Text.Trim())
             .AddWithValue("@Lastname", txtLastname.Text.Trim())
             .AddWithValue("@Email", txtEmail.Text.Trim())
+            .AddWithValue("@Gender", cmbGender.SelectedItem.ToString())
             .AddWithValue("@SchoolYear", cmbSyear.SelectedItem.ToString())
             .AddWithValue("@Section", txtSection.Text.Trim())
             .AddWithValue("@Password", txtPass.Text.Trim())
@@ -60,18 +61,25 @@ Public Class Form2
         txtFirstname.Clear()
         txtLastname.Clear()
         txtEmail.Clear()
-        cmbSyear.Text = ""
+        cmbGender.Items.Clear()
+        cmbSyear.Items.Clear()
         txtSection.Clear()
         txtPass.Clear()
         txtCpass.Clear()
     End Sub
 
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbGender.Items.Clear()
         cmbSyear.Items.Clear()
+        cmbGender.Items.Add("Male")
+        cmbGender.Items.Add("Female")
+        cmbGender.Items.Add("Other")
         cmbSyear.Items.Add("1st Year")
         cmbSyear.Items.Add("2nd Year")
         cmbSyear.Items.Add("3rd Year")
         cmbSyear.Items.Add("4th Year")
+        cmbGender.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbSyear.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
@@ -88,4 +96,6 @@ Public Class Form2
         txtPass.Text = ""
         txtCpass.Text = ""
     End Sub
+
+
 End Class

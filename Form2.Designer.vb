@@ -23,6 +23,8 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbGender = New System.Windows.Forms.ComboBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.cmbSyear = New System.Windows.Forms.ComboBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.txtSection = New System.Windows.Forms.TextBox()
@@ -55,6 +57,8 @@ Partial Class Form2
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.cmbGender)
+        Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.cmbSyear)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.txtSection)
@@ -80,10 +84,29 @@ Partial Class Form2
         Me.Panel1.Size = New System.Drawing.Size(800, 450)
         Me.Panel1.TabIndex = 0
         '
+        'cmbGender
+        '
+        Me.cmbGender.FormattingEnabled = True
+        Me.cmbGender.Location = New System.Drawing.Point(554, 216)
+        Me.cmbGender.Name = "cmbGender"
+        Me.cmbGender.Size = New System.Drawing.Size(206, 24)
+        Me.cmbGender.TabIndex = 30
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label13.Location = New System.Drawing.Point(467, 216)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(75, 22)
+        Me.Label13.TabIndex = 29
+        Me.Label13.Text = "Gender:"
+        '
         'cmbSyear
         '
         Me.cmbSyear.FormattingEnabled = True
-        Me.cmbSyear.Location = New System.Drawing.Point(555, 248)
+        Me.cmbSyear.Location = New System.Drawing.Point(554, 246)
         Me.cmbSyear.Name = "cmbSyear"
         Me.cmbSyear.Size = New System.Drawing.Size(206, 24)
         Me.cmbSyear.TabIndex = 28
@@ -92,7 +115,7 @@ Partial Class Form2
         '
         Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(639, 372)
+        Me.btnClear.Location = New System.Drawing.Point(638, 370)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(122, 42)
         Me.btnClear.TabIndex = 27
@@ -102,7 +125,7 @@ Partial Class Form2
         'txtSection
         '
         Me.txtSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSection.Location = New System.Drawing.Point(554, 279)
+        Me.txtSection.Location = New System.Drawing.Point(553, 277)
         Me.txtSection.Name = "txtSection"
         Me.txtSection.Size = New System.Drawing.Size(207, 22)
         Me.txtSection.TabIndex = 26
@@ -112,7 +135,7 @@ Partial Class Form2
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label12.Location = New System.Drawing.Point(468, 279)
+        Me.Label12.Location = New System.Drawing.Point(467, 277)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(75, 22)
         Me.Label12.TabIndex = 25
@@ -123,7 +146,7 @@ Partial Class Form2
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(430, 248)
+        Me.Label11.Location = New System.Drawing.Point(429, 246)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(113, 22)
         Me.Label11.TabIndex = 23
@@ -132,7 +155,7 @@ Partial Class Form2
         'txtCpass
         '
         Me.txtCpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtCpass.Location = New System.Drawing.Point(554, 335)
+        Me.txtCpass.Location = New System.Drawing.Point(553, 333)
         Me.txtCpass.Name = "txtCpass"
         Me.txtCpass.Size = New System.Drawing.Size(207, 22)
         Me.txtCpass.TabIndex = 22
@@ -142,7 +165,7 @@ Partial Class Form2
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(432, 332)
+        Me.Label10.Location = New System.Drawing.Point(431, 330)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 22)
         Me.Label10.TabIndex = 21
@@ -151,7 +174,7 @@ Partial Class Form2
         'txtPass
         '
         Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPass.Location = New System.Drawing.Point(554, 307)
+        Me.txtPass.Location = New System.Drawing.Point(553, 305)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.Size = New System.Drawing.Size(207, 22)
         Me.txtPass.TabIndex = 20
@@ -161,7 +184,7 @@ Partial Class Form2
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(449, 304)
+        Me.Label9.Location = New System.Drawing.Point(448, 302)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(94, 22)
         Me.Label9.TabIndex = 19
@@ -172,7 +195,7 @@ Partial Class Form2
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label8.Location = New System.Drawing.Point(634, 170)
+        Me.Label8.Location = New System.Drawing.Point(633, 135)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 22)
         Me.Label8.TabIndex = 18
@@ -181,7 +204,7 @@ Partial Class Form2
         'txtLastname
         '
         Me.txtLastname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtLastname.Location = New System.Drawing.Point(616, 195)
+        Me.txtLastname.Location = New System.Drawing.Point(615, 160)
         Me.txtLastname.Name = "txtLastname"
         Me.txtLastname.Size = New System.Drawing.Size(145, 22)
         Me.txtLastname.TabIndex = 17
@@ -190,7 +213,7 @@ Partial Class Form2
         '
         Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSignup.Location = New System.Drawing.Point(488, 372)
+        Me.btnSignup.Location = New System.Drawing.Point(487, 370)
         Me.btnSignup.Name = "btnSignup"
         Me.btnSignup.Size = New System.Drawing.Size(122, 42)
         Me.btnSignup.TabIndex = 16
@@ -222,7 +245,7 @@ Partial Class Form2
         'txtEmail
         '
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtEmail.Location = New System.Drawing.Point(554, 223)
+        Me.txtEmail.Location = New System.Drawing.Point(553, 188)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(207, 22)
         Me.txtEmail.TabIndex = 13
@@ -230,7 +253,7 @@ Partial Class Form2
         'txtFirstname
         '
         Me.txtFirstname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtFirstname.Location = New System.Drawing.Point(453, 195)
+        Me.txtFirstname.Location = New System.Drawing.Point(452, 160)
         Me.txtFirstname.Name = "txtFirstname"
         Me.txtFirstname.Size = New System.Drawing.Size(147, 22)
         Me.txtFirstname.TabIndex = 12
@@ -240,7 +263,7 @@ Partial Class Form2
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(484, 220)
+        Me.Label2.Location = New System.Drawing.Point(483, 185)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(59, 22)
         Me.Label2.TabIndex = 11
@@ -251,7 +274,7 @@ Partial Class Form2
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(449, 170)
+        Me.Label1.Location = New System.Drawing.Point(448, 135)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(94, 22)
         Me.Label1.TabIndex = 10
@@ -368,4 +391,6 @@ Partial Class Form2
     Friend WithEvents Label11 As Label
     Friend WithEvents btnClear As Button
     Friend WithEvents cmbSyear As ComboBox
+    Friend WithEvents cmbGender As ComboBox
+    Friend WithEvents Label13 As Label
 End Class
