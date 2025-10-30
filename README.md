@@ -13,7 +13,7 @@ The goal of this project is to help students track their academic performance. I
 Login form with database using SQL Server
 
 ## Sign Up
-![Project Screenshot]([Screenshot-2025-10-30-165617.png](https://github.com/xheruha/ResearchProject-SAAMS/blob/3777d76b322c40f66f6f901557d1cfb8cf1fae8e/sign-up.png))
+![Project Screenshot](https://github.com/xheruha/ResearchProject-SAAMS/blob/3777d76b322c40f66f6f901557d1cfb8cf1fae8e/sign-up.png)
 
 ## Sign In
 ![Project Screenshot](https://github.com/xheruha/ResearchProject-SAAMS/blob/3777d76b322c40f66f6f901557d1cfb8cf1fae8e/sign-in.png)
