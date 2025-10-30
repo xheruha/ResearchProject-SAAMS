@@ -86,6 +86,7 @@ Partial Class Form2
         '
         'cmbGender
         '
+        Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
         Me.cmbGender.Location = New System.Drawing.Point(554, 216)
         Me.cmbGender.Name = "cmbGender"
@@ -105,6 +106,7 @@ Partial Class Form2
         '
         'cmbSyear
         '
+        Me.cmbSyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSyear.FormattingEnabled = True
         Me.cmbSyear.Location = New System.Drawing.Point(554, 246)
         Me.cmbSyear.Name = "cmbSyear"

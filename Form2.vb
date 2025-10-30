@@ -61,8 +61,8 @@ Public Class Form2
         txtFirstname.Clear()
         txtLastname.Clear()
         txtEmail.Clear()
-        cmbGender.Items.Clear()
-        cmbSyear.Items.Clear()
+        cmbGender.SelectedIndex = -1
+        cmbSyear.SelectedIndex = -1
         txtSection.Clear()
         txtPass.Clear()
         txtCpass.Clear()
@@ -78,8 +78,6 @@ Public Class Form2
         cmbSyear.Items.Add("2nd Year")
         cmbSyear.Items.Add("3rd Year")
         cmbSyear.Items.Add("4th Year")
-        cmbGender.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbSyear.DropDownStyle = ComboBoxStyle.DropDownList
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
@@ -91,7 +89,8 @@ Public Class Form2
         txtFirstname.Text = ""
         txtLastname.Text = ""
         txtEmail.Text = ""
-        cmbSyear.Text = ""
+        cmbGender.SelectedIndex = -1
+        cmbSyear.SelectedIndex = -1
         txtSection.Text = ""
         txtPass.Text = ""
         txtCpass.Text = ""

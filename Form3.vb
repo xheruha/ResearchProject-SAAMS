@@ -23,4 +23,14 @@ Public Class Form3
         dr.Close()
         cn.Close()
     End Sub
+
+    Private Sub btnMain_Click(sender As Object, e As EventArgs) Handles btnMain.Click
+        pnlMain.Controls.Clear()
+        FormMain.TopLevel = False
+        FormMain.FormBorderStyle = FormBorderStyle.None
+        FormMain.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(FormMain)
+        FormMain.Show()
+
+    End Sub
 End Class
