@@ -12,6 +12,7 @@ Public Class Form1
         cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
         cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
 
+        If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         dr = cmd.ExecuteReader()
 

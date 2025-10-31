@@ -180,5 +180,17 @@
   <ItemGroup>
     <None Include="Resources\main-page.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\student %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

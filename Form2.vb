@@ -22,6 +22,8 @@ Public Class Form2
         sql = "SELECT Email FROM tblUser WHERE Email = @Email"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
+
+        If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         dr = cmd.ExecuteReader()
 
@@ -45,9 +47,11 @@ Public Class Form2
             .AddWithValue("@Email", txtEmail.Text.Trim())
             .AddWithValue("@Gender", cmbGender.SelectedItem.ToString())
             .AddWithValue("@SchoolYear", cmbSyear.SelectedItem.ToString())
-            .AddWithValue("@Section", txtSection.Text.Trim())
+            .AddWithValue("@Section", cmbSection.Text.Trim())
             .AddWithValue("@Password", txtPass.Text.Trim())
         End With
+
+        If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         cmd.ExecuteNonQuery()
         cn.Close()
@@ -63,7 +67,7 @@ Public Class Form2
         txtEmail.Clear()
         cmbGender.SelectedIndex = -1
         cmbSyear.SelectedIndex = -1
-        txtSection.Clear()
+        cmbSection.SelectedIndex = -1
         txtPass.Clear()
         txtCpass.Clear()
     End Sub
@@ -80,20 +84,34 @@ Public Class Form2
         cmbSyear.Items.Add("4th Year")
     End Sub
 
+    Private Sub cmbSyear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSyear.SelectedIndexChanged
+        If cmbSyear.SelectedItem Is Nothing Then Exit Sub
+        cmbSection.Items.Clear()
+
+        Select Case cmbSyear.SelectedItem.ToString()
+            Case "1st Year"
+                cmbSection.Items.Add("Mega")
+                cmbSection.Items.Add("Kilo")
+            Case "2nd Year"
+                cmbSection.Items.Add("Giga")
+                cmbSection.Items.Add("Tera")
+            Case "3rd Year"
+                cmbSection.Items.Add("Peta")
+                cmbSection.Items.Add("Exxa")
+            Case "4th Year"
+                cmbSection.Items.Add("Zeta")
+                cmbSection.Items.Add("Yota")
+        End Select
+    End Sub
+
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
         Form1.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        txtFirstname.Text = ""
-        txtLastname.Text = ""
-        txtEmail.Text = ""
-        cmbGender.SelectedIndex = -1
-        cmbSyear.SelectedIndex = -1
-        txtSection.Text = ""
-        txtPass.Text = ""
-        txtCpass.Text = ""
+        ClearFields()
     End Sub
 
 

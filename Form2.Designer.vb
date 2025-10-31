@@ -27,7 +27,6 @@ Partial Class Form2
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmbSyear = New System.Windows.Forms.ComboBox()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.txtSection = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtCpass = New System.Windows.Forms.TextBox()
@@ -49,6 +48,7 @@ Partial Class Form2
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,11 +57,11 @@ Partial Class Form2
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.cmbSection)
         Me.Panel1.Controls.Add(Me.cmbGender)
         Me.Panel1.Controls.Add(Me.Label13)
         Me.Panel1.Controls.Add(Me.cmbSyear)
         Me.Panel1.Controls.Add(Me.btnClear)
-        Me.Panel1.Controls.Add(Me.txtSection)
         Me.Panel1.Controls.Add(Me.Label12)
         Me.Panel1.Controls.Add(Me.Label11)
         Me.Panel1.Controls.Add(Me.txtCpass)
@@ -123,14 +123,6 @@ Partial Class Form2
         Me.btnClear.TabIndex = 27
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
-        '
-        'txtSection
-        '
-        Me.txtSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSection.Location = New System.Drawing.Point(553, 277)
-        Me.txtSection.Name = "txtSection"
-        Me.txtSection.Size = New System.Drawing.Size(207, 22)
-        Me.txtSection.TabIndex = 26
         '
         'Label12
         '
@@ -349,6 +341,15 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
+        'cmbSection
+        '
+        Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSection.FormattingEnabled = True
+        Me.cmbSection.Location = New System.Drawing.Point(553, 276)
+        Me.cmbSection.Name = "cmbSection"
+        Me.cmbSection.Size = New System.Drawing.Size(206, 24)
+        Me.cmbSection.TabIndex = 31
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -388,11 +389,11 @@ Partial Class Form2
     Friend WithEvents Label10 As Label
     Friend WithEvents txtPass As TextBox
     Friend WithEvents Label9 As Label
-    Friend WithEvents txtSection As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents btnClear As Button
     Friend WithEvents cmbSyear As ComboBox
     Friend WithEvents cmbGender As ComboBox
     Friend WithEvents Label13 As Label
+    Friend WithEvents cmbSection As ComboBox
 End Class
