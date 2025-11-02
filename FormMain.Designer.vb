@@ -25,23 +25,25 @@ Partial Class FormMain
         Me.cmbSem = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.cmbSub = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbTerm = New System.Windows.Forms.ComboBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dvSrecord = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.cmbNumber = New System.Windows.Forms.ComboBox()
         Me.cmbCat = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtScore = New System.Windows.Forms.TextBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnVS = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dtpSM = New System.Windows.Forms.DateTimePicker()
+        Me.txtSub = New System.Windows.Forms.TextBox()
+        CType(Me.dvSrecord, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmbSem
@@ -75,15 +77,6 @@ Partial Class FormMain
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Subject:"
         '
-        'cmbSub
-        '
-        Me.cmbSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSub.FormattingEnabled = True
-        Me.cmbSub.Location = New System.Drawing.Point(141, 138)
-        Me.cmbSub.Name = "cmbSub"
-        Me.cmbSub.Size = New System.Drawing.Size(165, 24)
-        Me.cmbSub.TabIndex = 2
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -115,16 +108,16 @@ Partial Class FormMain
         Me.cmbTerm.Size = New System.Drawing.Size(165, 24)
         Me.cmbTerm.TabIndex = 6
         '
-        'DataGridView1
+        'dvSrecord
         '
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 375)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(810, 195)
-        Me.DataGridView1.TabIndex = 9
+        Me.dvSrecord.BackgroundColor = System.Drawing.SystemColors.ScrollBar
+        Me.dvSrecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dvSrecord.Location = New System.Drawing.Point(12, 375)
+        Me.dvSrecord.Name = "dvSrecord"
+        Me.dvSrecord.RowHeadersWidth = 51
+        Me.dvSrecord.RowTemplate.Height = 24
+        Me.dvSrecord.Size = New System.Drawing.Size(810, 195)
+        Me.dvSrecord.TabIndex = 9
         '
         'Label5
         '
@@ -190,12 +183,12 @@ Partial Class FormMain
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
         '
-        'TextBox1
+        'txtScore
         '
-        Me.TextBox1.Location = New System.Drawing.Point(494, 183)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(165, 22)
-        Me.TextBox1.TabIndex = 12
+        Me.txtScore.Location = New System.Drawing.Point(494, 183)
+        Me.txtScore.Name = "txtScore"
+        Me.txtScore.Size = New System.Drawing.Size(165, 22)
+        Me.txtScore.TabIndex = 12
         '
         'btnEdit
         '
@@ -225,7 +218,7 @@ Partial Class FormMain
         '
         Me.btnVS.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnVS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnVS.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVS.Font = New System.Drawing.Font("Noto Sans JP", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVS.Location = New System.Drawing.Point(275, 320)
         Me.btnVS.Name = "btnVS"
         Me.btnVS.Size = New System.Drawing.Size(101, 38)
@@ -235,17 +228,33 @@ Partial Class FormMain
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.Controls.Add(Me.dtpSM)
+        Me.Panel1.Controls.Add(Me.txtSub)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(810, 357)
         Me.Panel1.TabIndex = 20
         '
+        'dtpSM
+        '
+        Me.dtpSM.Location = New System.Drawing.Point(51, 217)
+        Me.dtpSM.Name = "dtpSM"
+        Me.dtpSM.Size = New System.Drawing.Size(243, 22)
+        Me.dtpSM.TabIndex = 22
+        '
+        'txtSub
+        '
+        Me.txtSub.Location = New System.Drawing.Point(129, 126)
+        Me.txtSub.Name = "txtSub"
+        Me.txtSub.Size = New System.Drawing.Size(165, 22)
+        Me.txtSub.TabIndex = 21
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Goldenrod
         Me.ClientSize = New System.Drawing.Size(822, 582)
         Me.Controls.Add(Me.btnVS)
         Me.Controls.Add(Me.btnDelete)
@@ -254,21 +263,22 @@ Partial Class FormMain
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.cmbNumber)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.txtScore)
+        Me.Controls.Add(Me.dvSrecord)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmbCat)
         Me.Controls.Add(Me.cmbTerm)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.cmbSub)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cmbSem)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormMain"
         Me.Text = "FormMain"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dvSrecord, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -277,20 +287,21 @@ Partial Class FormMain
     Friend WithEvents cmbSem As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents cmbSub As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbTerm As ComboBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dvSrecord As DataGridView
     Friend WithEvents Label5 As Label
     Friend WithEvents cmbNumber As ComboBox
     Friend WithEvents cmbCat As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents btnSave As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtScore As TextBox
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnVS As Button
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtSub As TextBox
+    Friend WithEvents dtpSM As DateTimePicker
 End Class

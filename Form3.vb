@@ -2,6 +2,7 @@
 Public Class Form3
 
     Public Shared LoggedInUsername As String
+    Public Shared LoggedInSection As String
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
@@ -19,6 +20,7 @@ Public Class Form3
         If dr.Read() Then
             Label2.Text = "SY: " & dr("SchoolYear").ToString()
             Label4.Text = "Section: " & dr("Section").ToString()
+            LoggedInSection = dr("Section").ToString()
         End If
 
         dr.Close()

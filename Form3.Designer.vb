@@ -24,10 +24,11 @@ Partial Class Form3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.btnStats = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnStats = New System.Windows.Forms.Button()
         Me.btnProfile = New System.Windows.Forms.Button()
         Me.btnCM = New System.Windows.Forms.Button()
         Me.btnMain = New System.Windows.Forms.Button()
@@ -39,7 +40,6 @@ Partial Class Form3
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -66,6 +66,18 @@ Partial Class Form3
         Me.Panel1.Size = New System.Drawing.Size(243, 576)
         Me.Panel1.TabIndex = 0
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.Window
+        Me.Label5.Location = New System.Drawing.Point(7, 144)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(213, 50)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Students Achievements " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Monitoring System"
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -87,6 +99,17 @@ Partial Class Form3
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label2.Location = New System.Drawing.Point(8, 510)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(93, 21)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "SchoolYear"
+        '
         'btnStats
         '
         Me.btnStats.BackColor = System.Drawing.Color.DarkGoldenrod
@@ -103,17 +126,6 @@ Partial Class Form3
         Me.btnStats.TabStop = False
         Me.btnStats.Text = "Statistics"
         Me.btnStats.UseVisualStyleBackColor = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label2.Location = New System.Drawing.Point(8, 510)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(93, 21)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "SchoolYear"
         '
         'btnProfile
         '
@@ -235,23 +247,12 @@ Partial Class Form3
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(243, 51)
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Size = New System.Drawing.Size(840, 576)
         Me.pnlMain.TabIndex = 2
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Noto Sans JP", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label5.Location = New System.Drawing.Point(3, 144)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(215, 15)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Students Achievements Monitoring System"
         '
         'Form3
         '

@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class FormMain
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
@@ -26,36 +25,130 @@ Public Class FormMain
         cmbCat.Items.Add("Exam")
         cmbCat.Items.Add("Activity")
         cmbCat.Items.Add("Assignment")
+    End Sub
 
-        sql = "SELECT AssessmentType FROM tblAssessment"
-        cmd = New SqlCommand(sql, cn)
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        cmbSem.SelectedIndex = -1
+        cmbTerm.SelectedIndex = -1
+        cmbNumber.SelectedIndex = -1
+        cmbCat.SelectedIndex = -1
+        txtSub.Clear()
+        txtScore.Clear()
+        dtpSM.Value = Date.Today
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If cmbSem.Text = "" Or txtSub.Text = "" Or cmbCat.Text = "" Or cmbTerm.Text = "" Or cmbNumber.Text = "" Or txtScore.Text = "" Then
+            MsgBox("Please fill in all fields.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+
+        Dim numberVal As Integer, scoreVal As Double
+        If Not Integer.TryParse(cmbNumber.Text, numberVal) OrElse Not Double.TryParse(txtScore.Text, scoreVal) Then
+            MsgBox("Invalid number or score format.", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
+
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
-        dr = cmd.ExecuteReader()
-        While dr.Read()
-            cmbCat.Items.Add(dr("AssessmentType").ToString())
-        End While
-        dr.Close()
+
+        sql = "SELECT COUNT(*) FROM tblScore WHERE Username = @Username AND Section = @Section AND Semester = @Semester AND Term = @Term AND Subject = @Subject AND Category = @Category AND Number = @Number"
+        cmd = New SqlCommand(sql, cn)
+        With cmd.Parameters
+            .AddWithValue("@Username", Form3.LoggedInUsername)
+            .AddWithValue("@Section", Form3.LoggedInSection)
+            .AddWithValue("@Semester", cmbSem.Text)
+            .AddWithValue("@Term", cmbTerm.Text)
+            .AddWithValue("@Subject", txtSub.Text)
+            .AddWithValue("@Category", cmbCat.Text)
+            .AddWithValue("@Number", numberVal)
+        End With
+
+        Dim exists As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+        If exists > 0 Then
+            MsgBox("Quiz number already exists for this subject and category.", MsgBoxStyle.Exclamation)
+            cn.Close()
+            Exit Sub
+        End If
+
+        sql = "INSERT INTO tblScore (Username, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) VALUES (@Username, @Section, @Semester, @Term, @Subject, @Category, @Number, @Score, @DateSubmitted)"
+        cmd = New SqlCommand(sql, cn)
+        With cmd.Parameters
+            .AddWithValue("@Username", Form3.LoggedInUsername)
+            .AddWithValue("@Section", Form3.LoggedInSection)
+            .AddWithValue("@Semester", cmbSem.Text)
+            .AddWithValue("@Term", cmbTerm.Text)
+            .AddWithValue("@Subject", txtSub.Text)
+            .AddWithValue("@Category", cmbCat.Text)
+            .AddWithValue("@Number", numberVal)
+            .AddWithValue("@Score", scoreVal)
+            .AddWithValue("@DateSubmitted", dtpSM.Value.Date)
+        End With
+
+        Try
+            cmd.ExecuteNonQuery()
+            MsgBox("Saved", MsgBoxStyle.Information)
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        If dvSrecord.SelectedRows.Count = 0 Then
+            MsgBox("Select a row to edit.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+
+        Dim row = dvSrecord.SelectedRows(0)
+        txtSub.Text = row.Cells("Subject").Value.ToString()
+        cmbSem.Text = row.Cells("Semester").Value.ToString()
+        cmbTerm.Text = row.Cells("Term").Value.ToString()
+        cmbCat.Text = row.Cells("Category").Value.ToString()
+        cmbNumber.Text = row.Cells("Number").Value.ToString()
+        txtScore.Text = row.Cells("Score").Value.ToString()
+        dtpSM.Value = Convert.ToDateTime(row.Cells("DateSubmitted").Value)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If dvSrecord.SelectedRows.Count = 0 Then
+            MsgBox("Select a row to delete.", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+
+        Dim scoreID = Convert.ToInt32(dvSrecord.SelectedRows(0).Cells("ScoreID").Value)
+        If cn.State = ConnectionState.Open Then cn.Close()
+        cn.Open()
+
+        sql = "DELETE FROM tblScore WHERE ScoreID = @id"
+        cmd = New SqlCommand(sql, cn)
+        cmd.Parameters.AddWithValue("@id", scoreID)
+
+        Try
+            cmd.ExecuteNonQuery()
+            MsgBox("Deleted successfully.", MsgBoxStyle.Information)
+            btnVS.PerformClick()
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            cn.Close()
+        End Try
+    End Sub
+
+    Private Sub btnVS_Click(sender As Object, e As EventArgs) Handles btnVS.Click
+        If cn.State = ConnectionState.Open Then cn.Close()
+        cn.Open()
+
+        sql = "SELECT ScoreID, Username, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Username = @Username"
+        cmd = New SqlCommand(sql, cn)
+        cmd.Parameters.AddWithValue("@Username", Form3.LoggedInUsername)
+
+        Dim dt As New DataTable()
+        Dim da As New SqlDataAdapter(cmd)
+        da.Fill(dt)
+
+        dvSrecord.DataSource = dt
         cn.Close()
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles btnVS.Click
-
     End Sub
 End Class

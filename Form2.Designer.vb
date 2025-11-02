@@ -56,7 +56,7 @@ Partial Class Form2
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel1.Controls.Add(Me.cmbSection)
         Me.Panel1.Controls.Add(Me.cmbGender)
         Me.Panel1.Controls.Add(Me.Label13)
@@ -125,6 +125,7 @@ Partial Class Form2
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.Location = New System.Drawing.Point(638, 370)
         Me.btnClear.Name = "btnClear"
@@ -215,6 +216,7 @@ Partial Class Form2
         'btnSignup
         '
         Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSignup.Location = New System.Drawing.Point(487, 370)
         Me.btnSignup.Name = "btnSignup"

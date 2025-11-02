@@ -43,7 +43,7 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnContinue)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
@@ -61,6 +61,7 @@ Partial Class Form1
         'btnContinue
         '
         Me.btnContinue.BackColor = System.Drawing.Color.Green
+        Me.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnContinue.Location = New System.Drawing.Point(597, 279)
         Me.btnContinue.Name = "btnContinue"
@@ -131,7 +132,7 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Green
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnSignup)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
@@ -144,7 +145,7 @@ Partial Class Form1
         '
         'btnSignup
         '
-        Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSignup.Location = New System.Drawing.Point(131, 285)
