@@ -31,6 +31,7 @@ Partial Class FormProfile
         Me.lblFname = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.lblLname = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,12 +126,21 @@ Partial Class FormProfile
         Me.lblLname.TabIndex = 8
         Me.lblLname.Text = "Lastname"
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.Location = New System.Drawing.Point(396, 212)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(233, 200)
+        Me.Panel1.TabIndex = 9
+        '
         'FormProfile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Goldenrod
         Me.ClientSize = New System.Drawing.Size(822, 582)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblLname)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblFname)
@@ -159,4 +169,5 @@ Partial Class FormProfile
     Friend WithEvents lblFname As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents lblLname As Label
+    Friend WithEvents Panel1 As Panel
 End Class
