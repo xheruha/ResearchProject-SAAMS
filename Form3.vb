@@ -3,13 +3,15 @@ Public Class Form3
 
     Public Shared LoggedInUsername As String
     Public Shared LoggedInSection As String
+    Public Shared LoggedInFirstname As String
+    Public Shared LoggedInLastname As String
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
     Dim sql As String
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        sql = "SELECT SchoolYear, Section FROM tblUser WHERE Username = @Username"
+        sql = "SELECT Firstname, Lastname, SchoolYear, Section FROM tblUser WHERE Username = @Username"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Username", LoggedInUsername)
 
@@ -17,10 +19,15 @@ Public Class Form3
         cn.Open()
         dr = cmd.ExecuteReader()
 
-        If dr.Read() Then
+        If dr.HasRows Then
+            dr.Read()
             Label2.Text = "SY: " & dr("SchoolYear").ToString()
             Label4.Text = "Section: " & dr("Section").ToString()
             LoggedInSection = dr("Section").ToString()
+            LoggedInFirstname = dr("Firstname").ToString()
+            LoggedInLastname = dr("Lastname").ToString()
+        Else
+            MsgBox("User not found.", MsgBoxStyle.Exclamation)
         End If
 
         dr.Close()

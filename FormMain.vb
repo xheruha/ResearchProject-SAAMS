@@ -11,7 +11,7 @@ Public Class FormMain
         cmbSem.Items.Add("Second Semester")
 
         cmbTerm.Items.Clear()
-        cmbTerm.Items.Add("First")
+        cmbTerm.Items.Add("Prelim")
         cmbTerm.Items.Add("Midterm")
         cmbTerm.Items.Add("Final")
 
@@ -44,42 +44,29 @@ Public Class FormMain
         End If
 
         Dim numberVal As Integer, scoreVal As Double
-        If Not Integer.TryParse(cmbNumber.Text, numberVal) OrElse Not Double.TryParse(txtScore.Text, scoreVal) Then
+        If Not Integer.TryParse(cmbNumber.Text.Trim(), numberVal) OrElse Not Double.TryParse(txtScore.Text.Trim(), scoreVal) Then
             MsgBox("Invalid number or score format.", MsgBoxStyle.Critical)
             Exit Sub
         End If
 
+        Dim categoryVal As String = cmbCat.Text.Trim()
+        Dim termVal As String = cmbTerm.Text.Trim()
+        Dim semesterVal As String = cmbSem.Text.Trim()
+
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
 
-        sql = "SELECT COUNT(*) FROM tblScore WHERE Username = @Username AND Section = @Section AND Semester = @Semester AND Term = @Term AND Subject = @Subject AND Category = @Category AND Number = @Number"
+        sql = "INSERT INTO tblScore (Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
+      "VALUES (@Firstname, @Lastname, @Section, @Semester, @Term, @Subject, @Category, @Number, @Score, @DateSubmitted)"
         cmd = New SqlCommand(sql, cn)
         With cmd.Parameters
-            .AddWithValue("@Username", Form3.LoggedInUsername)
+            .AddWithValue("@Firstname", Form3.LoggedInFirstname)
+            .AddWithValue("@Lastname", Form3.LoggedInLastname)
             .AddWithValue("@Section", Form3.LoggedInSection)
-            .AddWithValue("@Semester", cmbSem.Text)
-            .AddWithValue("@Term", cmbTerm.Text)
-            .AddWithValue("@Subject", txtSub.Text)
-            .AddWithValue("@Category", cmbCat.Text)
-            .AddWithValue("@Number", numberVal)
-        End With
-
-        Dim exists As Integer = Convert.ToInt32(cmd.ExecuteScalar())
-        If exists > 0 Then
-            MsgBox("Quiz number already exists for this subject and category.", MsgBoxStyle.Exclamation)
-            cn.Close()
-            Exit Sub
-        End If
-
-        sql = "INSERT INTO tblScore (Username, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) VALUES (@Username, @Section, @Semester, @Term, @Subject, @Category, @Number, @Score, @DateSubmitted)"
-        cmd = New SqlCommand(sql, cn)
-        With cmd.Parameters
-            .AddWithValue("@Username", Form3.LoggedInUsername)
-            .AddWithValue("@Section", Form3.LoggedInSection)
-            .AddWithValue("@Semester", cmbSem.Text)
-            .AddWithValue("@Term", cmbTerm.Text)
-            .AddWithValue("@Subject", txtSub.Text)
-            .AddWithValue("@Category", cmbCat.Text)
+            .AddWithValue("@Semester", semesterVal)
+            .AddWithValue("@Term", termVal)
+            .AddWithValue("@Subject", txtSub.Text.Trim())
+            .AddWithValue("@Category", categoryVal)
             .AddWithValue("@Number", numberVal)
             .AddWithValue("@Score", scoreVal)
             .AddWithValue("@DateSubmitted", dtpSM.Value.Date)
@@ -88,6 +75,17 @@ Public Class FormMain
         Try
             cmd.ExecuteNonQuery()
             MsgBox("Saved", MsgBoxStyle.Information)
+
+            sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Firstname = @Firstname AND Lastname = @Lastname"
+            cmd = New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@Firstname", Form3.LoggedInFirstname)
+            cmd.Parameters.AddWithValue("@Lastname", Form3.LoggedInLastname)
+
+            Dim dt As New DataTable()
+            Dim da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+            dvSrecord.DataSource = dt
+
         Catch ex As Exception
             MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -140,9 +138,10 @@ Public Class FormMain
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
 
-        sql = "SELECT ScoreID, Username, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Username = @Username"
+        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Firstname=@Firstname AND Lastname=@Lastname"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Username", Form3.LoggedInUsername)
+        cmd.Parameters.AddWithValue("@Firstname", Form3.LoggedInFirstname)
+        cmd.Parameters.AddWithValue("@Lastname", Form3.LoggedInLastname)
 
         Dim dt As New DataTable()
         Dim da As New SqlDataAdapter(cmd)
