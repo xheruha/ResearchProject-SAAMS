@@ -1,16 +1,16 @@
 ﻿Imports System.Data.SqlClient
 Public Class Form3
 
-    Public Shared LoggedInEmail As String
+    Public Shared LoggedInUsername As String
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
     Dim sql As String
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        sql = "SELECT SchoolYear, Section FROM tblUser WHERE Email=@Email"
+        sql = "SELECT SchoolYear, Section FROM tblUser WHERE Username = @Username"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Email", LoggedInEmail)
+        cmd.Parameters.AddWithValue("@Username", LoggedInUsername)
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
@@ -34,5 +34,32 @@ Public Class Form3
         pnlMain.Controls.Add(FormMain)
         FormMain.Show()
 
+    End Sub
+
+    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+        pnlMain.Controls.Clear()
+        FormProfile.TopLevel = False
+        FormProfile.FormBorderStyle = FormBorderStyle.None
+        FormProfile.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(FormProfile)
+        FormProfile.Show()
+    End Sub
+
+    Private Sub btnCM_Click(sender As Object, e As EventArgs) Handles btnCM.Click
+        pnlMain.Controls.Clear()
+        FormCM.TopLevel = False
+        FormCM.FormBorderStyle = FormBorderStyle.None
+        FormCM.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(FormCM)
+        FormCM.Show()
+    End Sub
+
+    Private Sub btnStats_Click(sender As Object, e As EventArgs) Handles btnStats.Click
+        pnlMain.Controls.Clear()
+        FormStats.TopLevel = False
+        FormStats.FormBorderStyle = FormBorderStyle.None
+        FormStats.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(FormStats)
+        FormStats.Show()
     End Sub
 End Class

@@ -7,28 +7,28 @@ Public Class Form2
     Dim sql As String
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
-        If txtEmail.Text = "" Or txtPass.Text = "" Or txtCpass.Text = "" Then
+        If txtUsername.Text = "" Or txtPass.Text = "" Or txtCpass.Text = "" Then
             MsgBox("Please fill in all required fields", MsgBoxStyle.Critical)
         ElseIf txtPass.Text <> txtCpass.Text Then
             MsgBox("Passwords do not match", MsgBoxStyle.Critical)
         ElseIf txtPass.Text.Length < 6 Then
             MsgBox("Password must be at least 6 characters", MsgBoxStyle.Exclamation)
         Else
-            CheckEmail()
+            CheckUsername()
         End If
     End Sub
 
-    Private Sub CheckEmail()
-        sql = "SELECT Email FROM tblUser WHERE Email = @Email"
+    Private Sub CheckUsername()
+        sql = "SELECT Username FROM tblUser WHERE Username = @Username"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
+        cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         dr = cmd.ExecuteReader()
 
         If dr.Read() Then
-            MsgBox("Email already exists. Use a different one.", MsgBoxStyle.Exclamation)
+            MsgBox("Username already exists. Use a different one.", MsgBoxStyle.Exclamation)
             dr.Close()
             cn.Close()
         Else
@@ -39,12 +39,12 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, Section, Password) VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @Section, @Password)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, Section, Password) VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @Section, @Password)"
         cmd = New SqlCommand(sql, cn)
         With cmd.Parameters
             .AddWithValue("@Firstname", txtFirstname.Text.Trim())
             .AddWithValue("@Lastname", txtLastname.Text.Trim())
-            .AddWithValue("@Email", txtEmail.Text.Trim())
+            .AddWithValue("@Username", txtUsername.Text.Trim())
             .AddWithValue("@Gender", cmbGender.SelectedItem.ToString())
             .AddWithValue("@SchoolYear", cmbSyear.SelectedItem.ToString())
             .AddWithValue("@Section", cmbSection.Text.Trim())
@@ -64,7 +64,7 @@ Public Class Form2
     Private Sub ClearFields()
         txtFirstname.Clear()
         txtLastname.Clear()
-        txtEmail.Clear()
+        txtUsername.Clear()
         cmbGender.SelectedIndex = -1
         cmbSyear.SelectedIndex = -1
         cmbSection.SelectedIndex = -1
@@ -84,7 +84,7 @@ Public Class Form2
         cmbSyear.Items.Add("4th Year")
     End Sub
 
-    Private Sub cmbSyear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSyear.SelectedIndexChanged
+    Private Sub cmbSyear_Item(sender As Object, e As EventArgs) Handles cmbSyear.SelectedIndexChanged
         If cmbSyear.SelectedItem Is Nothing Then Exit Sub
         cmbSection.Items.Clear()
 
@@ -113,6 +113,4 @@ Public Class Form2
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearFields()
     End Sub
-
-
 End Class

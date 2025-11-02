@@ -7,9 +7,9 @@ Public Class Form1
     Dim sql As String
 
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
-        sql = "SELECT * FROM tblUser WHERE Email = @Email AND Password = @Password"
+        sql = "SELECT * FROM tblUser WHERE Username = @Username AND Password = @Password"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
+        cmd.Parameters.AddWithValue("@Username", txtEmail.Text.Trim())
         cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
 
         If cn.State = ConnectionState.Open Then cn.Close()
@@ -18,7 +18,7 @@ Public Class Form1
 
         If dr.Read() Then
             MsgBox("Login Successful", MsgBoxStyle.Information)
-            Form3.LoggedInEmail = dr("Email").ToString()
+            Form3.LoggedInUsername = dr("Username").ToString()
             Me.Hide()
             Form3.Show()
         Else

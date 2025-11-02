@@ -23,6 +23,7 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.cmbGender = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.cmbSyear = New System.Windows.Forms.ComboBox()
@@ -38,7 +39,7 @@ Partial Class Form2
         Me.btnSignup = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.txtFirstname = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -48,7 +49,6 @@ Partial Class Form2
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,7 +73,7 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.btnSignup)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.txtEmail)
+        Me.Panel1.Controls.Add(Me.txtUsername)
         Me.Panel1.Controls.Add(Me.txtFirstname)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -83,6 +83,15 @@ Partial Class Form2
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(800, 450)
         Me.Panel1.TabIndex = 0
+        '
+        'cmbSection
+        '
+        Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSection.FormattingEnabled = True
+        Me.cmbSection.Location = New System.Drawing.Point(553, 276)
+        Me.cmbSection.Name = "cmbSection"
+        Me.cmbSection.Size = New System.Drawing.Size(206, 24)
+        Me.cmbSection.TabIndex = 31
         '
         'cmbGender
         '
@@ -236,13 +245,13 @@ Partial Class Form2
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Create Account"
         '
-        'txtEmail
+        'txtUsername
         '
-        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtEmail.Location = New System.Drawing.Point(553, 188)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(207, 22)
-        Me.txtEmail.TabIndex = 13
+        Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtUsername.Location = New System.Drawing.Point(553, 188)
+        Me.txtUsername.Name = "txtUsername"
+        Me.txtUsername.Size = New System.Drawing.Size(207, 22)
+        Me.txtUsername.TabIndex = 13
         '
         'txtFirstname
         '
@@ -257,11 +266,11 @@ Partial Class Form2
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(483, 185)
+        Me.Label2.Location = New System.Drawing.Point(445, 185)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(59, 22)
+        Me.Label2.Size = New System.Drawing.Size(97, 22)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Email:"
+        Me.Label2.Text = "Username:"
         '
         'Label1
         '
@@ -341,15 +350,6 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
-        'cmbSection
-        '
-        Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Location = New System.Drawing.Point(553, 276)
-        Me.cmbSection.Name = "cmbSection"
-        Me.cmbSection.Size = New System.Drawing.Size(206, 24)
-        Me.cmbSection.TabIndex = 31
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -380,7 +380,7 @@ Partial Class Form2
     Friend WithEvents btnSignup As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtUsername As TextBox
     Friend WithEvents txtFirstname As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
