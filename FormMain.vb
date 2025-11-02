@@ -49,64 +49,59 @@ Public Class FormMain
             Exit Sub
         End If
 
-        Dim categoryVal As String = cmbCat.Text.Trim()
+        Dim catVal As String = cmbCat.Text.Trim()
         Dim termVal As String = cmbTerm.Text.Trim()
-        Dim semesterVal As String = cmbSem.Text.Trim()
-
-        If cn.State = ConnectionState.Open Then cn.Close()
-        cn.Open()
-
-        sql = "INSERT INTO tblScore (Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
-      "VALUES (@Firstname, @Lastname, @Section, @Semester, @Term, @Subject, @Category, @Number, @Score, @DateSubmitted)"
-        cmd = New SqlCommand(sql, cn)
-        With cmd.Parameters
-            .AddWithValue("@Firstname", Form3.LoggedInFirstname)
-            .AddWithValue("@Lastname", Form3.LoggedInLastname)
-            .AddWithValue("@Section", Form3.LoggedInSection)
-            .AddWithValue("@Semester", semesterVal)
-            .AddWithValue("@Term", termVal)
-            .AddWithValue("@Subject", txtSub.Text.Trim())
-            .AddWithValue("@Category", categoryVal)
-            .AddWithValue("@Number", numberVal)
-            .AddWithValue("@Score", scoreVal)
-            .AddWithValue("@DateSubmitted", dtpSM.Value.Date)
-        End With
+        Dim semVal As String = cmbSem.Text.Trim()
+        Dim subjVal As String = txtSub.Text.Trim()
 
         Try
-            cmd.ExecuteNonQuery()
-            MsgBox("Saved", MsgBoxStyle.Information)
+            If cn.State = ConnectionState.Open Then cn.Close()
+            cn.Open()
 
-            sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Firstname = @Firstname AND Lastname = @Lastname"
+            sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted)
+               VALUES (@UserID, @Firstname, @Lastname, @Section, @Semester, @Term, @Subject, @Category, @Number, @Score, @DateSubmitted)"
+
             cmd = New SqlCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@Firstname", Form3.LoggedInFirstname)
-            cmd.Parameters.AddWithValue("@Lastname", Form3.LoggedInLastname)
+            With cmd.Parameters
+                .AddWithValue("@UserID", Form3.LoggedInUserID)
+                .AddWithValue("@Firstname", Form3.LoggedInFirstname)
+                .AddWithValue("@Lastname", Form3.LoggedInLastname)
+                .AddWithValue("@Section", Form3.LoggedInSection)
+                .AddWithValue("@Semester", semVal)
+                .AddWithValue("@Term", termVal)
+                .AddWithValue("@Subject", subjVal)
+                .AddWithValue("@Category", catVal)
+                .AddWithValue("@Number", numberVal)
+                .AddWithValue("@Score", scoreVal)
+                .AddWithValue("@DateSubmitted", dtpSM.Value.Date)
+            End With
+
+            cmd.ExecuteNonQuery()
+            MsgBox("Saved successfully!", MsgBoxStyle.Information)
+
+            sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted 
+               FROM tblScore WHERE UserID = @UserID"
+            cmd = New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@UserID", Form3.LoggedInUserID)
 
             Dim dt As New DataTable()
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(dt)
             dvSrecord.DataSource = dt
 
+        Catch ex As SqlException
+            If ex.Number = 2627 Then
+                MsgBox("Duplicate entry: This number already exists for this term and semester.", MsgBoxStyle.Exclamation)
+            Else
+                MsgBox("SQL Error: " & ex.Message, MsgBoxStyle.Critical)
+            End If
+
         Catch ex As Exception
-            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical)
+            MsgBox("Unexpected Error: " & ex.Message, MsgBoxStyle.Critical)
+
         Finally
             cn.Close()
         End Try
-    End Sub
-
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        If dvSrecord.SelectedRows.Count = 0 Then
-            MsgBox("Select a row to edit.", MsgBoxStyle.Exclamation)
-            Exit Sub
-        End If
-
-        Dim row = dvSrecord.SelectedRows(0)
-        txtSub.Text = row.Cells("Subject").Value.ToString()
-        cmbSem.Text = row.Cells("Semester").Value.ToString()
-        cmbTerm.Text = row.Cells("Term").Value.ToString()
-        cmbCat.Text = row.Cells("Category").Value.ToString()
-        cmbNumber.Text = row.Cells("Number").Value.ToString()
-        txtScore.Text = row.Cells("Score").Value.ToString()
-        dtpSM.Value = Convert.ToDateTime(row.Cells("DateSubmitted").Value)
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
@@ -149,5 +144,9 @@ Public Class FormMain
 
         dvSrecord.DataSource = dt
         cn.Close()
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+
     End Sub
 End Class

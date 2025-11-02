@@ -5,13 +5,14 @@ Public Class Form3
     Public Shared LoggedInSection As String
     Public Shared LoggedInFirstname As String
     Public Shared LoggedInLastname As String
+    Public Shared LoggedInUserID As Integer
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
     Dim sql As String
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        sql = "SELECT Firstname, Lastname, SchoolYear, Section FROM tblUser WHERE Username = @Username"
+        sql = "SELECT UserID, Firstname, Lastname, SchoolYear, Section FROM tblUser WHERE Username = @Username"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Username", LoggedInUsername)
 
@@ -26,6 +27,7 @@ Public Class Form3
             LoggedInSection = dr("Section").ToString()
             LoggedInFirstname = dr("Firstname").ToString()
             LoggedInLastname = dr("Lastname").ToString()
+            LoggedInUserID = Convert.ToInt32(dr("UserID"))
         Else
             MsgBox("User not found.", MsgBoxStyle.Exclamation)
         End If
@@ -33,6 +35,7 @@ Public Class Form3
         dr.Close()
         cn.Close()
     End Sub
+
 
 
     Private Sub btnMain_Click(sender As Object, e As EventArgs) Handles btnMain.Click
