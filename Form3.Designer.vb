@@ -28,9 +28,7 @@ Partial Class Form3
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnStats = New System.Windows.Forms.Button()
-        Me.btnProfile = New System.Windows.Forms.Button()
-        Me.btnCM = New System.Windows.Forms.Button()
+        Me.btnLB = New System.Windows.Forms.Button()
         Me.btnMain = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -55,9 +53,7 @@ Partial Class Form3
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.btnStats)
-        Me.Panel1.Controls.Add(Me.btnProfile)
-        Me.Panel1.Controls.Add(Me.btnCM)
+        Me.Panel1.Controls.Add(Me.btnLB)
         Me.Panel1.Controls.Add(Me.btnMain)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.ForeColor = System.Drawing.SystemColors.ControlText
@@ -110,56 +106,22 @@ Partial Class Form3
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "SchoolYear"
         '
-        'btnStats
+        'btnLB
         '
-        Me.btnStats.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.btnStats.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnStats.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnStats.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnStats.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnStats.Image = Global.ResearchProject.My.Resources.Resources.graph
-        Me.btnStats.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnStats.Location = New System.Drawing.Point(0, 409)
-        Me.btnStats.Name = "btnStats"
-        Me.btnStats.Size = New System.Drawing.Size(243, 59)
-        Me.btnStats.TabIndex = 2
-        Me.btnStats.TabStop = False
-        Me.btnStats.Text = "Statistics"
-        Me.btnStats.UseVisualStyleBackColor = False
-        '
-        'btnProfile
-        '
-        Me.btnProfile.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.btnProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnProfile.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnProfile.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnProfile.Image = Global.ResearchProject.My.Resources.Resources.student3
-        Me.btnProfile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProfile.Location = New System.Drawing.Point(0, 279)
-        Me.btnProfile.Name = "btnProfile"
-        Me.btnProfile.Size = New System.Drawing.Size(243, 59)
-        Me.btnProfile.TabIndex = 4
-        Me.btnProfile.TabStop = False
-        Me.btnProfile.Text = "Profile"
-        Me.btnProfile.UseVisualStyleBackColor = False
-        '
-        'btnCM
-        '
-        Me.btnCM.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.btnCM.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btnCM.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnCM.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCM.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnCM.Image = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
-        Me.btnCM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCM.Location = New System.Drawing.Point(0, 344)
-        Me.btnCM.Name = "btnCM"
-        Me.btnCM.Size = New System.Drawing.Size(243, 59)
-        Me.btnCM.TabIndex = 1
-        Me.btnCM.TabStop = False
-        Me.btnCM.Text = "Classmates"
-        Me.btnCM.UseVisualStyleBackColor = False
+        Me.btnLB.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.btnLB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnLB.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnLB.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLB.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnLB.Image = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
+        Me.btnLB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLB.Location = New System.Drawing.Point(0, 335)
+        Me.btnLB.Name = "btnLB"
+        Me.btnLB.Size = New System.Drawing.Size(243, 59)
+        Me.btnLB.TabIndex = 1
+        Me.btnLB.TabStop = False
+        Me.btnLB.Text = "Leadboard"
+        Me.btnLB.UseVisualStyleBackColor = False
         '
         'btnMain
         '
@@ -168,9 +130,9 @@ Partial Class Form3
         Me.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMain.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMain.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.btnMain.Image = Global.ResearchProject.My.Resources.Resources.main_page
+        Me.btnMain.Image = Global.ResearchProject.My.Resources.Resources.student3
         Me.btnMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnMain.Location = New System.Drawing.Point(0, 214)
+        Me.btnMain.Location = New System.Drawing.Point(0, 270)
         Me.btnMain.Name = "btnMain"
         Me.btnMain.Size = New System.Drawing.Size(243, 59)
         Me.btnMain.TabIndex = 5
@@ -265,7 +227,7 @@ Partial Class Form3
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form3"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form3"
+        Me.Text = "Dashboard"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -282,12 +244,10 @@ Partial Class Form3
     Friend WithEvents Panel2 As Panel
     Friend WithEvents pnlMain As Panel
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents btnCM As Button
-    Friend WithEvents btnStats As Button
+    Friend WithEvents btnLB As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnProfile As Button
     Friend WithEvents btnMain As Button
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox

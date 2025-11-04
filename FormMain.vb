@@ -146,6 +146,29 @@ Public Class FormMain
         cn.Close()
     End Sub
 
+    Private Sub FormProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If cn.State = ConnectionState.Open Then cn.Close()
+        cn.Open()
+
+        sql = "SELECT Username, Firstname, Lastname, SchoolYear FROM tblUser WHERE Username = @Username"
+        cmd = New SqlCommand(sql, cn)
+        cmd.Parameters.AddWithValue("@Username", Form3.LoggedInUsername)
+
+        dr = cmd.ExecuteReader()
+        If dr.HasRows Then
+            dr.Read()
+            lblUser.Text = dr("Username").ToString()
+            lblFname.Text = dr("Firstname").ToString()
+            lblLname.Text = dr("Lastname").ToString()
+            lblSYdep.Text = dr("SchoolYear").ToString() & "- Computer Science"
+        Else
+            MsgBox("User not found.", MsgBoxStyle.Exclamation)
+        End If
+
+        dr.Close()
+        cn.Close()
+    End Sub
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
     End Sub

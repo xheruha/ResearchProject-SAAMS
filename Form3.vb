@@ -36,8 +36,6 @@ Public Class Form3
         cn.Close()
     End Sub
 
-
-
     Private Sub btnMain_Click(sender As Object, e As EventArgs) Handles btnMain.Click
         pnlMain.Controls.Clear()
         FormMain.TopLevel = False
@@ -48,30 +46,12 @@ Public Class Form3
 
     End Sub
 
-    Private Sub btnProfile_Click(sender As Object, e As EventArgs) Handles btnProfile.Click
+    Private Sub btnLeaderboard_Click(sender As Object, e As EventArgs) Handles btnLB.Click
         pnlMain.Controls.Clear()
-        FormProfile.TopLevel = False
-        FormProfile.FormBorderStyle = FormBorderStyle.None
-        FormProfile.Dock = DockStyle.Fill
-        pnlMain.Controls.Add(FormProfile)
-        FormProfile.Show()
-    End Sub
-
-    Private Sub btnCM_Click(sender As Object, e As EventArgs) Handles btnCM.Click
-        pnlMain.Controls.Clear()
-        FormCM.TopLevel = False
-        FormCM.FormBorderStyle = FormBorderStyle.None
-        FormCM.Dock = DockStyle.Fill
-        pnlMain.Controls.Add(FormCM)
-        FormCM.Show()
-    End Sub
-
-    Private Sub btnStats_Click(sender As Object, e As EventArgs) Handles btnStats.Click
-        pnlMain.Controls.Clear()
-        FormStats.TopLevel = False
-        FormStats.FormBorderStyle = FormBorderStyle.None
-        FormStats.Dock = DockStyle.Fill
-        pnlMain.Controls.Add(FormStats)
-        FormStats.Show()
+        FormLeaderboard.TopLevel = False
+        FormLeaderboard.FormBorderStyle = FormBorderStyle.None
+        FormLeaderboard.Dock = DockStyle.Fill
+        pnlMain.Controls.Add(FormLeaderboard)
+        FormLeaderboard.Show()
     End Sub
 End Class
