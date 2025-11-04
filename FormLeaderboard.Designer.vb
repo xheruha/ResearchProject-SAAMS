@@ -31,7 +31,7 @@ Partial Class FormLeaderboard
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(73, 371)
+        Me.Label1.Location = New System.Drawing.Point(108, 361)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(600, 48)
         Me.Label1.TabIndex = 3
@@ -41,7 +41,7 @@ Partial Class FormLeaderboard
         '
         Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources.maintenance
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(248, 122)
+        Me.PictureBox1.Location = New System.Drawing.Point(283, 112)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(251, 246)
         Me.PictureBox1.TabIndex = 2

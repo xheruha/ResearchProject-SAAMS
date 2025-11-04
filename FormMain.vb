@@ -5,6 +5,18 @@ Public Class FormMain
     Dim dr As SqlDataReader
     Dim sql As String
 
+    Private Sub ProfileInfo()
+        lblUser.Text = "Username: " & Form1.LoginUsername
+        lblFname.Text = Form1.LoginFirstname
+        lblLname.Text = Form1.LoginLastname
+        lblSec.Text = "Section: " & Form1.LoginSection
+        lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "- Computer Science"
+    End Sub
+
+    Private Sub FormProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ProfileInfo()
+    End Sub
+
     Private Sub MainItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbSem.Items.Clear()
         cmbSem.Items.Add("First Semester")
@@ -25,6 +37,8 @@ Public Class FormMain
         cmbCat.Items.Add("Exam")
         cmbCat.Items.Add("Activity")
         cmbCat.Items.Add("Assignment")
+
+        ProfileInfo()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -64,7 +78,7 @@ Public Class FormMain
             cn.Open()
             sql = "SELECT COUNT(*) FROM tblScore WHERE UserID=@Uid AND Number=@num AND Semester=@sem AND Term=@term AND Category=@cat"
             cmd = New SqlCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@Uid", Form3.LoggedInUserID)
+            cmd.Parameters.AddWithValue("@Uid", Form1.LoginUserID)
             cmd.Parameters.AddWithValue("@num", num)
             cmd.Parameters.AddWithValue("@sem", sem)
             cmd.Parameters.AddWithValue("@term", term)
@@ -78,10 +92,10 @@ Public Class FormMain
             sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted)" &
               "VALUES (@uid, @fname, @lname, @section, @sem, @term, @subj, @cat, @num, @score, @date)"
             cmd = New SqlCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@Uid", Form3.LoggedInUserID)
-            cmd.Parameters.AddWithValue("@fname", Form3.LoggedInFirstname)
-            cmd.Parameters.AddWithValue("@lname", Form3.LoggedInLastname)
-            cmd.Parameters.AddWithValue("@section", Form3.LoggedInSection)
+            cmd.Parameters.AddWithValue("@Uid", Form1.LoginUserID)
+            cmd.Parameters.AddWithValue("@fname", Form1.LoginFirstname)
+            cmd.Parameters.AddWithValue("@lname", Form1.LoginLastname)
+            cmd.Parameters.AddWithValue("@section", Form1.LoginSection)
             cmd.Parameters.AddWithValue("@sem", sem)
             cmd.Parameters.AddWithValue("@term", term)
             cmd.Parameters.AddWithValue("@subj", subj)
@@ -92,26 +106,7 @@ Public Class FormMain
             cmd.ExecuteNonQuery()
             MsgBox("Saved successfully.", MsgBoxStyle.Information)
 
-            sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted " &
-              "FROM tblScore WHERE UserID=@Uid"
-            cmd = New SqlCommand(sql, cn)
-            cmd.Parameters.AddWithValue("@Uid", Form3.LoggedInUserID)
-
-            Dim adpt As New SqlDataAdapter(cmd)
-            Dim tbl As New DataTable
-            adpt.Fill(tbl)
-            dvSrecord.DataSource = tbl
-
-            If dvSrecord.Columns.Contains("Firstname") Then
-                dvSrecord.Columns("Firstname").Visible = False
-            End If
-            If dvSrecord.Columns.Contains("Lastname") Then
-                dvSrecord.Columns("Lastname").Visible = False
-            End If
-            If dvSrecord.Columns.Contains("Section") Then
-                dvSrecord.Columns("Section").Visible = False
-            End If
-
+            btnVS.PerformClick()
         Catch ex As Exception
             MsgBox("Error while saving: " & ex.Message, MsgBoxStyle.Critical)
         Finally
@@ -142,10 +137,9 @@ Public Class FormMain
     Private Sub btnViewScore_Click(sender As Object, e As EventArgs) Handles btnVS.Click
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
-        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE Firstname=@Firstname AND Lastname=@Lastname"
+        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID=@UserID"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Firstname", Form3.LoggedInFirstname)
-        cmd.Parameters.AddWithValue("@Lastname", Form3.LoggedInLastname)
+        cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
 
         Dim adpt As New SqlDataAdapter(cmd)
         Dim tbl As New DataTable()
@@ -161,28 +155,6 @@ Public Class FormMain
         If dvSrecord.Columns.Contains("Section") Then
             dvSrecord.Columns("Section").Visible = False
         End If
-        cn.Close()
-    End Sub
-
-    Private Sub FormProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If cn.State = ConnectionState.Open Then cn.Close()
-        cn.Open()
-        sql = "SELECT Username, Firstname, Lastname, SchoolYear, Section FROM tblUser WHERE Username = @Username"
-        cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Username", Form3.LoggedInUsername)
-        dr = cmd.ExecuteReader()
-
-        If dr.HasRows Then
-            dr.Read()
-            lblUser.Text = "Username: " & dr("Username").ToString()
-            lblFname.Text = dr("Firstname").ToString()
-            lblLname.Text = dr("Lastname").ToString()
-            lblSYdep.Text = "SY: " & dr("SchoolYear").ToString() & "- Computer Science"
-            lblSec.Text = "Section: " & dr("Section").ToString()
-        Else
-            MsgBox("User not found.", MsgBoxStyle.Exclamation)
-        End If
-        dr.Close()
         cn.Close()
     End Sub
 End Class
