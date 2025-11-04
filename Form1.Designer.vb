@@ -27,7 +27,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPass = New System.Windows.Forms.TextBox()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtUser = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -48,7 +48,7 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.txtPass)
-        Me.Panel1.Controls.Add(Me.txtEmail)
+        Me.Panel1.Controls.Add(Me.txtUser)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Panel2)
@@ -100,13 +100,13 @@ Partial Class Form1
         Me.txtPass.Size = New System.Drawing.Size(174, 22)
         Me.txtPass.TabIndex = 6
         '
-        'txtEmail
+        'txtUser
         '
-        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtEmail.Location = New System.Drawing.Point(572, 207)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(174, 22)
-        Me.txtEmail.TabIndex = 5
+        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtUser.Location = New System.Drawing.Point(572, 207)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(174, 22)
+        Me.txtUser.TabIndex = 5
         '
         'Label2
         '
@@ -222,7 +222,7 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents txtPass As TextBox
-    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtUser As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnContinue As Button
     Friend WithEvents Label4 As Label

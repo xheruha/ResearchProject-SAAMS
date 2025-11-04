@@ -39,23 +39,23 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, Section, Password) VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @Section, @Password)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, Section, Password) " &
+          "VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @Section, @Password)"
         cmd = New SqlCommand(sql, cn)
-        With cmd.Parameters
-            .AddWithValue("@Firstname", txtFirstname.Text.Trim())
-            .AddWithValue("@Lastname", txtLastname.Text.Trim())
-            .AddWithValue("@Username", txtUsername.Text.Trim())
-            .AddWithValue("@Gender", cmbGender.SelectedItem.ToString())
-            .AddWithValue("@SchoolYear", cmbSyear.SelectedItem.ToString())
-            .AddWithValue("@Section", cmbSection.Text.Trim())
-            .AddWithValue("@Password", txtPass.Text.Trim())
-        End With
+        cmd.Parameters.AddWithValue("@Firstname", txtFirstname.Text.Trim())
+        cmd.Parameters.AddWithValue("@Lastname", txtLastname.Text.Trim())
+        cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
+        cmd.Parameters.AddWithValue("@Gender", cmbGender.Text)
+        cmd.Parameters.AddWithValue("@SchoolYear", cmbSyear.Text)
+        cmd.Parameters.AddWithValue("@Section", cmbSection.Text.Trim())
+        cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         cmd.ExecuteNonQuery()
         cn.Close()
-        MsgBox("Account created succesfully!", MsgBoxStyle.Information)
+
+        MsgBox("Account created successfully!", MsgBoxStyle.Information)
         Me.Hide()
         Form1.Show()
         ClearFields()
@@ -93,17 +93,15 @@ Public Class Form2
                 cmbSection.Items.Add("Mega")
                 cmbSection.Items.Add("Kilo")
             Case "2nd Year"
-                cmbSection.Items.Add("Giga")
-                cmbSection.Items.Add("Tera")
+                cmbSection.Items.Add("Deca")
+                cmbSection.Items.Add("Penta")
             Case "3rd Year"
-                cmbSection.Items.Add("Peta")
-                cmbSection.Items.Add("Exxa")
+                cmbSection.Items.Add("Hexa")
+                cmbSection.Items.Add("Octa")
             Case "4th Year"
-                cmbSection.Items.Add("Zeta")
-                cmbSection.Items.Add("Yota")
+                cmbSection.Items.Add("Sigma")
         End Select
     End Sub
-
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnSignin.Click
         Form1.Show()

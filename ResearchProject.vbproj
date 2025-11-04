@@ -48,6 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Data.SqlClient">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,6 +76,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="amsDBDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>amsDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +152,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="amsDBDataSet.xsc">
+      <DependentUpon>amsDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="amsDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>amsDBDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="amsDBDataSet.xss">
+      <DependentUpon>amsDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

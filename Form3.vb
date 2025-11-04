@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Public Class Form3
-
     Public Shared LoggedInUsername As String
     Public Shared LoggedInSection As String
     Public Shared LoggedInFirstname As String
@@ -12,26 +11,21 @@ Public Class Form3
     Dim sql As String
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        sql = "SELECT UserID, Firstname, Lastname, SchoolYear, Section FROM tblUser WHERE Username = @Username"
-        cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Username", LoggedInUsername)
-
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
+        sql = "SELECT UserID, Username, Firstname, Lastname, Section FROM tblUser WHERE Username = @Username"
+        cmd = New SqlCommand(sql, cn)
+        cmd.Parameters.AddWithValue("@Username", LoggedInUsername)
         dr = cmd.ExecuteReader()
 
         If dr.HasRows Then
             dr.Read()
-            Label2.Text = "SY: " & dr("SchoolYear").ToString()
-            Label4.Text = "Section: " & dr("Section").ToString()
-            LoggedInSection = dr("Section").ToString()
+            lblUser.Text = dr("Username").ToString()
             LoggedInFirstname = dr("Firstname").ToString()
             LoggedInLastname = dr("Lastname").ToString()
             LoggedInUserID = Convert.ToInt32(dr("UserID"))
-        Else
-            MsgBox("User not found.", MsgBoxStyle.Exclamation)
+            LoggedInSection = dr("Section").ToString()
         End If
-
         dr.Close()
         cn.Close()
     End Sub
@@ -43,7 +37,6 @@ Public Class Form3
         FormMain.Dock = DockStyle.Fill
         pnlMain.Controls.Add(FormMain)
         FormMain.Show()
-
     End Sub
 
     Private Sub btnLeaderboard_Click(sender As Object, e As EventArgs) Handles btnLB.Click
@@ -53,5 +46,26 @@ Public Class Form3
         FormLeaderboard.Dock = DockStyle.Fill
         pnlMain.Controls.Add(FormLeaderboard)
         FormLeaderboard.Show()
+    End Sub
+
+    Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Dim out As DialogResult = MsgBox("Would you like to log out?", MsgBoxStyle.YesNo, "Logout")
+        If out = DialogResult.Yes Then
+            LoggedInUsername = Nothing
+            LoggedInFirstname = Nothing
+            LoggedInLastname = Nothing
+            LoggedInSection = Nothing
+            LoggedInUserID = Nothing
+            lblUser.Text = ""
+            pnlMain.Controls.Clear()
+
+            If Not FormMain.IsDisposed Then FormMain.Close()
+            If Not FormLeaderboard.IsDisposed Then FormLeaderboard.Close()
+
+            Form1.txtUser.Clear()
+            Form1.txtPass.Clear()
+            Form1.Show()
+            Me.Hide()
+        End If
     End Sub
 End Class
