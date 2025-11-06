@@ -26,7 +26,6 @@ Partial Class Form3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.lblUser = New System.Windows.Forms.Label()
         Me.btnLB = New System.Windows.Forms.Button()
         Me.btnMain = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -51,7 +50,6 @@ Partial Class Form3
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.PictureBox3)
-        Me.Panel1.Controls.Add(Me.lblUser)
         Me.Panel1.Controls.Add(Me.btnLB)
         Me.Panel1.Controls.Add(Me.btnMain)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
@@ -82,18 +80,6 @@ Partial Class Form3
         Me.PictureBox3.Size = New System.Drawing.Size(134, 121)
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
-        '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblUser.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser.ForeColor = System.Drawing.SystemColors.Window
-        Me.lblUser.Location = New System.Drawing.Point(12, 561)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(97, 25)
-        Me.lblUser.TabIndex = 8
-        Me.lblUser.Text = "Username" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'btnLB
         '
@@ -190,7 +176,7 @@ Partial Class Form3
         '
         Me.PictureBox2.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(721, 3)
+        Me.PictureBox2.Location = New System.Drawing.Point(739, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(46, 49)
         Me.PictureBox2.TabIndex = 4
@@ -250,7 +236,6 @@ Partial Class Form3
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents lblUser As Label
     Friend WithEvents pnlMain As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents btnLogout As Button

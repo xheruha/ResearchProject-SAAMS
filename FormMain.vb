@@ -7,14 +7,14 @@ Public Class FormMain
     Dim sql As String
 
     Private Sub ProfileInfo()
-        lblUser.Text = "Username: " & Form1.LoginUsername
+        lblUser.Text = Form1.LoginUsername
         lblFname.Text = Form1.LoginFirstname
         lblLname.Text = Form1.LoginLastname
         lblSec.Text = "Section: " & Form1.LoginSection
         lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "- Computer Science"
     End Sub
 
-    Private Sub FormProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProfileInfo()
     End Sub
 
@@ -149,96 +149,102 @@ Public Class FormMain
         If dvSrecord.Columns.Contains("Section") Then
             dvSrecord.Columns("Section").Visible = False
         End If
+        If dvSrecord.Columns.Contains("ScoreID") Then
+            dvSrecord.Columns("ScoreID").Visible = False
+        End If
         cn.Close()
     End Sub
 
     Private Sub SubjectsCsv()
-        Try
-            cmbSub.Items.Clear()
-            Dim filePath As String = Path.Combine(Application.StartupPath, "Subject_List.csv")
+        cmbSub.Items.Clear()
+        Dim filePath As String = Path.Combine(Application.StartupPath, "Subject_List.csv")
 
-            If Not File.Exists(filePath) Then
-                MsgBox("Could not find Subject_List.csv in " & filePath, MsgBoxStyle.Critical, "Missing File")
-                Exit Sub
-            End If
+        If Not File.Exists(filePath) Then
+            MsgBox("Could not find Subject_List.csv in " & filePath, MsgBoxStyle.Critical, "Missing File")
+            Exit Sub
+        End If
 
-            Dim lines() As String = File.ReadAllLines(filePath)
-            If lines.Length < 2 Then Exit Sub
+        Dim lines() As String = File.ReadAllLines(filePath)
+        If lines.Length < 2 Then Exit Sub
 
-            Dim userYear As String = Form1.LoginSchoolYear.Trim()
-            Dim currentSem As String = cmbSem.Text.Trim()
-            For i As Integer = 1 To lines.Length - 1
-                Dim row() As String = lines(i).Split(","c)
+        Dim userYear As String = Form1.LoginSchoolYear.Trim()
+        Dim userSem As String = cmbSem.Text.Trim()
 
-                If row.Length >= 3 Then
-                    Dim yearLevel As String = row(0).Trim()
-                    Dim semester As String = row(1).Trim()
-                    Dim subjectName As String = row(2).Trim()
+        For i As Integer = 1 To lines.Length - 1
+            Dim row() As String = lines(i).Split(","c)
 
-                    If yearLevel.Equals(userYear, StringComparison.OrdinalIgnoreCase) AndAlso
-                       semester.Equals(currentSem, StringComparison.OrdinalIgnoreCase) Then
+            If row.Length >= 3 Then
+                Dim yearLevel As String = row(0).Trim()
+                Dim semester As String = row(1).Trim()
+                Dim subjectName As String = row(2).Trim()
 
-                        If Not cmbSub.Items.Contains(subjectName) Then
-                            cmbSub.Items.Add(subjectName)
-                        End If
-                    End If
+                If yearLevel.Equals(userYear, StringComparison.OrdinalIgnoreCase) AndAlso semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
+                    If Not cmbSub.Items.Contains(subjectName) Then cmbSub.Items.Add(subjectName)
                 End If
-            Next
-
-            If cmbSub.Items.Count > 0 Then
-                cmbSub.SelectedIndex = 0
             End If
+        Next
 
-        Catch err As Exception
-            MsgBox("Something went wrong" & vbCrLf & err.Message, MsgBoxStyle.Critical, "Error")
-        End Try
+        If cmbSub.Items.Count > 0 Then
+            cmbSub.SelectedIndex = 0
+        End If
     End Sub
 
-    Private Sub cmbSem_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSem.SelectedIndexChanged
+    Private Sub Subject_Items(sender As Object, e As EventArgs) Handles cmbSem.SelectedIndexChanged
         SubjectsCsv()
     End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
-        Try
-            If cn.State = ConnectionState.Open Then cn.Close()
-            cn.Open()
-            sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID = @UserID"
+        If cn.State = ConnectionState.Open Then cn.Close()
+        cn.Open()
+        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID = @UserID"
 
+        If cmbSem.SelectedIndex <> -1 Then
+            sql &= " AND Semester = @Semester"
+        End If
+        If cmbSub.SelectedIndex <> -1 Then
+            sql &= " AND Subject = @Subject"
+        End If
+        If cmbTerm.SelectedIndex <> -1 Then
+            sql &= " AND Term = @Term"
+        End If
+        If cmbCat.SelectedIndex <> -1 Then
+            sql &= " AND Category = @Category"
+        End If
+
+        Using cmd As New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
             If cmbSem.SelectedIndex <> -1 Then
-                sql &= " AND Semester = @Semester"
+                cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
             End If
             If cmbSub.SelectedIndex <> -1 Then
-                sql &= " AND Subject = @Subject"
+                cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
             End If
             If cmbTerm.SelectedIndex <> -1 Then
-                sql &= " AND Term = @Term"
+                cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
             End If
             If cmbCat.SelectedIndex <> -1 Then
-                sql &= " AND Category = @Category"
+                cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
             End If
 
-            Using cmd As New SqlCommand(sql, cn)
-                cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
+            Dim adpt As New SqlDataAdapter(cmd)
+            Dim tbl As New DataTable()
+            adpt.Fill(tbl)
+            dvSrecord.DataSource = tbl
+        End Using
+        cn.Close()
 
-                If cmbSem.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
-                If cmbSub.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
-                If cmbTerm.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
-                If cmbCat.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
-
-                Dim adpt As New SqlDataAdapter(cmd)
-                Dim tbl As New DataTable()
-                adpt.Fill(tbl)
-                dvSrecord.DataSource = tbl
-            End Using
-
-            If dvSrecord.Columns.Contains("Firstname") Then dvSrecord.Columns("Firstname").Visible = False
-            If dvSrecord.Columns.Contains("Lastname") Then dvSrecord.Columns("Lastname").Visible = False
-            If dvSrecord.Columns.Contains("Section") Then dvSrecord.Columns("Section").Visible = False
-
-        Catch ex As Exception
-            MsgBox("Error while filtering: " & ex.Message, MsgBoxStyle.Critical)
-        Finally
-            If cn.State = ConnectionState.Open Then cn.Close()
-        End Try
+        If dvSrecord.Columns.Contains("Firstname") Then
+            dvSrecord.Columns("Firstname").Visible = False
+        End If
+        If dvSrecord.Columns.Contains("Lastname") Then
+            dvSrecord.Columns("Lastname").Visible = False
+        End If
+        If dvSrecord.Columns.Contains("Section") Then
+            dvSrecord.Columns("Section").Visible = False
+        End If
+        If dvSrecord.Columns.Contains("ScoreID") Then
+            dvSrecord.Columns("ScoreID").Visible = False
+        End If
     End Sub
+
 End Class

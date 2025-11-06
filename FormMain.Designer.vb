@@ -39,6 +39,7 @@ Partial Class FormMain
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnVS = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnFilter = New System.Windows.Forms.Button()
         Me.cmbSub = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblSec = New System.Windows.Forms.Label()
@@ -51,13 +52,14 @@ Partial Class FormMain
         Me.lblLname = New System.Windows.Forms.Label()
         Me.lblFname = New System.Windows.Forms.Label()
         Me.dtpSM = New System.Windows.Forms.DateTimePicker()
-        Me.btnFilter = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dvSrecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbSem
@@ -255,6 +257,18 @@ Partial Class FormMain
         Me.Panel1.Size = New System.Drawing.Size(836, 357)
         Me.Panel1.TabIndex = 20
         '
+        'btnFilter
+        '
+        Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(441, 308)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(101, 38)
+        Me.btnFilter.TabIndex = 25
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = False
+        '
         'cmbSub
         '
         Me.cmbSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -267,6 +281,7 @@ Partial Class FormMain
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.lblSec)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
@@ -278,14 +293,14 @@ Partial Class FormMain
         Me.Panel2.Controls.Add(Me.lblFname)
         Me.Panel2.Location = New System.Drawing.Point(13, 13)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(824, 104)
+        Me.Panel2.Size = New System.Drawing.Size(810, 104)
         Me.Panel2.TabIndex = 23
         '
         'lblSec
         '
         Me.lblSec.AutoSize = True
         Me.lblSec.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSec.Location = New System.Drawing.Point(278, 71)
+        Me.lblSec.Location = New System.Drawing.Point(361, 71)
         Me.lblSec.Name = "lblSec"
         Me.lblSec.Size = New System.Drawing.Size(66, 21)
         Me.lblSec.TabIndex = 22
@@ -295,7 +310,7 @@ Partial Class FormMain
         '
         Me.PictureBox5.BackgroundImage = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Location = New System.Drawing.Point(256, 74)
+        Me.PictureBox5.Location = New System.Drawing.Point(338, 74)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(16, 18)
         Me.PictureBox5.TabIndex = 21
@@ -305,7 +320,7 @@ Partial Class FormMain
         '
         Me.lblSYdep.AutoSize = True
         Me.lblSYdep.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSYdep.Location = New System.Drawing.Point(278, 39)
+        Me.lblSYdep.Location = New System.Drawing.Point(361, 39)
         Me.lblSYdep.Name = "lblSYdep"
         Me.lblSYdep.Size = New System.Drawing.Size(63, 21)
         Me.lblSYdep.TabIndex = 20
@@ -315,7 +330,7 @@ Partial Class FormMain
         '
         Me.PictureBox6.BackgroundImage = Global.ResearchProject.My.Resources.Resources.main_page
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox6.Location = New System.Drawing.Point(256, 10)
+        Me.PictureBox6.Location = New System.Drawing.Point(338, 10)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(16, 18)
         Me.PictureBox6.TabIndex = 19
@@ -325,7 +340,7 @@ Partial Class FormMain
         '
         Me.PictureBox7.BackgroundImage = Global.ResearchProject.My.Resources.Resources.student
         Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox7.Location = New System.Drawing.Point(256, 42)
+        Me.PictureBox7.Location = New System.Drawing.Point(338, 42)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(16, 18)
         Me.PictureBox7.TabIndex = 18
@@ -335,7 +350,7 @@ Partial Class FormMain
         '
         Me.lblCollege.AutoSize = True
         Me.lblCollege.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCollege.Location = New System.Drawing.Point(278, 10)
+        Me.lblCollege.Location = New System.Drawing.Point(361, 10)
         Me.lblCollege.Name = "lblCollege"
         Me.lblCollege.Size = New System.Drawing.Size(348, 21)
         Me.lblCollege.TabIndex = 17
@@ -345,7 +360,8 @@ Partial Class FormMain
         '
         Me.lblUser.AutoSize = True
         Me.lblUser.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser.Location = New System.Drawing.Point(7, 39)
+        Me.lblUser.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblUser.Location = New System.Drawing.Point(74, 42)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Size = New System.Drawing.Size(86, 21)
         Me.lblUser.TabIndex = 2
@@ -355,7 +371,7 @@ Partial Class FormMain
         '
         Me.lblLname.AutoSize = True
         Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(103, 10)
+        Me.lblLname.Location = New System.Drawing.Point(170, 19)
         Me.lblLname.Name = "lblLname"
         Me.lblLname.Size = New System.Drawing.Size(87, 21)
         Me.lblLname.TabIndex = 1
@@ -365,7 +381,7 @@ Partial Class FormMain
         '
         Me.lblFname.AutoSize = True
         Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFname.Location = New System.Drawing.Point(7, 10)
+        Me.lblFname.Location = New System.Drawing.Point(74, 19)
         Me.lblFname.Name = "lblFname"
         Me.lblFname.Size = New System.Drawing.Size(90, 21)
         Me.lblFname.TabIndex = 0
@@ -378,17 +394,15 @@ Partial Class FormMain
         Me.dtpSM.Size = New System.Drawing.Size(273, 22)
         Me.dtpSM.TabIndex = 22
         '
-        'btnFilter
+        'PictureBox1
         '
-        Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(441, 308)
-        Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(101, 38)
-        Me.btnFilter.TabIndex = 25
-        Me.btnFilter.Text = "Filter"
-        Me.btnFilter.UseVisualStyleBackColor = False
+        Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources.user1
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(56, 67)
+        Me.PictureBox1.TabIndex = 23
+        Me.PictureBox1.TabStop = False
         '
         'FormMain
         '
@@ -408,6 +422,7 @@ Partial Class FormMain
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -442,4 +457,5 @@ Partial Class FormMain
     Friend WithEvents lblCollege As Label
     Friend WithEvents cmbSub As ComboBox
     Friend WithEvents btnFilter As Button
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

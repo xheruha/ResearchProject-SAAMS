@@ -1,9 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Public Class Form3
-    Private Sub User_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblUser.Text = Form1.LoginUsername
-    End Sub
-
     Private Sub btnMain_Click(sender As Object, e As EventArgs) Handles btnMain.Click
         pnlMain.Controls.Clear()
         FormMain.TopLevel = False
@@ -29,11 +25,14 @@ Public Class Form3
             Form1.LoginLastname = Nothing
             Form1.LoginSection = Nothing
             Form1.LoginUserID = Nothing
-            lblUser.Text = ""
             pnlMain.Controls.Clear()
 
-            If Not FormMain.IsDisposed Then FormMain.Close()
-            If Not FormLeaderboard.IsDisposed Then FormLeaderboard.Close()
+            If Not FormMain.IsDisposed Then
+                FormMain.Close()
+            End If
+            If Not FormLeaderboard.IsDisposed Then
+                FormLeaderboard.Close()
+            End If
             Form1.txtUser.Clear()
             Form1.txtPass.Clear()
             Form1.Show()
