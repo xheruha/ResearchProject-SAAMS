@@ -39,6 +39,7 @@ Partial Class FormMain
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnVS = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbSub = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblSec = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -50,7 +51,7 @@ Partial Class FormMain
         Me.lblLname = New System.Windows.Forms.Label()
         Me.lblFname = New System.Windows.Forms.Label()
         Me.dtpSM = New System.Windows.Forms.DateTimePicker()
-        Me.txtSub = New System.Windows.Forms.TextBox()
+        Me.btnFilter = New System.Windows.Forms.Button()
         CType(Me.dvSrecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -65,7 +66,7 @@ Partial Class FormMain
         Me.cmbSem.FormattingEnabled = True
         Me.cmbSem.Location = New System.Drawing.Point(163, 126)
         Me.cmbSem.Name = "cmbSem"
-        Me.cmbSem.Size = New System.Drawing.Size(165, 24)
+        Me.cmbSem.Size = New System.Drawing.Size(204, 24)
         Me.cmbSem.TabIndex = 0
         '
         'Label1
@@ -118,7 +119,7 @@ Partial Class FormMain
         Me.cmbTerm.FormattingEnabled = True
         Me.cmbTerm.Location = New System.Drawing.Point(586, 128)
         Me.cmbTerm.Name = "cmbTerm"
-        Me.cmbTerm.Size = New System.Drawing.Size(165, 24)
+        Me.cmbTerm.Size = New System.Drawing.Size(204, 24)
         Me.cmbTerm.TabIndex = 6
         '
         'dvSrecord
@@ -129,7 +130,7 @@ Partial Class FormMain
         Me.dvSrecord.Name = "dvSrecord"
         Me.dvSrecord.RowHeadersWidth = 51
         Me.dvSrecord.RowTemplate.Height = 24
-        Me.dvSrecord.Size = New System.Drawing.Size(810, 195)
+        Me.dvSrecord.Size = New System.Drawing.Size(836, 206)
         Me.dvSrecord.TabIndex = 9
         '
         'Label5
@@ -149,7 +150,7 @@ Partial Class FormMain
         Me.cmbNumber.FormattingEnabled = True
         Me.cmbNumber.Location = New System.Drawing.Point(586, 169)
         Me.cmbNumber.Name = "cmbNumber"
-        Me.cmbNumber.Size = New System.Drawing.Size(165, 24)
+        Me.cmbNumber.Size = New System.Drawing.Size(204, 24)
         Me.cmbNumber.TabIndex = 10
         '
         'cmbCat
@@ -158,7 +159,7 @@ Partial Class FormMain
         Me.cmbCat.FormattingEnabled = True
         Me.cmbCat.Location = New System.Drawing.Point(163, 220)
         Me.cmbCat.Name = "cmbCat"
-        Me.cmbCat.Size = New System.Drawing.Size(165, 24)
+        Me.cmbCat.Size = New System.Drawing.Size(204, 24)
         Me.cmbCat.TabIndex = 4
         '
         'Label6
@@ -200,7 +201,7 @@ Partial Class FormMain
         '
         Me.txtScore.Location = New System.Drawing.Point(586, 212)
         Me.txtScore.Name = "txtScore"
-        Me.txtScore.Size = New System.Drawing.Size(165, 22)
+        Me.txtScore.Size = New System.Drawing.Size(204, 22)
         Me.txtScore.TabIndex = 12
         '
         'btnDelete
@@ -230,11 +231,12 @@ Partial Class FormMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.Controls.Add(Me.btnFilter)
+        Me.Panel1.Controls.Add(Me.cmbSub)
         Me.Panel1.Controls.Add(Me.btnVS)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.btnDelete)
         Me.Panel1.Controls.Add(Me.dtpSM)
-        Me.Panel1.Controls.Add(Me.txtSub)
         Me.Panel1.Controls.Add(Me.cmbCat)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.cmbSem)
@@ -250,8 +252,17 @@ Partial Class FormMain
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(810, 357)
+        Me.Panel1.Size = New System.Drawing.Size(836, 357)
         Me.Panel1.TabIndex = 20
+        '
+        'cmbSub
+        '
+        Me.cmbSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSub.FormattingEnabled = True
+        Me.cmbSub.Location = New System.Drawing.Point(163, 176)
+        Me.cmbSub.Name = "cmbSub"
+        Me.cmbSub.Size = New System.Drawing.Size(204, 24)
+        Me.cmbSub.TabIndex = 24
         '
         'Panel2
         '
@@ -267,7 +278,7 @@ Partial Class FormMain
         Me.Panel2.Controls.Add(Me.lblFname)
         Me.Panel2.Location = New System.Drawing.Point(13, 13)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(797, 104)
+        Me.Panel2.Size = New System.Drawing.Size(824, 104)
         Me.Panel2.TabIndex = 23
         '
         'lblSec
@@ -367,19 +378,24 @@ Partial Class FormMain
         Me.dtpSM.Size = New System.Drawing.Size(273, 22)
         Me.dtpSM.TabIndex = 22
         '
-        'txtSub
+        'btnFilter
         '
-        Me.txtSub.Location = New System.Drawing.Point(163, 175)
-        Me.txtSub.Name = "txtSub"
-        Me.txtSub.Size = New System.Drawing.Size(165, 22)
-        Me.txtSub.TabIndex = 21
+        Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(441, 308)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(101, 38)
+        Me.btnFilter.TabIndex = 25
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = False
         '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Goldenrod
-        Me.ClientSize = New System.Drawing.Size(822, 582)
+        Me.ClientSize = New System.Drawing.Size(847, 579)
         Me.Controls.Add(Me.dvSrecord)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormMain"
@@ -413,7 +429,6 @@ Partial Class FormMain
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnVS As Button
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents txtSub As TextBox
     Friend WithEvents dtpSM As DateTimePicker
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblFname As Label
@@ -425,4 +440,6 @@ Partial Class FormMain
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents lblCollege As Label
+    Friend WithEvents cmbSub As ComboBox
+    Friend WithEvents btnFilter As Button
 End Class

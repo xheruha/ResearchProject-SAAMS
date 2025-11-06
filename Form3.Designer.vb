@@ -26,9 +26,9 @@ Partial Class Form3
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.lblUser = New System.Windows.Forms.Label()
         Me.btnLB = New System.Windows.Forms.Button()
         Me.btnMain = New System.Windows.Forms.Button()
-        Me.lblUser = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnLogout = New System.Windows.Forms.Button()
@@ -58,7 +58,7 @@ Partial Class Form3
         Me.Panel1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Panel1.Location = New System.Drawing.Point(0, 51)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(243, 576)
+        Me.Panel1.Size = New System.Drawing.Size(243, 595)
         Me.Panel1.TabIndex = 0
         '
         'Label2
@@ -67,7 +67,7 @@ Partial Class Form3
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label2.Location = New System.Drawing.Point(0, 144)
+        Me.Label2.Location = New System.Drawing.Point(7, 144)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(211, 52)
         Me.Label2.TabIndex = 9
@@ -82,6 +82,18 @@ Partial Class Form3
         Me.PictureBox3.Size = New System.Drawing.Size(134, 121)
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
+        '
+        'lblUser
+        '
+        Me.lblUser.AutoSize = True
+        Me.lblUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblUser.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.ForeColor = System.Drawing.SystemColors.Window
+        Me.lblUser.Location = New System.Drawing.Point(12, 561)
+        Me.lblUser.Name = "lblUser"
+        Me.lblUser.Size = New System.Drawing.Size(97, 25)
+        Me.lblUser.TabIndex = 8
+        Me.lblUser.Text = "Username" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'btnLB
         '
@@ -117,26 +129,14 @@ Partial Class Form3
         Me.btnMain.Text = "Main"
         Me.btnMain.UseVisualStyleBackColor = False
         '
-        'lblUser
-        '
-        Me.lblUser.AutoSize = True
-        Me.lblUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblUser.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUser.ForeColor = System.Drawing.SystemColors.Window
-        Me.lblUser.Location = New System.Drawing.Point(12, 542)
-        Me.lblUser.Name = "lblUser"
-        Me.lblUser.Size = New System.Drawing.Size(97, 25)
-        Me.lblUser.TabIndex = 8
-        Me.lblUser.Text = "Username" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(417, 18)
+        Me.Label1.Location = New System.Drawing.Point(417, 14)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(255, 21)
+        Me.Label1.Size = New System.Drawing.Size(288, 25)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Department of Computer Studies"
         '
@@ -153,12 +153,12 @@ Partial Class Form3
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Panel2.Size = New System.Drawing.Size(1083, 51)
+        Me.Panel2.Size = New System.Drawing.Size(1108, 51)
         Me.Panel2.TabIndex = 1
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(993, 14)
+        Me.btnLogout.Location = New System.Drawing.Point(1018, 14)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(78, 27)
         Me.btnLogout.TabIndex = 0
@@ -190,7 +190,7 @@ Partial Class Form3
         '
         Me.PictureBox2.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(698, 3)
+        Me.PictureBox2.Location = New System.Drawing.Point(721, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(46, 49)
         Me.PictureBox2.TabIndex = 4
@@ -212,14 +212,14 @@ Partial Class Form3
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(243, 51)
         Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(840, 576)
+        Me.pnlMain.Size = New System.Drawing.Size(865, 595)
         Me.pnlMain.TabIndex = 2
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1083, 627)
+        Me.ClientSize = New System.Drawing.Size(1108, 646)
         Me.Controls.Add(Me.pnlMain)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)

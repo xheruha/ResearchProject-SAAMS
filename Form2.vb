@@ -72,7 +72,7 @@ Public Class Form2
         txtCpass.Clear()
     End Sub
 
-    Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub cmbItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbGender.Items.Clear()
         cmbSyear.Items.Clear()
         cmbGender.Items.Add("Male")
