@@ -9,6 +9,7 @@ Public Class FormMain
     Private Sub ProfileInfo()
         lblUser.Text = Form1.LoginUsername
         lblFname.Text = Form1.LoginFirstname
+        lblFname.Text = Form1.LoginFirstname
         lblLname.Text = Form1.LoginLastname
         lblSec.Text = "Section: " & Form1.LoginSection
         lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "- Computer Science"
@@ -56,7 +57,7 @@ Public Class FormMain
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If cmbSem.Text = "" Or cmbTerm.Text = "" Or cmbCat.Text = "" Or cmbNumber.Text = "" Or cmbSub.Text = "" Or txtScore.Text = "" Then
-            MsgBox("Please fill all the fields first.", MsgBoxStyle.Exclamation)
+            MsgBox("Please fill all the fields first.")
             Exit Sub
         End If
 
@@ -64,26 +65,32 @@ Public Class FormMain
         Dim score As Double
 
         If Not Integer.TryParse(cmbNumber.Text.Trim, num) Then
-            MsgBox("Invalid number format.", MsgBoxStyle.Critical)
+            MsgBox("Invalid number format.")
             Exit Sub
         End If
         If Not Double.TryParse(txtScore.Text.Trim, score) Then
-            MsgBox("Invalid score format.", MsgBoxStyle.Critical)
+            MsgBox("Invalid score format.")
+            Exit Sub
+        End If
+        If score > 99 Then
+            MsgBox("Score is more than 2 digits. Please fix your score.")
             Exit Sub
         End If
 
-        Dim cat = cmbCat.Text.Trim
-        Dim term = cmbTerm.Text.Trim
-        Dim sem = cmbSem.Text.Trim
-        Dim subj = cmbSub.Text.Trim
+        Dim cat As String = cmbCat.Text.Trim()
+        Dim term As String = cmbTerm.Text.Trim()
+        Dim sem As String = cmbSem.Text.Trim()
+        Dim subj As String = cmbSub.Text.Trim()
 
         Try
+            If cn.State = ConnectionState.Open Then cn.Close()
             cn.Open()
-            sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted)" &
-          "VALUES (@uid, @fname, @lname, @section, @sem, @term, @subj, @cat, @num, @score, @date)"
+
+            sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
+              "VALUES (@uid, @fname, @lname, @section, @sem, @term, @subj, @cat, @num, @score, @date)"
 
             Using cmd As New SqlCommand(sql, cn)
-                cmd.Parameters.AddWithValue("@Uid", Form1.LoginUserID)
+                cmd.Parameters.AddWithValue("@uid", Form1.LoginUserID)
                 cmd.Parameters.AddWithValue("@fname", Form1.LoginFirstname)
                 cmd.Parameters.AddWithValue("@lname", Form1.LoginLastname)
                 cmd.Parameters.AddWithValue("@section", Form1.LoginSection)
@@ -97,34 +104,33 @@ Public Class FormMain
                 cmd.ExecuteNonQuery()
             End Using
 
-            MsgBox("Saved successfully.", MsgBoxStyle.Information)
+            MsgBox("Saved successfully.")
             btnVS.PerformClick()
+
         Catch ex As Exception
             MsgBox("Error while saving: " & ex.Message, MsgBoxStyle.Critical)
         Finally
-            If cn.State = ConnectionState.Open Then
-                cn.Close()
-            End If
+            If cn.State = ConnectionState.Open Then cn.Close()
         End Try
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If dvSrecord.SelectedRows.Count = 0 Then
-            MsgBox("Please select a record to delete.", MsgBoxStyle.Exclamation)
+            MsgBox("Please select a record to delete.")
             Exit Sub
         End If
 
         Dim scoreID As Integer = dvSrecord.SelectedRows(0).Cells("ScoreID").Value
-
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
+
         sql = "DELETE FROM tblScore WHERE ScoreID = @ScoreID"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@ScoreID", scoreID)
         cmd.ExecuteNonQuery()
         cn.Close()
 
-        MsgBox("Record deleted successfully.", MsgBoxStyle.Information)
+        MsgBox("Record deleted successfully.")
         btnVS.PerformClick()
     End Sub
 
@@ -158,9 +164,8 @@ Public Class FormMain
     Private Sub SubjectsCsv()
         cmbSub.Items.Clear()
         Dim filePath As String = Path.Combine(Application.StartupPath, "Subject_List.csv")
-
         If Not File.Exists(filePath) Then
-            MsgBox("Could not find Subject_List.csv in " & filePath, MsgBoxStyle.Critical, "Missing File")
+            MsgBox("Could not find Subject_List.csv in " & filePath, "Missing File")
             Exit Sub
         End If
 
@@ -172,16 +177,17 @@ Public Class FormMain
 
         For i As Integer = 1 To lines.Length - 1
             Dim row() As String = lines(i).Split(","c)
-
             If row.Length >= 3 Then
                 Dim yearLevel As String = row(0).Trim()
                 Dim semester As String = row(1).Trim()
                 Dim subjectName As String = row(2).Trim()
 
-                If yearLevel.Equals(userYear, StringComparison.OrdinalIgnoreCase) AndAlso semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
+                If yearLevel.Equals(userYear, StringComparison.OrdinalIgnoreCase) AndAlso
+                    semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
                     If Not cmbSub.Items.Contains(subjectName) Then cmbSub.Items.Add(subjectName)
                 End If
             End If
+
         Next
 
         If cmbSub.Items.Count > 0 Then
@@ -197,7 +203,6 @@ Public Class FormMain
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID = @UserID"
-
         If cmbSem.SelectedIndex <> -1 Then
             sql &= " AND Semester = @Semester"
         End If
@@ -212,6 +217,7 @@ Public Class FormMain
         End If
 
         Using cmd As New SqlCommand(sql, cn)
+
             cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
             If cmbSem.SelectedIndex <> -1 Then
                 cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
@@ -246,5 +252,4 @@ Public Class FormMain
             dvSrecord.Columns("ScoreID").Visible = False
         End If
     End Sub
-
 End Class

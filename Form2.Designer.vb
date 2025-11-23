@@ -56,7 +56,7 @@ Partial Class Form2
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.OldLace
         Me.Panel1.Controls.Add(Me.cmbSection)
         Me.Panel1.Controls.Add(Me.cmbGender)
         Me.Panel1.Controls.Add(Me.Label13)
@@ -81,7 +81,7 @@ Partial Class Form2
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 450)
+        Me.Panel1.Size = New System.Drawing.Size(800, 469)
         Me.Panel1.TabIndex = 0
         '
         'cmbSection
@@ -215,7 +215,7 @@ Partial Class Form2
         '
         'btnSignup
         '
-        Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnSignup.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSignup.Location = New System.Drawing.Point(487, 370)
@@ -295,15 +295,15 @@ Partial Class Form2
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Location = New System.Drawing.Point(-9, -13)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(418, 479)
+        Me.Panel2.Size = New System.Drawing.Size(418, 482)
         Me.Panel2.TabIndex = 0
         '
         'btnSignin
         '
-        Me.btnSignin.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnSignin.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignin.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSignin.Location = New System.Drawing.Point(136, 292)
+        Me.btnSignin.Location = New System.Drawing.Point(151, 290)
         Me.btnSignin.Name = "btnSignin"
         Me.btnSignin.Size = New System.Drawing.Size(122, 42)
         Me.btnSignin.TabIndex = 14
@@ -315,7 +315,7 @@ Partial Class Form2
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(80, 349)
+        Me.Label6.Location = New System.Drawing.Point(88, 343)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(237, 16)
         Me.Label6.TabIndex = 15
@@ -326,7 +326,7 @@ Partial Class Form2
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label7.Location = New System.Drawing.Point(25, 184)
+        Me.Label7.Location = New System.Drawing.Point(31, 184)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(341, 44)
         Me.Label7.TabIndex = 13
@@ -346,7 +346,7 @@ Partial Class Form2
         '
         Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(110, 25)
+        Me.PictureBox1.Location = New System.Drawing.Point(123, 36)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(175, 145)
         Me.PictureBox1.TabIndex = 11
@@ -356,7 +356,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(800, 469)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form2"

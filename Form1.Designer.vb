@@ -43,7 +43,7 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.OldLace
         Me.Panel1.Controls.Add(Me.btnContinue)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
@@ -55,12 +55,12 @@ Partial Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 450)
+        Me.Panel1.Size = New System.Drawing.Size(800, 469)
         Me.Panel1.TabIndex = 0
         '
         'btnContinue
         '
-        Me.btnContinue.BackColor = System.Drawing.Color.Green
+        Me.btnContinue.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnContinue.Location = New System.Drawing.Point(597, 279)
@@ -132,7 +132,7 @@ Partial Class Form1
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnSignup)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
@@ -140,15 +140,15 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Location = New System.Drawing.Point(0, -6)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(408, 469)
+        Me.Panel2.Size = New System.Drawing.Size(408, 475)
         Me.Panel2.TabIndex = 0
         '
         'btnSignup
         '
-        Me.btnSignup.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnSignup.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSignup.Location = New System.Drawing.Point(131, 285)
+        Me.btnSignup.Location = New System.Drawing.Point(144, 285)
         Me.btnSignup.Name = "btnSignup"
         Me.btnSignup.Size = New System.Drawing.Size(122, 42)
         Me.btnSignup.TabIndex = 10
@@ -171,7 +171,7 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(70, 339)
+        Me.Label6.Location = New System.Drawing.Point(93, 340)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(229, 16)
         Me.Label6.TabIndex = 11
@@ -191,7 +191,7 @@ Partial Class Form1
         '
         Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(96, 18)
+        Me.PictureBox1.Location = New System.Drawing.Point(114, 29)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(175, 145)
         Me.PictureBox1.TabIndex = 0
@@ -201,7 +201,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(800, 469)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"

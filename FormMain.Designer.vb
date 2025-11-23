@@ -48,11 +48,11 @@ Partial Class FormMain
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.lblCollege = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.lblLname = New System.Windows.Forms.Label()
         Me.lblFname = New System.Windows.Forms.Label()
         Me.dtpSM = New System.Windows.Forms.DateTimePicker()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dvSrecord, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -132,7 +132,7 @@ Partial Class FormMain
         Me.dvSrecord.Name = "dvSrecord"
         Me.dvSrecord.RowHeadersWidth = 51
         Me.dvSrecord.RowTemplate.Height = 24
-        Me.dvSrecord.Size = New System.Drawing.Size(836, 206)
+        Me.dvSrecord.Size = New System.Drawing.Size(1005, 249)
         Me.dvSrecord.TabIndex = 9
         '
         'Label5
@@ -232,7 +232,7 @@ Partial Class FormMain
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Green
+        Me.Panel1.BackColor = System.Drawing.Color.Brown
         Me.Panel1.Controls.Add(Me.btnFilter)
         Me.Panel1.Controls.Add(Me.cmbSub)
         Me.Panel1.Controls.Add(Me.btnVS)
@@ -254,7 +254,7 @@ Partial Class FormMain
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(836, 357)
+        Me.Panel1.Size = New System.Drawing.Size(1005, 348)
         Me.Panel1.TabIndex = 20
         '
         'btnFilter
@@ -280,88 +280,98 @@ Partial Class FormMain
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkGoldenrod
-        Me.Panel2.Controls.Add(Me.PictureBox1)
+        Me.Panel2.BackColor = System.Drawing.Color.Wheat
         Me.Panel2.Controls.Add(Me.lblSec)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
         Me.Panel2.Controls.Add(Me.PictureBox6)
         Me.Panel2.Controls.Add(Me.PictureBox7)
         Me.Panel2.Controls.Add(Me.lblCollege)
+        Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.lblUser)
         Me.Panel2.Controls.Add(Me.lblLname)
         Me.Panel2.Controls.Add(Me.lblFname)
         Me.Panel2.Location = New System.Drawing.Point(13, 13)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(810, 104)
+        Me.Panel2.Size = New System.Drawing.Size(976, 104)
         Me.Panel2.TabIndex = 23
         '
         'lblSec
         '
         Me.lblSec.AutoSize = True
-        Me.lblSec.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSec.Location = New System.Drawing.Point(361, 71)
+        Me.lblSec.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSec.Location = New System.Drawing.Point(359, 69)
         Me.lblSec.Name = "lblSec"
-        Me.lblSec.Size = New System.Drawing.Size(66, 21)
-        Me.lblSec.TabIndex = 22
+        Me.lblSec.Size = New System.Drawing.Size(76, 25)
+        Me.lblSec.TabIndex = 34
         Me.lblSec.Text = "Section"
         '
         'PictureBox5
         '
         Me.PictureBox5.BackgroundImage = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Location = New System.Drawing.Point(338, 74)
+        Me.PictureBox5.Location = New System.Drawing.Point(327, 36)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(16, 18)
-        Me.PictureBox5.TabIndex = 21
+        Me.PictureBox5.Size = New System.Drawing.Size(26, 27)
+        Me.PictureBox5.TabIndex = 33
         Me.PictureBox5.TabStop = False
         '
         'lblSYdep
         '
         Me.lblSYdep.AutoSize = True
-        Me.lblSYdep.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSYdep.Location = New System.Drawing.Point(361, 39)
+        Me.lblSYdep.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSYdep.Location = New System.Drawing.Point(359, 36)
         Me.lblSYdep.Name = "lblSYdep"
-        Me.lblSYdep.Size = New System.Drawing.Size(63, 21)
-        Me.lblSYdep.TabIndex = 20
+        Me.lblSYdep.Size = New System.Drawing.Size(70, 25)
+        Me.lblSYdep.TabIndex = 32
         Me.lblSYdep.Text = "SY-Dep"
         '
         'PictureBox6
         '
         Me.PictureBox6.BackgroundImage = Global.ResearchProject.My.Resources.Resources.main_page
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox6.Location = New System.Drawing.Point(338, 10)
+        Me.PictureBox6.Location = New System.Drawing.Point(327, 4)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(16, 18)
-        Me.PictureBox6.TabIndex = 19
+        Me.PictureBox6.Size = New System.Drawing.Size(26, 26)
+        Me.PictureBox6.TabIndex = 31
         Me.PictureBox6.TabStop = False
         '
         'PictureBox7
         '
         Me.PictureBox7.BackgroundImage = Global.ResearchProject.My.Resources.Resources.student
         Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox7.Location = New System.Drawing.Point(338, 42)
+        Me.PictureBox7.Location = New System.Drawing.Point(327, 69)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(16, 18)
-        Me.PictureBox7.TabIndex = 18
+        Me.PictureBox7.Size = New System.Drawing.Size(26, 27)
+        Me.PictureBox7.TabIndex = 30
         Me.PictureBox7.TabStop = False
         '
         'lblCollege
         '
         Me.lblCollege.AutoSize = True
-        Me.lblCollege.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCollege.Location = New System.Drawing.Point(361, 10)
+        Me.lblCollege.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCollege.Location = New System.Drawing.Point(359, 4)
         Me.lblCollege.Name = "lblCollege"
-        Me.lblCollege.Size = New System.Drawing.Size(348, 21)
-        Me.lblCollege.TabIndex = 17
+        Me.lblCollege.Size = New System.Drawing.Size(398, 25)
+        Me.lblCollege.TabIndex = 29
         Me.lblCollege.Text = "St. Rose College Educational Foundation, Inc. "
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources.user1
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(21, 4)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(56, 67)
+        Me.PictureBox1.TabIndex = 23
+        Me.PictureBox1.TabStop = False
         '
         'lblUser
         '
         Me.lblUser.AutoSize = True
         Me.lblUser.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUser.ForeColor = System.Drawing.SystemColors.Control
-        Me.lblUser.Location = New System.Drawing.Point(74, 42)
+        Me.lblUser.Location = New System.Drawing.Point(15, 72)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Size = New System.Drawing.Size(86, 21)
         Me.lblUser.TabIndex = 2
@@ -370,20 +380,20 @@ Partial Class FormMain
         'lblLname
         '
         Me.lblLname.AutoSize = True
-        Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(170, 19)
+        Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLname.Location = New System.Drawing.Point(83, 42)
         Me.lblLname.Name = "lblLname"
-        Me.lblLname.Size = New System.Drawing.Size(87, 21)
+        Me.lblLname.Size = New System.Drawing.Size(100, 25)
         Me.lblLname.TabIndex = 1
         Me.lblLname.Text = "Last Name"
         '
         'lblFname
         '
         Me.lblFname.AutoSize = True
-        Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFname.Location = New System.Drawing.Point(74, 19)
+        Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFname.Location = New System.Drawing.Point(83, 16)
         Me.lblFname.Name = "lblFname"
-        Me.lblFname.Size = New System.Drawing.Size(90, 21)
+        Me.lblFname.Size = New System.Drawing.Size(102, 25)
         Me.lblFname.TabIndex = 0
         Me.lblFname.Text = "First Name"
         '
@@ -394,22 +404,12 @@ Partial Class FormMain
         Me.dtpSM.Size = New System.Drawing.Size(273, 22)
         Me.dtpSM.TabIndex = 22
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources.user1
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(56, 67)
-        Me.PictureBox1.TabIndex = 23
-        Me.PictureBox1.TabStop = False
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Goldenrod
-        Me.ClientSize = New System.Drawing.Size(847, 579)
+        Me.BackColor = System.Drawing.Color.OldLace
+        Me.ClientSize = New System.Drawing.Size(1013, 586)
         Me.Controls.Add(Me.dvSrecord)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormMain"
@@ -448,14 +448,14 @@ Partial Class FormMain
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblFname As Label
     Friend WithEvents lblUser As Label
-    Friend WithEvents lblLname As Label
+    Friend WithEvents cmbSub As ComboBox
+    Friend WithEvents btnFilter As Button
+    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblSec As Label
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents lblSYdep As Label
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents lblCollege As Label
-    Friend WithEvents cmbSub As ComboBox
-    Friend WithEvents btnFilter As Button
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblLname As Label
 End Class

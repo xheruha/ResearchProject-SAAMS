@@ -37,12 +37,19 @@ Partial Class Form3
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -54,9 +61,9 @@ Partial Class Form3
         Me.Panel1.Controls.Add(Me.btnMain)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Panel1.Location = New System.Drawing.Point(0, 51)
+        Me.Panel1.Location = New System.Drawing.Point(0, 65)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(243, 595)
+        Me.Panel1.Size = New System.Drawing.Size(243, 619)
         Me.Panel1.TabIndex = 0
         '
         'Label2
@@ -120,7 +127,7 @@ Partial Class Form3
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(417, 14)
+        Me.Label1.Location = New System.Drawing.Point(551, 14)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(288, 25)
         Me.Label1.TabIndex = 0
@@ -139,12 +146,12 @@ Partial Class Form3
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Panel2.Size = New System.Drawing.Size(1108, 51)
+        Me.Panel2.Size = New System.Drawing.Size(1274, 65)
         Me.Panel2.TabIndex = 1
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(1018, 14)
+        Me.btnLogout.Location = New System.Drawing.Point(1187, 14)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(78, 27)
         Me.btnLogout.TabIndex = 0
@@ -157,7 +164,7 @@ Partial Class Form3
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox4.Location = New System.Drawing.Point(12, 6)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(32, 42)
+        Me.PictureBox4.Size = New System.Drawing.Size(41, 53)
         Me.PictureBox4.TabIndex = 7
         Me.PictureBox4.TabStop = False
         '
@@ -166,7 +173,7 @@ Partial Class Form3
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label3.Location = New System.Drawing.Point(50, 12)
+        Me.Label3.Location = New System.Drawing.Point(59, 14)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(123, 29)
         Me.Label3.TabIndex = 6
@@ -176,9 +183,9 @@ Partial Class Form3
         '
         Me.PictureBox2.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox2.Location = New System.Drawing.Point(739, 3)
+        Me.PictureBox2.Location = New System.Drawing.Point(873, 3)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(46, 49)
+        Me.PictureBox2.Size = New System.Drawing.Size(57, 62)
         Me.PictureBox2.TabIndex = 4
         Me.PictureBox2.TabStop = False
         '
@@ -186,26 +193,95 @@ Partial Class Form3
         '
         Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761220390816
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(359, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(482, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(52, 52)
+        Me.PictureBox1.Size = New System.Drawing.Size(63, 62)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.Label9)
+        Me.pnlMain.Controls.Add(Me.Label8)
+        Me.pnlMain.Controls.Add(Me.Label7)
+        Me.pnlMain.Controls.Add(Me.Label6)
+        Me.pnlMain.Controls.Add(Me.Label5)
+        Me.pnlMain.Controls.Add(Me.Label4)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMain.Location = New System.Drawing.Point(243, 51)
+        Me.pnlMain.Location = New System.Drawing.Point(243, 65)
         Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(865, 595)
+        Me.pnlMain.Size = New System.Drawing.Size(1031, 619)
         Me.pnlMain.TabIndex = 2
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(186, 322)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(405, 19)
+        Me.Label9.TabIndex = 5
+        Me.Label9.Text = "- Access historical performance data across semesters"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(186, 353)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(626, 38)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "- Engage with a leaderboard that ranks students by section or year level, promoti" &
+    "ng " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "healthy academic competition"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(186, 288)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(547, 19)
+        Me.Label7.TabIndex = 3
+        Me.Label7.Text = "- Track missing submissions and monitor progress from prelims to finals"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(186, 257)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(612, 19)
+        Me.Label6.TabIndex = 2
+        Me.Label6.Text = "- View summaries of your scores across quizzes, exams, assignments, and activitie" &
+    "s"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(186, 189)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(671, 38)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "The Student Achievement and Monitoring System is a digital scores monitoring help" &
+    "s you " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "if your grade is alright or you are cooked"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(179, 51)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(715, 124)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "                 Welcome to our " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Achievement Monitoring System"
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1108, 646)
+        Me.ClientSize = New System.Drawing.Size(1274, 684)
         Me.Controls.Add(Me.pnlMain)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -221,6 +297,8 @@ Partial Class Form3
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlMain.ResumeLayout(False)
+        Me.pnlMain.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -239,4 +317,10 @@ Partial Class Form3
     Friend WithEvents pnlMain As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents btnLogout As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
 End Class
