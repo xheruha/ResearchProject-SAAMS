@@ -49,6 +49,8 @@ Partial Class Form2
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.cmbSyear2 = New System.Windows.Forms.ComboBox()
+        Me.chkIrreg = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,6 +59,8 @@ Partial Class Form2
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.OldLace
+        Me.Panel1.Controls.Add(Me.chkIrreg)
+        Me.Panel1.Controls.Add(Me.cmbSyear2)
         Me.Panel1.Controls.Add(Me.cmbSection)
         Me.Panel1.Controls.Add(Me.cmbGender)
         Me.Panel1.Controls.Add(Me.Label13)
@@ -88,18 +92,18 @@ Partial Class Form2
         '
         Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Location = New System.Drawing.Point(553, 276)
+        Me.cmbSection.Location = New System.Drawing.Point(534, 276)
         Me.cmbSection.Name = "cmbSection"
-        Me.cmbSection.Size = New System.Drawing.Size(206, 24)
+        Me.cmbSection.Size = New System.Drawing.Size(225, 24)
         Me.cmbSection.TabIndex = 31
         '
         'cmbGender
         '
         Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
-        Me.cmbGender.Location = New System.Drawing.Point(554, 216)
+        Me.cmbGender.Location = New System.Drawing.Point(534, 216)
         Me.cmbGender.Name = "cmbGender"
-        Me.cmbGender.Size = New System.Drawing.Size(206, 24)
+        Me.cmbGender.Size = New System.Drawing.Size(226, 24)
         Me.cmbGender.TabIndex = 30
         '
         'Label13
@@ -107,7 +111,7 @@ Partial Class Form2
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label13.Location = New System.Drawing.Point(467, 216)
+        Me.Label13.Location = New System.Drawing.Point(453, 218)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(75, 22)
         Me.Label13.TabIndex = 29
@@ -117,9 +121,9 @@ Partial Class Form2
         '
         Me.cmbSyear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSyear.FormattingEnabled = True
-        Me.cmbSyear.Location = New System.Drawing.Point(554, 246)
+        Me.cmbSyear.Location = New System.Drawing.Point(534, 246)
         Me.cmbSyear.Name = "cmbSyear"
-        Me.cmbSyear.Size = New System.Drawing.Size(206, 24)
+        Me.cmbSyear.Size = New System.Drawing.Size(112, 24)
         Me.cmbSyear.TabIndex = 28
         '
         'btnClear
@@ -139,7 +143,7 @@ Partial Class Form2
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label12.Location = New System.Drawing.Point(467, 277)
+        Me.Label12.Location = New System.Drawing.Point(453, 279)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(75, 22)
         Me.Label12.TabIndex = 25
@@ -150,7 +154,7 @@ Partial Class Form2
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(429, 246)
+        Me.Label11.Location = New System.Drawing.Point(415, 248)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(113, 22)
         Me.Label11.TabIndex = 23
@@ -159,9 +163,9 @@ Partial Class Form2
         'txtCpass
         '
         Me.txtCpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtCpass.Location = New System.Drawing.Point(553, 333)
+        Me.txtCpass.Location = New System.Drawing.Point(534, 333)
         Me.txtCpass.Name = "txtCpass"
-        Me.txtCpass.Size = New System.Drawing.Size(207, 22)
+        Me.txtCpass.Size = New System.Drawing.Size(226, 22)
         Me.txtCpass.TabIndex = 22
         '
         'Label10
@@ -169,7 +173,7 @@ Partial Class Form2
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label10.Location = New System.Drawing.Point(431, 330)
+        Me.Label10.Location = New System.Drawing.Point(417, 332)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(111, 22)
         Me.Label10.TabIndex = 21
@@ -178,9 +182,9 @@ Partial Class Form2
         'txtPass
         '
         Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPass.Location = New System.Drawing.Point(553, 305)
+        Me.txtPass.Location = New System.Drawing.Point(534, 305)
         Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(207, 22)
+        Me.txtPass.Size = New System.Drawing.Size(226, 22)
         Me.txtPass.TabIndex = 20
         '
         'Label9
@@ -188,7 +192,7 @@ Partial Class Form2
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(448, 302)
+        Me.Label9.Location = New System.Drawing.Point(434, 304)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(94, 22)
         Me.Label9.TabIndex = 19
@@ -250,9 +254,9 @@ Partial Class Form2
         'txtUsername
         '
         Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUsername.Location = New System.Drawing.Point(553, 188)
+        Me.txtUsername.Location = New System.Drawing.Point(534, 188)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(207, 22)
+        Me.txtUsername.Size = New System.Drawing.Size(226, 22)
         Me.txtUsername.TabIndex = 13
         '
         'txtFirstname
@@ -268,7 +272,7 @@ Partial Class Form2
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(445, 185)
+        Me.Label2.Location = New System.Drawing.Point(431, 187)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 22)
         Me.Label2.TabIndex = 11
@@ -352,6 +356,24 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
+        'cmbSyear2
+        '
+        Me.cmbSyear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSyear2.FormattingEnabled = True
+        Me.cmbSyear2.Location = New System.Drawing.Point(648, 246)
+        Me.cmbSyear2.Name = "cmbSyear2"
+        Me.cmbSyear2.Size = New System.Drawing.Size(112, 24)
+        Me.cmbSyear2.TabIndex = 33
+        '
+        'chkIrreg
+        '
+        Me.chkIrreg.AutoSize = True
+        Me.chkIrreg.Location = New System.Drawing.Point(766, 252)
+        Me.chkIrreg.Name = "chkIrreg"
+        Me.chkIrreg.Size = New System.Drawing.Size(18, 17)
+        Me.chkIrreg.TabIndex = 34
+        Me.chkIrreg.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -398,4 +420,6 @@ Partial Class Form2
     Friend WithEvents cmbGender As ComboBox
     Friend WithEvents Label13 As Label
     Friend WithEvents cmbSection As ComboBox
+    Friend WithEvents cmbSyear2 As ComboBox
+    Friend WithEvents chkIrreg As CheckBox
 End Class

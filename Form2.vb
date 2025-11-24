@@ -13,6 +13,10 @@ Public Class Form2
             MsgBox("Passwords do not match", MsgBoxStyle.Critical)
         ElseIf txtPass.Text.Length < 6 Then
             MsgBox("Password must be at least 6 characters", MsgBoxStyle.Exclamation)
+        ElseIf chkIrreg.Checked And cmbSyear2.SelectedIndex = -1 Then
+            MsgBox("Please select second school year for irregular student", MsgBoxStyle.Exclamation)
+        ElseIf chkIrreg.Checked And cmbSyear.Text = cmbSyear2.Text Then
+            MsgBox("School year cannot be the same", MsgBoxStyle.Exclamation)
         Else
             CheckUsername()
         End If
@@ -39,14 +43,15 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, Section, Password) " &
-          "VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @Section, @Password)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, SchoolYear2, Section, Password) " &
+              "VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password)"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Firstname", txtFirstname.Text.Trim())
         cmd.Parameters.AddWithValue("@Lastname", txtLastname.Text.Trim())
         cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
         cmd.Parameters.AddWithValue("@Gender", cmbGender.Text)
         cmd.Parameters.AddWithValue("@SchoolYear", cmbSyear.Text)
+        cmd.Parameters.AddWithValue("@SchoolYear2", If(chkIrreg.Checked, cmbSyear2.Text, ""))
         cmd.Parameters.AddWithValue("@Section", cmbSection.Text.Trim())
         cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
 
@@ -67,21 +72,32 @@ Public Class Form2
         txtUsername.Clear()
         cmbGender.SelectedIndex = -1
         cmbSyear.SelectedIndex = -1
+        cmbSyear2.SelectedIndex = -1
         cmbSection.SelectedIndex = -1
         txtPass.Clear()
         txtCpass.Clear()
+        chkIrreg.Checked = False
     End Sub
 
     Private Sub cmbItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbGender.Items.Clear()
         cmbSyear.Items.Clear()
+        cmbSyear2.Items.Clear()
+
         cmbGender.Items.Add("Male")
         cmbGender.Items.Add("Female")
         cmbGender.Items.Add("Other")
+
         cmbSyear.Items.Add("1st Year")
         cmbSyear.Items.Add("2nd Year")
         cmbSyear.Items.Add("3rd Year")
         cmbSyear.Items.Add("4th Year")
+
+        cmbSyear2.Items.Add("1st Year")
+        cmbSyear2.Items.Add("2nd Year")
+        cmbSyear2.Items.Add("3rd Year")
+        cmbSyear2.Items.Add("4th Year")
+        cmbSyear2.Enabled = False
     End Sub
 
     Private Sub cmbSyear_Item(sender As Object, e As EventArgs) Handles cmbSyear.SelectedIndexChanged
@@ -110,5 +126,14 @@ Public Class Form2
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearFields()
+    End Sub
+
+    Private Sub chkIrreg_CheckedChanged(sender As Object, e As EventArgs) Handles chkIrreg.CheckedChanged
+        If chkIrreg.Checked Then
+            cmbSyear2.Enabled = True
+        Else
+            cmbSyear2.Enabled = False
+            cmbSyear2.SelectedIndex = -1
+        End If
     End Sub
 End Class

@@ -165,14 +165,15 @@ Public Class FormMain
         cmbSub.Items.Clear()
         Dim filePath As String = Path.Combine(Application.StartupPath, "Subject_List.csv")
         If Not File.Exists(filePath) Then
-            MsgBox("Could not find Subject_List.csv in " & filePath, "Missing File")
+            MsgBox("Could not find Subject_List.csv in " & filePath, MsgBoxStyle.Critical)
             Exit Sub
         End If
 
         Dim lines() As String = File.ReadAllLines(filePath)
         If lines.Length < 2 Then Exit Sub
 
-        Dim userYear As String = Form1.LoginSchoolYear.Trim()
+        Dim userYear1 As String = Form1.LoginSchoolYear.Trim()
+        Dim userYear2 As String = Form1.LoginSchoolYear2.Trim()
         Dim userSem As String = cmbSem.Text.Trim()
 
         For i As Integer = 1 To lines.Length - 1
@@ -182,12 +183,13 @@ Public Class FormMain
                 Dim semester As String = row(1).Trim()
                 Dim subjectName As String = row(2).Trim()
 
-                If yearLevel.Equals(userYear, StringComparison.OrdinalIgnoreCase) AndAlso
-                    semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
-                    If Not cmbSub.Items.Contains(subjectName) Then cmbSub.Items.Add(subjectName)
+                If semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
+                    If yearLevel.Equals(userYear1, StringComparison.OrdinalIgnoreCase) OrElse
+                   yearLevel.Equals(userYear2, StringComparison.OrdinalIgnoreCase) Then
+                        If Not cmbSub.Items.Contains(subjectName) Then cmbSub.Items.Add(subjectName)
+                    End If
                 End If
             End If
-
         Next
 
         If cmbSub.Items.Count > 0 Then

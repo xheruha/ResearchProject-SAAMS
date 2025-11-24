@@ -6,6 +6,7 @@ Public Class Form1
     Public Shared LoginLastname As String
     Public Shared LoginUserID As Integer
     Public Shared LoginSchoolYear As String
+    Public Shared LoginSchoolYear2 As String
 
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
@@ -30,6 +31,7 @@ Public Class Form1
             Form1.LoginUserID = Convert.ToInt32(dr("UserID"))
             Form1.LoginSection = dr("Section").ToString()
             Form1.LoginSchoolYear = dr("SchoolYear").ToString()
+            Form1.LoginSchoolYear2 = dr("SchoolYear2").ToString()
             Me.Hide()
             Form3.Show()
         Else
