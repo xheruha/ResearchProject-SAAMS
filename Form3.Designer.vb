@@ -54,7 +54,7 @@ Partial Class Form3
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.Teal
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Controls.Add(Me.btnLB)
@@ -69,7 +69,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.Teal
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.Window
         Me.Label2.Location = New System.Drawing.Point(7, 144)
@@ -80,17 +80,17 @@ Partial Class Form3
         '
         'PictureBox3
         '
-        Me.PictureBox3.BackgroundImage = Global.ResearchProject.My.Resources.Resources.student__1_
+        Me.PictureBox3.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761220390816
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox3.Location = New System.Drawing.Point(50, 20)
+        Me.PictureBox3.Location = New System.Drawing.Point(40, 6)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(134, 121)
+        Me.PictureBox3.Size = New System.Drawing.Size(156, 135)
         Me.PictureBox3.TabIndex = 0
         Me.PictureBox3.TabStop = False
         '
         'btnLB
         '
-        Me.btnLB.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.btnLB.BackColor = System.Drawing.Color.Bisque
         Me.btnLB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnLB.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnLB.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -107,7 +107,7 @@ Partial Class Form3
         '
         'btnMain
         '
-        Me.btnMain.BackColor = System.Drawing.Color.DarkGoldenrod
+        Me.btnMain.BackColor = System.Drawing.Color.Bisque
         Me.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMain.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -125,17 +125,17 @@ Partial Class Form3
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(551, 14)
+        Me.Label1.Location = New System.Drawing.Point(551, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(288, 25)
+        Me.Label1.Size = New System.Drawing.Size(305, 26)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Department of Computer Studies"
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel2.Controls.Add(Me.btnLogout)
         Me.Panel2.Controls.Add(Me.PictureBox4)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -151,7 +151,7 @@ Partial Class Form3
         '
         'btnLogout
         '
-        Me.btnLogout.Location = New System.Drawing.Point(1187, 14)
+        Me.btnLogout.Location = New System.Drawing.Point(1184, 19)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(78, 27)
         Me.btnLogout.TabIndex = 0
@@ -173,7 +173,7 @@ Partial Class Form3
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label3.Location = New System.Drawing.Point(59, 14)
+        Me.Label3.Location = New System.Drawing.Point(59, 19)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(123, 29)
         Me.Label3.TabIndex = 6
@@ -201,7 +201,7 @@ Partial Class Form3
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.pnlMain.BackColor = System.Drawing.Color.AntiqueWhite
         Me.pnlMain.Controls.Add(Me.Label9)
         Me.pnlMain.Controls.Add(Me.Label8)
         Me.pnlMain.Controls.Add(Me.Label7)
