@@ -127,7 +127,7 @@ Partial Class Form3
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Label1.Location = New System.Drawing.Point(551, 21)
+        Me.Label1.Location = New System.Drawing.Point(534, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(305, 26)
         Me.Label1.TabIndex = 0
@@ -193,7 +193,7 @@ Partial Class Form3
         '
         Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761220390816
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(482, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(465, 1)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(63, 62)
         Me.PictureBox1.TabIndex = 0

@@ -24,12 +24,16 @@ Partial Class FormLeaderboard
     Private Sub InitializeComponent()
         Me.dvLB = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.cmbYear = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbTerm = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmbSem = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnFilter = New System.Windows.Forms.Button()
         Me.cmbSect = New System.Windows.Forms.ComboBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dvLB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -41,7 +45,7 @@ Partial Class FormLeaderboard
         Me.dvLB.Name = "dvLB"
         Me.dvLB.RowHeadersWidth = 51
         Me.dvLB.RowTemplate.Height = 24
-        Me.dvLB.Size = New System.Drawing.Size(784, 485)
+        Me.dvLB.Size = New System.Drawing.Size(737, 485)
         Me.dvLB.TabIndex = 0
         '
         'Panel2
@@ -52,70 +56,114 @@ Partial Class FormLeaderboard
         Me.Panel2.Size = New System.Drawing.Size(1002, 104)
         Me.Panel2.TabIndex = 24
         '
-        'cmbYear
-        '
-        Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbYear.FormattingEnabled = True
-        Me.cmbYear.Location = New System.Drawing.Point(92, 2)
-        Me.cmbYear.Name = "cmbYear"
-        Me.cmbYear.Size = New System.Drawing.Size(122, 24)
-        Me.cmbYear.TabIndex = 30
-        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Wheat
+        Me.Panel1.Controls.Add(Me.btnClear)
+        Me.Panel1.Controls.Add(Me.Panel3)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.cmbTerm)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.cmbSem)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.btnFilter)
         Me.Panel1.Controls.Add(Me.cmbSect)
-        Me.Panel1.Controls.Add(Me.cmbYear)
-        Me.Panel1.Location = New System.Drawing.Point(797, 122)
+        Me.Panel1.Location = New System.Drawing.Point(755, 122)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(217, 485)
+        Me.Panel1.Size = New System.Drawing.Size(259, 485)
         Me.Panel1.TabIndex = 25
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(54, 112)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(60, 25)
+        Me.Label3.TabIndex = 37
+        Me.Label3.Text = "Term:"
+        '
+        'cmbTerm
+        '
+        Me.cmbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTerm.FormattingEnabled = True
+        Me.cmbTerm.Location = New System.Drawing.Point(120, 113)
+        Me.cmbTerm.Name = "cmbTerm"
+        Me.cmbTerm.Size = New System.Drawing.Size(122, 24)
+        Me.cmbTerm.TabIndex = 36
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(17, 66)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(97, 25)
+        Me.Label2.TabIndex = 35
+        Me.Label2.Text = "Semester:"
+        '
+        'cmbSem
+        '
+        Me.cmbSem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSem.FormattingEnabled = True
+        Me.cmbSem.Location = New System.Drawing.Point(120, 67)
+        Me.cmbSem.Name = "cmbSem"
+        Me.cmbSem.Size = New System.Drawing.Size(122, 24)
+        Me.cmbSem.TabIndex = 34
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 53)
+        Me.Label1.Location = New System.Drawing.Point(32, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(82, 25)
         Me.Label1.TabIndex = 33
         Me.Label1.Text = "Section:"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 7)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 19)
-        Me.Label4.TabIndex = 26
-        Me.Label4.Text = "Year Level:"
-        '
         'btnFilter
         '
         Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(103, 92)
+        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFilter.Location = New System.Drawing.Point(153, 355)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(89, 34)
         Me.btnFilter.TabIndex = 32
-        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.Text = "ViewGrade"
         Me.btnFilter.UseVisualStyleBackColor = False
         '
         'cmbSect
         '
         Me.cmbSect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSect.FormattingEnabled = True
-        Me.cmbSect.Location = New System.Drawing.Point(92, 53)
+        Me.cmbSect.Location = New System.Drawing.Point(120, 21)
         Me.cmbSect.Name = "cmbSect"
         Me.cmbSect.Size = New System.Drawing.Size(122, 24)
         Me.cmbSect.TabIndex = 31
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel3.Location = New System.Drawing.Point(0, 156)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(261, 10)
+        Me.Panel3.TabIndex = 25
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.Red
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Location = New System.Drawing.Point(37, 355)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(89, 34)
+        Me.btnClear.TabIndex = 38
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FormLeaderboard
         '
@@ -137,10 +185,14 @@ Partial Class FormLeaderboard
 
     Friend WithEvents dvLB As DataGridView
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents cmbYear As ComboBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnFilter As Button
     Friend WithEvents cmbSect As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents cmbTerm As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents cmbSem As ComboBox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnClear As Button
 End Class
