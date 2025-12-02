@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,9 +20,11 @@ Partial Class Form2
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.chkIrreg = New System.Windows.Forms.CheckBox()
+        Me.cmbSyear2 = New System.Windows.Forms.ComboBox()
         Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.cmbGender = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -39,7 +41,7 @@ Partial Class Form2
         Me.btnSignup = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.txtFirstname = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -49,8 +51,6 @@ Partial Class Form2
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.cmbSyear2 = New System.Windows.Forms.ComboBox()
-        Me.chkIrreg = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +58,7 @@ Partial Class Form2
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.OldLace
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel1.Controls.Add(Me.chkIrreg)
         Me.Panel1.Controls.Add(Me.cmbSyear2)
         Me.Panel1.Controls.Add(Me.cmbSection)
@@ -77,7 +77,7 @@ Partial Class Form2
         Me.Panel1.Controls.Add(Me.btnSignup)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.txtUsername)
+        Me.Panel1.Controls.Add(Me.txtEmail)
         Me.Panel1.Controls.Add(Me.txtFirstname)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -85,8 +85,26 @@ Partial Class Form2
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 469)
+        Me.Panel1.Size = New System.Drawing.Size(822, 469)
         Me.Panel1.TabIndex = 0
+        '
+        'chkIrreg
+        '
+        Me.chkIrreg.AutoSize = True
+        Me.chkIrreg.Location = New System.Drawing.Point(766, 252)
+        Me.chkIrreg.Name = "chkIrreg"
+        Me.chkIrreg.Size = New System.Drawing.Size(18, 17)
+        Me.chkIrreg.TabIndex = 34
+        Me.chkIrreg.UseVisualStyleBackColor = True
+        '
+        'cmbSyear2
+        '
+        Me.cmbSyear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSyear2.FormattingEnabled = True
+        Me.cmbSyear2.Location = New System.Drawing.Point(648, 246)
+        Me.cmbSyear2.Name = "cmbSyear2"
+        Me.cmbSyear2.Size = New System.Drawing.Size(112, 24)
+        Me.cmbSyear2.TabIndex = 33
         '
         'cmbSection
         '
@@ -234,7 +252,7 @@ Partial Class Form2
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(550, 100)
+        Me.Label4.Location = New System.Drawing.Point(569, 99)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(107, 20)
         Me.Label4.TabIndex = 15
@@ -245,19 +263,19 @@ Partial Class Form2
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.Location = New System.Drawing.Point(427, 36)
+        Me.Label3.Location = New System.Drawing.Point(446, 35)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(343, 62)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "Create Account"
         '
-        'txtUsername
+        'txtEmail
         '
-        Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUsername.Location = New System.Drawing.Point(534, 188)
-        Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(226, 22)
-        Me.txtUsername.TabIndex = 13
+        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmail.Location = New System.Drawing.Point(534, 188)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(226, 22)
+        Me.txtEmail.TabIndex = 13
         '
         'txtFirstname
         '
@@ -272,11 +290,11 @@ Partial Class Form2
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label2.Location = New System.Drawing.Point(431, 187)
+        Me.Label2.Location = New System.Drawing.Point(469, 188)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(97, 22)
+        Me.Label2.Size = New System.Drawing.Size(59, 22)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Username:"
+        Me.Label2.Text = "Email:"
         '
         'Label1
         '
@@ -291,7 +309,7 @@ Partial Class Form2
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.DarkGreen
         Me.Panel2.Controls.Add(Me.btnSignin)
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label7)
@@ -330,7 +348,7 @@ Partial Class Form2
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label7.Location = New System.Drawing.Point(31, 184)
+        Me.Label7.Location = New System.Drawing.Point(43, 198)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(341, 44)
         Me.Label7.TabIndex = 13
@@ -356,29 +374,11 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
-        'cmbSyear2
-        '
-        Me.cmbSyear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSyear2.FormattingEnabled = True
-        Me.cmbSyear2.Location = New System.Drawing.Point(648, 246)
-        Me.cmbSyear2.Name = "cmbSyear2"
-        Me.cmbSyear2.Size = New System.Drawing.Size(112, 24)
-        Me.cmbSyear2.TabIndex = 33
-        '
-        'chkIrreg
-        '
-        Me.chkIrreg.AutoSize = True
-        Me.chkIrreg.Location = New System.Drawing.Point(766, 252)
-        Me.chkIrreg.Name = "chkIrreg"
-        Me.chkIrreg.Size = New System.Drawing.Size(18, 17)
-        Me.chkIrreg.TabIndex = 34
-        Me.chkIrreg.UseVisualStyleBackColor = True
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 469)
+        Me.ClientSize = New System.Drawing.Size(822, 469)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form2"
@@ -404,7 +404,7 @@ Partial Class Form2
     Friend WithEvents btnSignup As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents txtEmail As TextBox
     Friend WithEvents txtFirstname As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label

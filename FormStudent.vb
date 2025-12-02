@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.Data.SqlClient
-Public Class FormMain
+Public Class FormStudent
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
     Dim dr As SqlDataReader
@@ -66,85 +66,6 @@ Public Class FormMain
         cmbSub.SelectedIndex = -1
         txtScore.Clear()
         dtpSM.Value = Date.Today
-    End Sub
-
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If cmbSem.Text = "" Or cmbTerm.Text = "" Or cmbCat.Text = "" Or cmbNumber.Text = "" Or cmbSub.Text = "" Or txtScore.Text = "" Then
-            MsgBox("Please fill all the fields first.")
-            Exit Sub
-        End If
-
-        Dim num As Integer
-        Dim score As Double
-
-        If Not Integer.TryParse(cmbNumber.Text.Trim, num) Then
-            MsgBox("Invalid number format.")
-            Exit Sub
-        End If
-        If Not Double.TryParse(txtScore.Text.Trim, score) Then
-            MsgBox("Invalid score format.")
-            Exit Sub
-        End If
-        If score > 99 Then
-            MsgBox("Score is more than 2 digits. Please fix your score.")
-            Exit Sub
-        End If
-
-        Dim cat As String = cmbCat.Text.Trim()
-        Dim term As String = cmbTerm.Text.Trim()
-        Dim sem As String = cmbSem.Text.Trim()
-        Dim subj As String = cmbSub.Text.Trim()
-
-        Try
-            If cn.State = ConnectionState.Open Then cn.Close()
-            cn.Open()
-
-            sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
-              "VALUES (@uid, @fname, @lname, @section, @sem, @term, @subj, @cat, @num, @score, @date)"
-
-            Using cmd As New SqlCommand(sql, cn)
-                cmd.Parameters.AddWithValue("@uid", Form1.LoginUserID)
-                cmd.Parameters.AddWithValue("@fname", Form1.LoginFirstname)
-                cmd.Parameters.AddWithValue("@lname", Form1.LoginLastname)
-                cmd.Parameters.AddWithValue("@section", Form1.LoginSection)
-                cmd.Parameters.AddWithValue("@sem", sem)
-                cmd.Parameters.AddWithValue("@term", term)
-                cmd.Parameters.AddWithValue("@subj", subj)
-                cmd.Parameters.AddWithValue("@cat", cat)
-                cmd.Parameters.AddWithValue("@num", num)
-                cmd.Parameters.AddWithValue("@score", score)
-                cmd.Parameters.AddWithValue("@date", dtpSM.Value.Date)
-                cmd.ExecuteNonQuery()
-            End Using
-
-            MsgBox("Saved successfully.")
-            btnVS.PerformClick()
-
-        Catch ex As Exception
-            MsgBox("Error while saving: " & ex.Message, MsgBoxStyle.Critical)
-        Finally
-            If cn.State = ConnectionState.Open Then cn.Close()
-        End Try
-    End Sub
-
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If dvSrecord.SelectedRows.Count = 0 Then
-            MsgBox("Please select a record to delete.")
-            Exit Sub
-        End If
-
-        Dim scoreID As Integer = dvSrecord.SelectedRows(0).Cells("ScoreID").Value
-        If cn.State = ConnectionState.Open Then cn.Close()
-        cn.Open()
-
-        sql = "DELETE FROM tblScore WHERE ScoreID = @ScoreID"
-        cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@ScoreID", scoreID)
-        cmd.ExecuteNonQuery()
-        cn.Close()
-
-        MsgBox("Record deleted successfully.")
-        btnVS.PerformClick()
     End Sub
 
     Private Sub btnViewScore_Click(sender As Object, e As EventArgs) Handles btnVS.Click

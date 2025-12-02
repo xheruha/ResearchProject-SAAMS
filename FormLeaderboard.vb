@@ -1,46 +1,60 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class FormLeaderboard
-    Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
-    Dim cmd As SqlCommand
-    Dim sql As String
+
+    Private ReadOnly cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
+    Private cmd As SqlCommand
+    Private sql As String
+
+    Private Sub ProfileInfo()
+        lblFname.Text = Form1.LoginFirstname
+        lblLname.Text = Form1.LoginLastname
+        lblSec.Text = "Section: " & Form1.LoginSection
+
+        If Not String.IsNullOrEmpty(Form1.LoginSchoolYear2) Then
+            lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "/  " & Form1.LoginSchoolYear2 & " - Computer Science"
+        Else
+            lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & " - Computer Science"
+        End If
+    End Sub
+
+    Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ProfileInfo()
+    End Sub
 
     Private Sub FormLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         cmbSect.Items.Clear()
         Select Case Form1.LoginSchoolYear.Trim()
             Case "1st Year"
-                cmbSect.Items.Add("Mega")
-                cmbSect.Items.Add("Kilo")
+                cmbSect.Items.AddRange({"Mega", "Kilo"})
             Case "2nd Year"
-                cmbSect.Items.Add("Deca")
-                cmbSect.Items.Add("Penta")
+                cmbSect.Items.AddRange({"Deca", "Penta"})
             Case "3rd Year"
-                cmbSect.Items.Add("Hexa")
-                cmbSect.Items.Add("Octa")
+                cmbSect.Items.AddRange({"Hexa", "Octa"})
             Case "4th Year"
                 cmbSect.Items.Add("Sigma")
         End Select
-        cmbSect.SelectedIndex = -1
+        cmbSect.SelectedIndex = 0
 
         cmbSem.Items.Clear()
-        cmbSem.Items.Add("First Semester")
-        cmbSem.Items.Add("Second Semester")
-        cmbSem.SelectedIndex = -1
+        cmbSem.Items.AddRange({"First Semester", "Second Semester"})
+        cmbSem.SelectedIndex = 0
 
         cmbTerm.Items.Clear()
-        cmbTerm.Items.Add("Prelim")
-        cmbTerm.Items.Add("Midterm")
-        cmbTerm.Items.Add("Final")
+        cmbTerm.Items.AddRange({"Prelim", "Midterm", "Final"})
         cmbTerm.SelectedIndex = -1
+
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         cmbSect.SelectedIndex = -1
         cmbSem.SelectedIndex = -1
         cmbTerm.SelectedIndex = -1
+        dvLB.DataSource = Nothing
     End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+
         Dim sectionFilter As String = cmbSect.Text.Trim()
         Dim yearFilter As String = Form1.LoginSchoolYear.Trim()
         Dim semFilter As String = cmbSem.Text.Trim()
@@ -48,11 +62,13 @@ Public Class FormLeaderboard
 
         Select Case termFilter
             Case "Prelim"
-                LoadPrelim(sectionFilter, yearFilter, semFilter)
+                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Prelim")
+
             Case "Midterm"
-                LoadMidterm(sectionFilter, yearFilter, semFilter)
+                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Midterm")
+
             Case "Final"
-                LoadFinal(sectionFilter, yearFilter, semFilter)
+                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Final")
         End Select
     End Sub
 
@@ -60,51 +76,39 @@ Public Class FormLeaderboard
         Dim sectionFilter As String = cmbSect.Text.Trim()
         Dim yearFilter As String = Form1.LoginSchoolYear.Trim()
         Dim semFilter As String = cmbSem.Text.Trim()
-
-        If String.IsNullOrEmpty(sectionFilter) Then
-            MsgBox("Please select a section.", vbExclamation, "Validation Error")
-            Exit Sub
-        End If
-
-        If String.IsNullOrEmpty(semFilter) Then
-            MsgBox("Please select a semester.", vbExclamation, "Validation Error")
-            Exit Sub
-        End If
         LoadOverall(sectionFilter, yearFilter, semFilter)
     End Sub
-
-    Private Sub LoadPrelim(section As String, yearLevel As String, semester As String)
-        LoadRawTerm(section, yearLevel, semester, "Prelim")
-    End Sub
-
-    Private Sub LoadMidterm(section As String, yearLevel As String, semester As String)
-        LoadRawTerm(section, yearLevel, semester, "Midterm")
-    End Sub
-
-    Private Sub LoadFinal(section As String, yearLevel As String, semester As String)
-        LoadRawTerm(section, yearLevel, semester, "Final")
-    End Sub
-
-    Private Sub LoadRawTerm(section As String, yearLevel As String, semester As String, term As String)
+    Private Sub LoadPeriodic(section As String, yearLevel As String, semester As String, term As String)
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
 
-        sql = "SELECT u.UserID, u.Firstname, u.Lastname, u.Section, u.SchoolYear, " &
-              "ROUND((SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') THEN s.Score ELSE 0 END) * 0.4 + " &
-              "MAX(CASE WHEN s.Category = 'Exam' THEN s.Score ELSE 0 END) * 0.6), 2) AS ComputedGrade " &
-              "FROM tblUser u JOIN tblScore s ON u.UserID = s.UserID "
+        sql = "
+        SELECT 
+            u.UserID,
+            u.Firstname,
+            u.Lastname,
+            u.Section,
+            u.SchoolYear,
+            LEAST(100,
+                ROUND(((SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') THEN s.Score ELSE 0 END) * 2
+                      + MAX(CASE WHEN s.Category = 'Exam' THEN s.Score ELSE 0 END)) / 3), 2)
+            ) AS ComputedGrade
+        FROM tblUser u
+        JOIN tblScore s ON u.UserID = s.UserID
+        "
 
         Dim filters As New List(Of String)
         If section <> "" Then filters.Add("u.Section = @Section")
         If yearLevel <> "" Then filters.Add("u.SchoolYear = @Year")
         If semester <> "" Then filters.Add("s.Semester = @Semester")
         If term <> "" Then filters.Add("s.Term = @Term")
-
         If filters.Count > 0 Then sql &= " WHERE " & String.Join(" AND ", filters)
 
-        sql &= " GROUP BY u.UserID, u.Firstname, u.Lastname, u.Section, u.SchoolYear ORDER BY ComputedGrade DESC"
 
+        sql &= " GROUP BY u.UserID, u.Firstname, u.Lastname, u.Section, u.SchoolYear
+                ORDER BY ComputedGrade DESC"
         cmd = New SqlCommand(sql, cn)
+
         If section <> "" Then cmd.Parameters.AddWithValue("@Section", section)
         If yearLevel <> "" Then cmd.Parameters.AddWithValue("@Year", yearLevel)
         If semester <> "" Then cmd.Parameters.AddWithValue("@Semester", semester)
@@ -112,10 +116,13 @@ Public Class FormLeaderboard
 
         Dim adpt As New SqlDataAdapter(cmd)
         Dim tbl As New DataTable()
+
         adpt.Fill(tbl)
         dvLB.DataSource = tbl
 
-        If dvLB.Columns.Contains("UserID") Then dvLB.Columns("UserID").Visible = False
+        If dvLB.Columns.Contains("UserID") Then
+            dvLB.Columns("UserID").Visible = False
+        End If
         cn.Close()
     End Sub
 
@@ -123,45 +130,64 @@ Public Class FormLeaderboard
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
 
-        sql = "SELECT u.UserID, u.Firstname, u.Lastname, u.Section, u.SchoolYear, " &
-              "ROUND((" &
-              "(SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') THEN s.Score ELSE 0 END) * 0.4 + " &
-              "MAX(CASE WHEN s.Category = 'Exam' THEN s.Score ELSE 0 END) * 0.6) + " &
-              "ISNULL((" &
-              "SELECT ROUND((" &
-              "(SUM(CASE WHEN s2.Category IN ('Quiz','Activity','Assignment') THEN s2.Score ELSE 0 END) * 0.4 + " &
-              "MAX(CASE WHEN s2.Category = 'Exam' THEN s2.Score ELSE 0 END) * 0.6) + " &
-              "ISNULL((" &
-              "SELECT ROUND((" &
-              "SUM(CASE WHEN s3.Category IN ('Quiz','Activity','Assignment') THEN s3.Score ELSE 0 END) * 0.4 + " &
-              "MAX(CASE WHEN s3.Category = 'Exam' THEN s3.Score ELSE 0 END) * 0.6), 2) " &
-              "FROM tblScore s3 WHERE s3.UserID = u.UserID AND s3.Semester = s.Semester AND s3.Term = 'Prelim' GROUP BY s3.UserID), 0) / 2" &
-              "), 2) " &
-              "FROM tblScore s2 WHERE s2.UserID = u.UserID AND s2.Semester = s.Semester AND s2.Term = 'Midterm' GROUP BY s2.UserID), 0) / 2" &
-              "), 2) AS ComputedGrade " &
-              "FROM tblUser u JOIN tblScore s ON u.UserID = s.UserID "
+        sql = "
+    SELECT 
+        u.UserID,
+        u.Firstname,
+        u.Lastname,
+        u.Section,
+        u.SchoolYear,
+        LEAST(100, ROUND(FinalGrade, 2)) AS ComputedGrade
+    FROM tblUser u
+    JOIN (
+        SELECT 
+            s.UserID,
+            s.Semester,
+            SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') AND s.Term = 'Prelim' THEN s.Score ELSE 0 END) AS SA_Prelim,
+            MAX(CASE WHEN s.Category = 'Exam' AND s.Term = 'Prelim' THEN s.Score ELSE 0 END) AS Exam_Prelim,
+            SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') AND s.Term = 'Midterm' THEN s.Score ELSE 0 END) AS SA_Midterm,
+            MAX(CASE WHEN s.Category = 'Exam' AND s.Term = 'Midterm' THEN s.Score ELSE 0 END) AS Exam_Midterm,
+            SUM(CASE WHEN s.Category IN ('Quiz','Activity','Assignment') AND s.Term = 'Final' THEN s.Score ELSE 0 END) AS SA_Final,
+            MAX(CASE WHEN s.Category = 'Exam' AND s.Term = 'Final' THEN s.Score ELSE 0 END) AS Exam_Final
+        FROM tblScore s
+        WHERE s.Semester = @Semester
+        GROUP BY s.UserID, s.Semester
+    ) G ON u.UserID = G.UserID
+    CROSS APPLY (
+        SELECT ((G.SA_Prelim * 2 + G.Exam_Prelim) / 3) AS PrelimGrade
+    ) P
+    CROSS APPLY (
+        SELECT ((G.SA_Midterm * 2 + G.Exam_Midterm) / 3 + (P.PrelimGrade / 2)) AS MidtermGrade
+    ) M
+    CROSS APPLY (
+        SELECT ((G.SA_Final * 2 + G.Exam_Final) / 3 + (M.MidtermGrade / 2)) AS FinalGrade
+    ) F
+    "
 
         Dim filters As New List(Of String)
         If section <> "" Then filters.Add("u.Section = @Section")
         If yearLevel <> "" Then filters.Add("u.SchoolYear = @Year")
-        If semester <> "" Then filters.Add("s.Semester = @Semester")
 
-        If filters.Count > 0 Then sql &= " WHERE " & String.Join(" AND ", filters)
+        If filters.Count > 0 Then
+            sql &= " WHERE " & String.Join(" AND ", filters)
+        End If
 
-        sql &= " GROUP BY u.UserID, u.Firstname, u.Lastname, u.Section, u.SchoolYear, s.Semester ORDER BY ComputedGrade DESC"
-
+        sql &= " ORDER BY ComputedGrade DESC"
         cmd = New SqlCommand(sql, cn)
+
         If section <> "" Then cmd.Parameters.AddWithValue("@Section", section)
         If yearLevel <> "" Then cmd.Parameters.AddWithValue("@Year", yearLevel)
-        If semester <> "" Then cmd.Parameters.AddWithValue("@Semester", semester)
+        cmd.Parameters.AddWithValue("@Semester", semester)
 
         Dim adpt As New SqlDataAdapter(cmd)
         Dim tbl As New DataTable()
         adpt.Fill(tbl)
         dvLB.DataSource = tbl
 
-        If dvLB.Columns.Contains("UserID") Then dvLB.Columns("UserID").Visible = False
+        If dvLB.Columns.Contains("UserID") Then
+            dvLB.Columns("UserID").Visible = False
+        End If
+
         cn.Close()
     End Sub
-
 End Class

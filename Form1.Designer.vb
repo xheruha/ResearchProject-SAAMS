@@ -27,10 +27,11 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtPass = New System.Windows.Forms.TextBox()
-        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnManage = New System.Windows.Forms.Button()
         Me.btnSignup = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -43,19 +44,19 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.OldLace
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Panel1.Controls.Add(Me.btnContinue)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.txtPass)
-        Me.Panel1.Controls.Add(Me.txtUser)
+        Me.Panel1.Controls.Add(Me.txtEmail)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(800, 469)
+        Me.Panel1.Size = New System.Drawing.Size(822, 469)
         Me.Panel1.TabIndex = 0
         '
         'btnContinue
@@ -63,7 +64,7 @@ Partial Class Form1
         Me.btnContinue.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnContinue.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnContinue.Location = New System.Drawing.Point(597, 279)
+        Me.btnContinue.Location = New System.Drawing.Point(589, 291)
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.Size = New System.Drawing.Size(122, 42)
         Me.btnContinue.TabIndex = 9
@@ -75,7 +76,7 @@ Partial Class Form1
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(548, 153)
+        Me.Label4.Location = New System.Drawing.Point(585, 168)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(107, 20)
         Me.Label4.TabIndex = 8
@@ -86,7 +87,7 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label3.Location = New System.Drawing.Point(481, 66)
+        Me.Label3.Location = New System.Drawing.Point(518, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(238, 87)
         Me.Label3.TabIndex = 7
@@ -100,13 +101,13 @@ Partial Class Form1
         Me.txtPass.Size = New System.Drawing.Size(174, 22)
         Me.txtPass.TabIndex = 6
         '
-        'txtUser
+        'txtEmail
         '
-        Me.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUser.Location = New System.Drawing.Point(572, 207)
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(174, 22)
-        Me.txtUser.TabIndex = 5
+        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmail.Location = New System.Drawing.Point(572, 207)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(174, 22)
+        Me.txtEmail.TabIndex = 5
         '
         'Label2
         '
@@ -124,15 +125,16 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(459, 204)
+        Me.Label1.Location = New System.Drawing.Point(497, 207)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(97, 22)
+        Me.Label1.Size = New System.Drawing.Size(59, 22)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Username:"
+        Me.Label1.Text = "Email:"
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.DarkGreen
+        Me.Panel2.Controls.Add(Me.btnManage)
         Me.Panel2.Controls.Add(Me.btnSignup)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
@@ -143,12 +145,24 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(408, 475)
         Me.Panel2.TabIndex = 0
         '
+        'btnManage
+        '
+        Me.btnManage.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnManage.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManage.Location = New System.Drawing.Point(228, 297)
+        Me.btnManage.Name = "btnManage"
+        Me.btnManage.Size = New System.Drawing.Size(122, 42)
+        Me.btnManage.TabIndex = 13
+        Me.btnManage.Text = "Manage"
+        Me.btnManage.UseVisualStyleBackColor = False
+        '
         'btnSignup
         '
         Me.btnSignup.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnSignup.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSignup.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSignup.Location = New System.Drawing.Point(144, 285)
+        Me.btnSignup.Location = New System.Drawing.Point(63, 297)
         Me.btnSignup.Name = "btnSignup"
         Me.btnSignup.Size = New System.Drawing.Size(122, 42)
         Me.btnSignup.TabIndex = 10
@@ -160,7 +174,7 @@ Partial Class Form1
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label7.Location = New System.Drawing.Point(20, 177)
+        Me.Label7.Location = New System.Drawing.Point(34, 188)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(341, 44)
         Me.Label7.TabIndex = 10
@@ -171,11 +185,11 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(93, 340)
+        Me.Label6.Location = New System.Drawing.Point(83, 359)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(229, 16)
+        Me.Label6.Size = New System.Drawing.Size(232, 32)
         Me.Label6.TabIndex = 11
-        Me.Label6.Text = "Don't have an account? Click Sign Up" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label6.Text = "Don't have an account? Click Sign Up " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Forgot your password? Click Manage" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Label5
         '
@@ -201,7 +215,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 469)
+        Me.ClientSize = New System.Drawing.Size(822, 469)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
@@ -222,7 +236,7 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents txtPass As TextBox
-    Friend WithEvents txtUser As TextBox
+    Friend WithEvents txtEmail As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnContinue As Button
     Friend WithEvents Label4 As Label
@@ -230,4 +244,5 @@ Partial Class Form1
     Friend WithEvents Label5 As Label
     Friend WithEvents btnSignup As Button
     Friend WithEvents Label7 As Label
+    Friend WithEvents btnManage As Button
 End Class

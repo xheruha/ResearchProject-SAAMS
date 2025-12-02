@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+
 Public Class Form2
 
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
@@ -7,7 +8,7 @@ Public Class Form2
     Dim sql As String
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
-        If txtUsername.Text = "" Or txtPass.Text = "" Or txtCpass.Text = "" Then
+        If txtEmail.Text = "" Or txtPass.Text = "" Or txtCpass.Text = "" Then
             MsgBox("Please fill in all required fields", MsgBoxStyle.Critical)
         ElseIf txtPass.Text <> txtCpass.Text Then
             MsgBox("Passwords do not match", MsgBoxStyle.Critical)
@@ -18,21 +19,21 @@ Public Class Form2
         ElseIf chkIrreg.Checked And cmbSyear.Text = cmbSyear2.Text Then
             MsgBox("School year cannot be the same", MsgBoxStyle.Exclamation)
         Else
-            CheckUsername()
+            CheckEmail()
         End If
     End Sub
 
-    Private Sub CheckUsername()
-        sql = "SELECT Username FROM tblUser WHERE Username = @Username"
+    Private Sub CheckEmail()
+        sql = "SELECT Email FROM tblUser WHERE Email = @Email"
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
+        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
         dr = cmd.ExecuteReader()
 
         If dr.Read() Then
-            MsgBox("Username already exists. Use a different one.", MsgBoxStyle.Exclamation)
+            MsgBox("Email already exists. Use a different one.", MsgBoxStyle.Exclamation)
             dr.Close()
             cn.Close()
         Else
@@ -43,17 +44,18 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Username, Gender, SchoolYear, SchoolYear2, Section, Password) " &
-              "VALUES (@Firstname, @Lastname, @Username, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, SchoolYear2, Section, Password, Role) " &
+              "VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password, @Role)"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Firstname", txtFirstname.Text.Trim())
         cmd.Parameters.AddWithValue("@Lastname", txtLastname.Text.Trim())
-        cmd.Parameters.AddWithValue("@Username", txtUsername.Text.Trim())
+        cmd.Parameters.AddWithValue("@Email", txtEmail.Text.Trim())
         cmd.Parameters.AddWithValue("@Gender", cmbGender.Text)
         cmd.Parameters.AddWithValue("@SchoolYear", cmbSyear.Text)
         cmd.Parameters.AddWithValue("@SchoolYear2", If(chkIrreg.Checked, cmbSyear2.Text, ""))
         cmd.Parameters.AddWithValue("@Section", cmbSection.Text.Trim())
         cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
+        cmd.Parameters.AddWithValue("@Role", "Student")
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
@@ -69,7 +71,7 @@ Public Class Form2
     Private Sub ClearFields()
         txtFirstname.Clear()
         txtLastname.Clear()
-        txtUsername.Clear()
+        txtEmail.Clear()
         cmbGender.SelectedIndex = -1
         cmbSyear.SelectedIndex = -1
         cmbSyear2.SelectedIndex = -1
@@ -136,4 +138,5 @@ Public Class Form2
             cmbSyear2.SelectedIndex = -1
         End If
     End Sub
+
 End Class
