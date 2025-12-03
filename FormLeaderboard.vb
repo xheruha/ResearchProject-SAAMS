@@ -5,6 +5,7 @@ Public Class FormLeaderboard
     Private cmd As SqlCommand
     Private sql As String
 
+
     Private Sub ProfileInfo()
         lblFname.Text = Form1.LoginFirstname
         lblLname.Text = Form1.LoginLastname
@@ -17,9 +18,11 @@ Public Class FormLeaderboard
         End If
     End Sub
 
+
     Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProfileInfo()
     End Sub
+
 
     Private Sub FormLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -46,6 +49,7 @@ Public Class FormLeaderboard
 
     End Sub
 
+
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         cmbSect.SelectedIndex = -1
         cmbSem.SelectedIndex = -1
@@ -53,31 +57,28 @@ Public Class FormLeaderboard
         dvLB.DataSource = Nothing
     End Sub
 
-    Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
-
-        Dim sectionFilter As String = cmbSect.Text.Trim()
-        Dim yearFilter As String = Form1.LoginSchoolYear.Trim()
-        Dim semFilter As String = cmbSem.Text.Trim()
-        Dim termFilter As String = cmbTerm.Text.Trim()
-
-        Select Case termFilter
-            Case "Prelim"
-                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Prelim")
-
-            Case "Midterm"
-                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Midterm")
-
-            Case "Final"
-                LoadPeriodic(sectionFilter, yearFilter, semFilter, "Final")
-        End Select
-    End Sub
 
     Private Sub btnOV_Click(sender As Object, e As EventArgs) Handles btnOV.Click
         Dim sectionFilter As String = cmbSect.Text.Trim()
         Dim yearFilter As String = Form1.LoginSchoolYear.Trim()
         Dim semFilter As String = cmbSem.Text.Trim()
-        LoadOverall(sectionFilter, yearFilter, semFilter)
+        Dim termFilter As String = cmbTerm.Text.Trim()
+
+        If termFilter = "" Then
+            LoadOverall(sectionFilter, yearFilter, semFilter)
+        Else
+            Select Case termFilter
+                Case "Prelim"
+                    LoadPeriodic(sectionFilter, yearFilter, semFilter, "Prelim")
+                Case "Midterm"
+                    LoadPeriodic(sectionFilter, yearFilter, semFilter, "Midterm")
+                Case "Final"
+                    LoadPeriodic(sectionFilter, yearFilter, semFilter, "Final")
+            End Select
+        End If
     End Sub
+
+
     Private Sub LoadPeriodic(section As String, yearLevel As String, semester As String, term As String)
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
@@ -123,8 +124,33 @@ Public Class FormLeaderboard
         If dvLB.Columns.Contains("UserID") Then
             dvLB.Columns("UserID").Visible = False
         End If
+        If tbl.Rows.Count > 0 Then
+            Dim grade As Double = Convert.ToDouble(tbl.Rows(0)("ComputedGrade"))
+            Dim statusMessage As String = ""
+
+            Select Case grade
+                Case < 65
+                    statusMessage = "Performance below expectations."
+                Case 65 To 74.99
+                    statusMessage = "Needs improvement."
+                Case 75 To 80
+                    statusMessage = "Satisfactory standing."
+                Case 80.01 To 89.99
+                    statusMessage = "Good progress."
+                Case >= 90
+                    statusMessage = "Excellent performance."
+            End Select
+
+            lblStatus.Text = statusMessage
+        Else
+            lblStatus.Text = "No records found."
+        End If
+
+
+
         cn.Close()
     End Sub
+
 
     Private Sub LoadOverall(section As String, yearLevel As String, semester As String)
         If cn.State = ConnectionState.Open Then cn.Close()
@@ -188,6 +214,26 @@ Public Class FormLeaderboard
             dvLB.Columns("UserID").Visible = False
         End If
 
-        cn.Close()
+        If tbl.Rows.Count > 0 Then
+            Dim grade As Double = Convert.ToDouble(tbl.Rows(0)("ComputedGrade"))
+            Dim statusMessage As String = ""
+
+            Select Case grade
+                Case < 65
+                    statusMessage = "Performance below expectations."
+                Case 65 To 74.99
+                    statusMessage = "Needs improvement."
+                Case 75 To 80
+                    statusMessage = "Satisfactory standing."
+                Case 80.01 To 89.99
+                    statusMessage = "Good progress."
+                Case >= 90
+                    statusMessage = "Excellent performance."
+            End Select
+
+            lblStatus.Text = statusMessage
+        Else
+            lblStatus.Text = "No records found."
+        End If
     End Sub
 End Class

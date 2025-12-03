@@ -48,11 +48,9 @@ Partial Class FormMain
         Me.cmbSub = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnLogout = New System.Windows.Forms.Button()
-        Me.lblSec = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.lblSYdep = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.lblCollege = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblLname = New System.Windows.Forms.Label()
@@ -63,7 +61,6 @@ Partial Class FormMain
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -344,11 +341,9 @@ Partial Class FormMain
         '
         Me.Panel2.BackColor = System.Drawing.Color.Wheat
         Me.Panel2.Controls.Add(Me.btnLogout)
-        Me.Panel2.Controls.Add(Me.lblSec)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
         Me.Panel2.Controls.Add(Me.PictureBox6)
-        Me.Panel2.Controls.Add(Me.PictureBox7)
         Me.Panel2.Controls.Add(Me.lblCollege)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.lblLname)
@@ -369,21 +364,11 @@ Partial Class FormMain
         Me.btnLogout.Text = "Logout"
         Me.btnLogout.UseVisualStyleBackColor = False
         '
-        'lblSec
-        '
-        Me.lblSec.AutoSize = True
-        Me.lblSec.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSec.Location = New System.Drawing.Point(396, 83)
-        Me.lblSec.Name = "lblSec"
-        Me.lblSec.Size = New System.Drawing.Size(76, 25)
-        Me.lblSec.TabIndex = 34
-        Me.lblSec.Text = "Section"
-        '
         'PictureBox5
         '
         Me.PictureBox5.BackgroundImage = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Location = New System.Drawing.Point(364, 50)
+        Me.PictureBox5.Location = New System.Drawing.Point(369, 60)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(26, 27)
         Me.PictureBox5.TabIndex = 33
@@ -393,7 +378,7 @@ Partial Class FormMain
         '
         Me.lblSYdep.AutoSize = True
         Me.lblSYdep.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSYdep.Location = New System.Drawing.Point(396, 50)
+        Me.lblSYdep.Location = New System.Drawing.Point(401, 60)
         Me.lblSYdep.Name = "lblSYdep"
         Me.lblSYdep.Size = New System.Drawing.Size(70, 25)
         Me.lblSYdep.TabIndex = 32
@@ -403,27 +388,17 @@ Partial Class FormMain
         '
         Me.PictureBox6.BackgroundImage = Global.ResearchProject.My.Resources.Resources.main_page
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox6.Location = New System.Drawing.Point(364, 18)
+        Me.PictureBox6.Location = New System.Drawing.Point(369, 28)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(26, 26)
         Me.PictureBox6.TabIndex = 31
         Me.PictureBox6.TabStop = False
         '
-        'PictureBox7
-        '
-        Me.PictureBox7.BackgroundImage = Global.ResearchProject.My.Resources.Resources.student
-        Me.PictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox7.Location = New System.Drawing.Point(364, 83)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(26, 27)
-        Me.PictureBox7.TabIndex = 30
-        Me.PictureBox7.TabStop = False
-        '
         'lblCollege
         '
         Me.lblCollege.AutoSize = True
         Me.lblCollege.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCollege.Location = New System.Drawing.Point(396, 18)
+        Me.lblCollege.Location = New System.Drawing.Point(401, 28)
         Me.lblCollege.Name = "lblCollege"
         Me.lblCollege.Size = New System.Drawing.Size(398, 25)
         Me.lblCollege.TabIndex = 29
@@ -443,7 +418,7 @@ Partial Class FormMain
         '
         Me.lblLname.AutoSize = True
         Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(143, 76)
+        Me.lblLname.Location = New System.Drawing.Point(143, 56)
         Me.lblLname.Name = "lblLname"
         Me.lblLname.Size = New System.Drawing.Size(133, 34)
         Me.lblLname.TabIndex = 1
@@ -453,7 +428,7 @@ Partial Class FormMain
         '
         Me.lblFname.AutoSize = True
         Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFname.Location = New System.Drawing.Point(143, 48)
+        Me.lblFname.Location = New System.Drawing.Point(143, 28)
         Me.lblFname.Name = "lblFname"
         Me.lblFname.Size = New System.Drawing.Size(136, 34)
         Me.lblFname.TabIndex = 0
@@ -484,7 +459,6 @@ Partial Class FormMain
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -513,11 +487,9 @@ Partial Class FormMain
     Friend WithEvents cmbSub As ComboBox
     Friend WithEvents btnFilter As Button
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents lblSec As Label
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents lblSYdep As Label
     Friend WithEvents PictureBox6 As PictureBox
-    Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents lblCollege As Label
     Friend WithEvents lblLname As Label
     Friend WithEvents cmbStudent As ComboBox

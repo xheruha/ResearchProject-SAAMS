@@ -11,7 +11,6 @@ Public Class FormMain
     Private Sub ProfileInfo()
         lblFname.Text = Form1.LoginFirstname
         lblLname.Text = Form1.LoginLastname
-        lblSec.Text = "Section: " & Form1.LoginSection
 
         If Not String.IsNullOrEmpty(Form1.LoginSchoolYear2) Then
             lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "/ " & Form1.LoginSchoolYear2 & " - Computer Science"

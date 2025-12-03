@@ -30,7 +30,6 @@ Partial Class FormLeaderboard
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cmbSem = New System.Windows.Forms.ComboBox()
-        Me.btnFilter = New System.Windows.Forms.Button()
         Me.cmbTerm = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -45,6 +44,11 @@ Partial Class FormLeaderboard
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblLname = New System.Windows.Forms.Label()
         Me.lblFname = New System.Windows.Forms.Label()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         CType(Me.dvLB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -53,6 +57,8 @@ Partial Class FormLeaderboard
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'dvLB
@@ -67,13 +73,13 @@ Partial Class FormLeaderboard
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Wheat
+        Me.Panel1.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Controls.Add(Me.btnOV)
         Me.Panel1.Controls.Add(Me.Panel3)
         Me.Panel1.Controls.Add(Me.btnClear)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.cmbSem)
-        Me.Panel1.Controls.Add(Me.btnFilter)
         Me.Panel1.Controls.Add(Me.cmbTerm)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -88,7 +94,7 @@ Partial Class FormLeaderboard
         Me.btnOV.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnOV.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOV.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnOV.Location = New System.Drawing.Point(144, 236)
+        Me.btnOV.Location = New System.Drawing.Point(17, 213)
         Me.btnOV.Name = "btnOV"
         Me.btnOV.Size = New System.Drawing.Size(102, 41)
         Me.btnOV.TabIndex = 39
@@ -117,7 +123,7 @@ Partial Class FormLeaderboard
         Me.btnClear.BackColor = System.Drawing.Color.Red
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(86, 304)
+        Me.btnClear.Location = New System.Drawing.Point(144, 213)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(102, 41)
         Me.btnClear.TabIndex = 38
@@ -127,7 +133,7 @@ Partial Class FormLeaderboard
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(49, 99)
         Me.Label3.Name = "Label3"
@@ -144,18 +150,6 @@ Partial Class FormLeaderboard
         Me.cmbSem.Size = New System.Drawing.Size(122, 24)
         Me.cmbSem.TabIndex = 34
         '
-        'btnFilter
-        '
-        Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(17, 236)
-        Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(102, 41)
-        Me.btnFilter.TabIndex = 32
-        Me.btnFilter.Text = "ViewGrade"
-        Me.btnFilter.UseVisualStyleBackColor = False
-        '
         'cmbTerm
         '
         Me.cmbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
@@ -168,7 +162,7 @@ Partial Class FormLeaderboard
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 45)
         Me.Label2.Name = "Label2"
@@ -179,7 +173,7 @@ Partial Class FormLeaderboard
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(27, 156)
         Me.Label1.Name = "Label1"
@@ -198,7 +192,7 @@ Partial Class FormLeaderboard
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.Wheat
+        Me.Panel2.BackColor = System.Drawing.Color.DarkKhaki
         Me.Panel2.Controls.Add(Me.lblSec)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
@@ -303,12 +297,63 @@ Partial Class FormLeaderboard
         Me.lblFname.TabIndex = 0
         Me.lblFname.Text = "First Name"
         '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.Color.Olive
+        Me.Panel5.Controls.Add(Me.Label4)
+        Me.Panel5.Controls.Add(Me.lblStatus)
+        Me.Panel5.Location = New System.Drawing.Point(755, 122)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(259, 73)
+        Me.Panel5.TabIndex = 27
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.BackColor = System.Drawing.Color.Orange
+        Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus.Location = New System.Drawing.Point(1, 45)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 16)
+        Me.lblStatus.TabIndex = 0
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Location = New System.Drawing.Point(156, 99)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(0, 16)
+        Me.Label5.TabIndex = 1
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(3, 9)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(61, 21)
+        Me.Label4.TabIndex = 35
+        Me.Label4.Text = "Status:"
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.Olive
+        Me.Panel6.Controls.Add(Me.Label5)
+        Me.Panel6.Location = New System.Drawing.Point(0, 271)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(261, 132)
+        Me.Panel6.TabIndex = 40
+        '
         'FormLeaderboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.OldLace
         Me.ClientSize = New System.Drawing.Size(1013, 586)
+        Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.dvLB)
@@ -324,13 +369,16 @@ Partial Class FormLeaderboard
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents dvLB As DataGridView
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnFilter As Button
     Friend WithEvents cmbSect As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
@@ -351,4 +399,9 @@ Partial Class FormLeaderboard
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblLname As Label
     Friend WithEvents lblFname As Label
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents lblStatus As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Panel6 As Panel
 End Class

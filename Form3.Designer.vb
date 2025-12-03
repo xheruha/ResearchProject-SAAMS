@@ -43,6 +43,7 @@ Partial Class Form3
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -54,7 +55,8 @@ Partial Class Form3
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Teal
+        Me.Panel1.BackColor = System.Drawing.Color.CadetBlue
+        Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.PictureBox3)
         Me.Panel1.Controls.Add(Me.btnLB)
@@ -90,7 +92,7 @@ Partial Class Form3
         '
         'btnLB
         '
-        Me.btnLB.BackColor = System.Drawing.Color.Bisque
+        Me.btnLB.BackColor = System.Drawing.Color.DarkKhaki
         Me.btnLB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnLB.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnLB.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -107,7 +109,7 @@ Partial Class Form3
         '
         'btnMain
         '
-        Me.btnMain.BackColor = System.Drawing.Color.Bisque
+        Me.btnMain.BackColor = System.Drawing.Color.DarkKhaki
         Me.btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btnMain.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnMain.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -151,12 +153,14 @@ Partial Class Form3
         '
         'btnLogout
         '
+        Me.btnLogout.BackColor = System.Drawing.Color.Red
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogout.Location = New System.Drawing.Point(1184, 19)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(78, 27)
         Me.btnLogout.TabIndex = 0
         Me.btnLogout.Text = "Logout"
-        Me.btnLogout.UseVisualStyleBackColor = True
+        Me.btnLogout.UseVisualStyleBackColor = False
         '
         'PictureBox4
         '
@@ -201,7 +205,7 @@ Partial Class Form3
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.AntiqueWhite
+        Me.pnlMain.BackColor = System.Drawing.Color.Khaki
         Me.pnlMain.Controls.Add(Me.Label9)
         Me.pnlMain.Controls.Add(Me.Label8)
         Me.pnlMain.Controls.Add(Me.Label7)
@@ -217,20 +221,20 @@ Partial Class Form3
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(186, 322)
+        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(59, 383)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(405, 19)
+        Me.Label9.Size = New System.Drawing.Size(547, 25)
         Me.Label9.TabIndex = 5
         Me.Label9.Text = "- Access historical performance data across semesters"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(186, 353)
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(59, 414)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(626, 38)
+        Me.Label8.Size = New System.Drawing.Size(849, 50)
         Me.Label8.TabIndex = 4
         Me.Label8.Text = "- Engage with a leaderboard that ranks students by section or year level, promoti" &
     "ng " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "healthy academic competition"
@@ -238,20 +242,20 @@ Partial Class Form3
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(186, 288)
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(59, 349)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(547, 19)
+        Me.Label7.Size = New System.Drawing.Size(722, 25)
         Me.Label7.TabIndex = 3
         Me.Label7.Text = "- Track missing submissions and monitor progress from prelims to finals"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(186, 257)
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(59, 318)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(612, 19)
+        Me.Label6.Size = New System.Drawing.Size(824, 25)
         Me.Label6.TabIndex = 2
         Me.Label6.Text = "- View summaries of your scores across quizzes, exams, assignments, and activitie" &
     "s"
@@ -259,10 +263,10 @@ Partial Class Form3
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(186, 189)
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(59, 250)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(671, 38)
+        Me.Label5.Size = New System.Drawing.Size(902, 50)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "The Student Achievement and Monitoring System is a digital scores monitoring help" &
     "s you " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "if your grade is alright or you are cooked"
@@ -270,12 +274,22 @@ Partial Class Form3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 25.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(179, 51)
+        Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 34.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(50, 32)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(715, 124)
+        Me.Label4.Size = New System.Drawing.Size(944, 164)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "                 Welcome to our " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Achievement Monitoring System"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(8, 590)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(111, 20)
+        Me.Label10.TabIndex = 10
+        Me.Label10.Text = "St.Rose, Inc"
         '
         'Form3
         '
@@ -323,4 +337,5 @@ Partial Class Form3
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents Label10 As Label
 End Class

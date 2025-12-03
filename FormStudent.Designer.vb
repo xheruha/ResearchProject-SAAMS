@@ -72,7 +72,7 @@ Partial Class FormStudent
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.DarkGreen
+        Me.Panel1.BackColor = System.Drawing.Color.DarkKhaki
         Me.Panel1.Controls.Add(Me.btnFilter)
         Me.Panel1.Controls.Add(Me.cmbSub)
         Me.Panel1.Controls.Add(Me.btnVS)
@@ -111,7 +111,7 @@ Partial Class FormStudent
         '
         Me.cmbSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSub.FormattingEnabled = True
-        Me.cmbSub.Location = New System.Drawing.Point(163, 176)
+        Me.cmbSub.Location = New System.Drawing.Point(163, 170)
         Me.cmbSub.Name = "cmbSub"
         Me.cmbSub.Size = New System.Drawing.Size(204, 24)
         Me.cmbSub.TabIndex = 24
@@ -246,7 +246,7 @@ Partial Class FormStudent
         '
         Me.cmbCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCat.FormattingEnabled = True
-        Me.cmbCat.Location = New System.Drawing.Point(163, 220)
+        Me.cmbCat.Location = New System.Drawing.Point(163, 212)
         Me.cmbCat.Name = "cmbCat"
         Me.cmbCat.Size = New System.Drawing.Size(204, 24)
         Me.cmbCat.TabIndex = 4
@@ -306,7 +306,7 @@ Partial Class FormStudent
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(55, 216)
+        Me.Label3.Location = New System.Drawing.Point(53, 212)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 25)
         Me.Label3.TabIndex = 5
@@ -317,7 +317,7 @@ Partial Class FormStudent
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(67, 172)
+        Me.Label2.Location = New System.Drawing.Point(65, 166)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 3
@@ -339,7 +339,7 @@ Partial Class FormStudent
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(52, 126)
+        Me.Label1.Location = New System.Drawing.Point(50, 126)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(97, 25)
         Me.Label1.TabIndex = 1

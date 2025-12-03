@@ -22,103 +22,122 @@ Partial Class Form4
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnDone = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.txtNew = New System.Windows.Forms.TextBox()
+        Me.txtCP = New System.Windows.Forms.TextBox()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
-        'Panel2
+        'txtNew
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkGreen
-        Me.Panel2.Controls.Add(Me.btnDone)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.PictureBox1)
-        Me.Panel2.Location = New System.Drawing.Point(1, -2)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(418, 487)
-        Me.Panel2.TabIndex = 1
+        Me.txtNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtNew.Location = New System.Drawing.Point(119, 114)
+        Me.txtNew.Name = "txtNew"
+        Me.txtNew.Size = New System.Drawing.Size(255, 22)
+        Me.txtNew.TabIndex = 0
         '
-        'btnDone
+        'txtCP
         '
-        Me.btnDone.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.btnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDone.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDone.Location = New System.Drawing.Point(151, 290)
-        Me.btnDone.Name = "btnDone"
-        Me.btnDone.Size = New System.Drawing.Size(122, 42)
-        Me.btnDone.TabIndex = 14
-        Me.btnDone.Text = "Sign In"
-        Me.btnDone.UseVisualStyleBackColor = False
+        Me.txtCP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtCP.Location = New System.Drawing.Point(119, 165)
+        Me.txtCP.Name = "txtCP"
+        Me.txtCP.Size = New System.Drawing.Size(255, 22)
+        Me.txtCP.TabIndex = 1
         '
-        'Label6
+        'btnSave
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(98, 344)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(227, 16)
-        Me.Label6.TabIndex = 15
-        Me.Label6.Text = "Click here to finish your management!"
+        Me.btnSave.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSave.Location = New System.Drawing.Point(119, 213)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(102, 35)
+        Me.btnSave.TabIndex = 2
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = False
         '
-        'Label7
+        'btnExit
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label7.Location = New System.Drawing.Point(41, 188)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(341, 44)
-        Me.Label7.TabIndex = 13
-        Me.Label7.Text = "           St.Rose Computer Studies" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Students Achievement Monitoring System"
+        Me.btnExit.BackColor = System.Drawing.Color.Red
+        Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnExit.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExit.Location = New System.Drawing.Point(272, 213)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(102, 35)
+        Me.btnExit.TabIndex = 3
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = False
         '
-        'Label5
+        'Label1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(97, 201)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(0, 20)
-        Me.Label5.TabIndex = 12
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(114, 86)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(141, 25)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "New password:"
         '
-        'PictureBox1
+        'Label2
         '
-        Me.PictureBox1.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761053176048
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(114, 25)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(175, 145)
-        Me.PictureBox1.TabIndex = 11
-        Me.PictureBox1.TabStop = False
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(114, 139)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(170, 25)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Confirm password:"
+        '
+        'lblEmail
+        '
+        Me.lblEmail.AutoSize = True
+        Me.lblEmail.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.Location = New System.Drawing.Point(114, 36)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(64, 25)
+        Me.lblEmail.TabIndex = 10
+        Me.lblEmail.Text = "Email:"
+        '
+        'txtEmail
+        '
+        Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtEmail.Location = New System.Drawing.Point(119, 64)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(255, 22)
+        Me.txtEmail.TabIndex = 9
         '
         'Form4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(822, 469)
-        Me.Controls.Add(Me.Panel2)
+        Me.ClientSize = New System.Drawing.Size(484, 294)
+        Me.Controls.Add(Me.lblEmail)
+        Me.Controls.Add(Me.txtEmail)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnExit)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.txtCP)
+        Me.Controls.Add(Me.txtNew)
         Me.Name = "Form4"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form4"
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents btnDone As Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents txtNew As TextBox
+    Friend WithEvents txtCP As TextBox
+    Friend WithEvents btnSave As Button
+    Friend WithEvents btnExit As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents txtEmail As TextBox
 End Class

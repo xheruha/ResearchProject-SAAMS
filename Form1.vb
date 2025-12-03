@@ -66,12 +66,16 @@ Public Class Form1
         Else
             dr.Close()
             cn.Close()
-            MsgBox("Email does not exist", MsgBoxStyle.Critical)
+            MsgBox("Account does not exist", MsgBoxStyle.Critical)
         End If
     End Sub
 
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         Form2.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnManage_Click(sender As Object, e As EventArgs) Handles btnManage.Click
+        Form4.Show()
     End Sub
 End Class
