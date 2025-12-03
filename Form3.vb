@@ -27,7 +27,6 @@ Public Class Form3
             Form1.LoginLastname = Nothing
             Form1.LoginSection = Nothing
             Form1.LoginUserID = Nothing
-            Form1.LoginRole = Nothing
             pnlMain.Controls.Clear()
 
             If Not FormMain.IsDisposed Then FormMain.Close()

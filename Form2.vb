@@ -44,8 +44,8 @@ Public Class Form2
     End Sub
 
     Private Sub SaveUserData()
-        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, SchoolYear2, Section, Password, Role) " &
-              "VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password, @Role)"
+        sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, SchoolYear2, Section, Password) " &
+              "VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password)"
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@Firstname", txtFirstname.Text.Trim())
         cmd.Parameters.AddWithValue("@Lastname", txtLastname.Text.Trim())
@@ -55,7 +55,6 @@ Public Class Form2
         cmd.Parameters.AddWithValue("@SchoolYear2", If(chkIrreg.Checked, cmbSyear2.Text, ""))
         cmd.Parameters.AddWithValue("@Section", cmbSection.Text.Trim())
         cmd.Parameters.AddWithValue("@Password", txtPass.Text.Trim())
-        cmd.Parameters.AddWithValue("@Role", "Student")
 
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()

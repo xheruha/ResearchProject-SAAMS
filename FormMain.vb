@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Data.SqlClient
+
 Public Class FormMain
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
@@ -12,7 +13,7 @@ Public Class FormMain
         lblSec.Text = "Section: " & Form1.LoginSection
 
         If Not String.IsNullOrEmpty(Form1.LoginSchoolYear2) Then
-            lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "/  " & Form1.LoginSchoolYear2 & " - Computer Science"
+            lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & "/ " & Form1.LoginSchoolYear2 & " - Computer Science"
         Else
             lblSYdep.Text = "SY: " & Form1.LoginSchoolYear & " - Computer Science"
         End If
@@ -20,6 +21,7 @@ Public Class FormMain
 
     Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProfileInfo()
+        InitSections()
     End Sub
 
     Private Sub MainItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -57,19 +59,20 @@ Public Class FormMain
         cmbNumber.SelectedIndex = 0
     End Sub
 
-
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         cmbSem.SelectedIndex = -1
         cmbTerm.SelectedIndex = -1
         cmbNumber.SelectedIndex = -1
         cmbCat.SelectedIndex = -1
         cmbSub.SelectedIndex = -1
+        cmbSection.SelectedIndex = -1
+        cmbStudent.SelectedIndex = -1
         txtScore.Clear()
         dtpSM.Value = Date.Today
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If cmbSem.Text = "" Or cmbTerm.Text = "" Or cmbCat.Text = "" Or cmbNumber.Text = "" Or cmbSub.Text = "" Or txtScore.Text = "" Then
+        If cmbSem.Text = "" Or cmbTerm.Text = "" Or cmbCat.Text = "" Or cmbNumber.Text = "" Or cmbSub.Text = "" Or txtScore.Text = "" Or cmbStudent.SelectedIndex = -1 Then
             MsgBox("Please fill all the fields first.")
             Exit Sub
         End If
@@ -95,18 +98,18 @@ Public Class FormMain
         Dim sem As String = cmbSem.Text.Trim()
         Dim subj As String = cmbSub.Text.Trim()
 
+        Dim selectedStudent = CType(cmbStudent.SelectedItem, StudentItem)
+        Dim userID As Integer = selectedStudent.ID
+
         Try
             If cn.State = ConnectionState.Open Then cn.Close()
             cn.Open()
 
-            sql = "INSERT INTO tblScore (UserID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
-              "VALUES (@uid, @fname, @lname, @section, @sem, @term, @subj, @cat, @num, @score, @date)"
+            sql = "INSERT INTO tblScore (UserID, Semester, Term, Subject, Category, Number, Score, DateSubmitted) " &
+                  "VALUES (@uid, @sem, @term, @subj, @cat, @num, @score, @date)"
 
             Using cmd As New SqlCommand(sql, cn)
-                cmd.Parameters.AddWithValue("@uid", Form1.LoginUserID)
-                cmd.Parameters.AddWithValue("@fname", Form1.LoginFirstname)
-                cmd.Parameters.AddWithValue("@lname", Form1.LoginLastname)
-                cmd.Parameters.AddWithValue("@section", Form1.LoginSection)
+                cmd.Parameters.AddWithValue("@uid", userID)
                 cmd.Parameters.AddWithValue("@sem", sem)
                 cmd.Parameters.AddWithValue("@term", term)
                 cmd.Parameters.AddWithValue("@subj", subj)
@@ -148,30 +151,91 @@ Public Class FormMain
     End Sub
 
     Private Sub btnViewScore_Click(sender As Object, e As EventArgs) Handles btnVS.Click
+        If cmbStudent.SelectedIndex = -1 Then
+            MsgBox("Please select a student first.")
+            Exit Sub
+        End If
+
+        Dim selectedStudent = CType(cmbStudent.SelectedItem, StudentItem)
+        Dim userID As Integer = selectedStudent.ID
+
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
-        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID=@UserID"
+
+        sql = "SELECT s.ScoreID, u.Firstname, u.Lastname, s.Semester, s.Term, s.Subject, s.Category, s.Number, s.Score, s.DateSubmitted " &
+          "FROM tblScore s INNER JOIN tblUser u ON s.UserID = u.UserID " &
+          "WHERE s.UserID = @UserID"
+
         cmd = New SqlCommand(sql, cn)
-        cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
+        cmd.Parameters.AddWithValue("@UserID", userID)
 
         Dim adpt As New SqlDataAdapter(cmd)
         Dim tbl As New DataTable()
         adpt.Fill(tbl)
         dvSrecord.DataSource = tbl
 
-        If dvSrecord.Columns.Contains("Firstname") Then
-            dvSrecord.Columns("Firstname").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Lastname") Then
-            dvSrecord.Columns("Lastname").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Section") Then
-            dvSrecord.Columns("Section").Visible = False
-        End If
         If dvSrecord.Columns.Contains("ScoreID") Then
             dvSrecord.Columns("ScoreID").Visible = False
         End If
+
         cn.Close()
+    End Sub
+
+    Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+        If cmbStudent.SelectedIndex = -1 Then
+            MsgBox("Please select a student first.")
+            Exit Sub
+        End If
+
+        Dim selectedStudent = CType(cmbStudent.SelectedItem, StudentItem)
+        Dim userID As Integer = selectedStudent.ID
+
+        If cn.State = ConnectionState.Open Then cn.Close()
+        cn.Open()
+
+        sql = "SELECT s.ScoreID, u.Firstname, u.Lastname, s.Semester, s.Term, s.Subject, s.Category, s.Number, s.Score, s.DateSubmitted " &
+          "FROM tblScore s INNER JOIN tblUser u ON s.UserID = u.UserID " &
+          "WHERE s.UserID = @UserID"
+
+        If cmbSem.SelectedIndex <> -1 Then
+            sql &= " AND s.Semester = @Semester"
+        End If
+        If cmbSub.SelectedIndex <> -1 Then
+            sql &= " AND s.Subject = @Subject"
+        End If
+        If cmbTerm.SelectedIndex <> -1 Then
+            sql &= " AND s.Term = @Term"
+        End If
+        If cmbCat.SelectedIndex <> -1 Then
+            sql &= " AND s.Category = @Category"
+        End If
+
+        Using cmd As New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@UserID", userID)
+            If cmbSem.SelectedIndex <> -1 Then
+                cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
+            End If
+            If cmbSub.SelectedIndex <> -1 Then
+                cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
+            End If
+            If cmbTerm.SelectedIndex <> -1 Then
+                cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
+            End If
+            If cmbCat.SelectedIndex <> -1 Then
+                cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
+            End If
+
+            Dim adpt As New SqlDataAdapter(cmd)
+            Dim tbl As New DataTable()
+            adpt.Fill(tbl)
+            dvSrecord.DataSource = tbl
+        End Using
+
+        cn.Close()
+
+        If dvSrecord.Columns.Contains("ScoreID") Then
+            dvSrecord.Columns("ScoreID").Visible = False
+        End If
     End Sub
 
     Private Sub SubjectsCsv()
@@ -198,7 +262,7 @@ Public Class FormMain
 
                 If semester.Equals(userSem, StringComparison.OrdinalIgnoreCase) Then
                     If yearLevel.Equals(userYear1, StringComparison.OrdinalIgnoreCase) OrElse
-                   yearLevel.Equals(userYear2, StringComparison.OrdinalIgnoreCase) Then
+                       yearLevel.Equals(userYear2, StringComparison.OrdinalIgnoreCase) Then
                         If Not cmbSub.Items.Contains(subjectName) Then cmbSub.Items.Add(subjectName)
                     End If
                 End If
@@ -214,57 +278,126 @@ Public Class FormMain
         SubjectsCsv()
     End Sub
 
-    Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
-        If cn.State = ConnectionState.Open Then cn.Close()
-        cn.Open()
-        sql = "SELECT ScoreID, Firstname, Lastname, Section, Semester, Term, Subject, Category, Number, Score, DateSubmitted FROM tblScore WHERE UserID = @UserID"
-        If cmbSem.SelectedIndex <> -1 Then
-            sql &= " AND Semester = @Semester"
-        End If
-        If cmbSub.SelectedIndex <> -1 Then
-            sql &= " AND Subject = @Subject"
-        End If
-        If cmbTerm.SelectedIndex <> -1 Then
-            sql &= " AND Term = @Term"
-        End If
-        If cmbCat.SelectedIndex <> -1 Then
-            sql &= " AND Category = @Category"
+    Private Sub btnList_Click(sender As Object, e As EventArgs) Handles btnList.Click
+        If cmbSection.SelectedIndex = -1 Then
+            MsgBox("Please select a section first.")
+            Exit Sub
         End If
 
-        Using cmd As New SqlCommand(sql, cn)
+        Try
+            If cn.State = ConnectionState.Open Then cn.Close()
+            cn.Open()
 
-            cmd.Parameters.AddWithValue("@UserID", Form1.LoginUserID)
-            If cmbSem.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
-            End If
-            If cmbSub.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
-            End If
-            If cmbTerm.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
-            End If
-            If cmbCat.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
-            End If
+            sql = "SELECT UserID, Firstname, Lastname, Gender, SchoolYear, Section, Email, Password 
+               FROM tblUser 
+               WHERE SchoolYear = @sy AND Section = @sec"
+
+            cmd = New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@sy", Form1.LoginSchoolYear)
+            cmd.Parameters.AddWithValue("@sec", cmbSection.Text.Trim())
 
             Dim adpt As New SqlDataAdapter(cmd)
             Dim tbl As New DataTable()
             adpt.Fill(tbl)
             dvSrecord.DataSource = tbl
-        End Using
-        cn.Close()
 
-        If dvSrecord.Columns.Contains("Firstname") Then
-            dvSrecord.Columns("Firstname").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Lastname") Then
-            dvSrecord.Columns("Lastname").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Section") Then
-            dvSrecord.Columns("Section").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("ScoreID") Then
-            dvSrecord.Columns("ScoreID").Visible = False
+            If dvSrecord.Columns.Contains("UserID") Then
+                dvSrecord.Columns("UserID").Visible = False
+            End If
+            If dvSrecord.Columns.Contains("Email") Then
+                dvSrecord.Columns("Email").Visible = False
+            End If
+            If dvSrecord.Columns.Contains("Password") Then
+                dvSrecord.Columns("Password").Visible = False
+            End If
+
+        Catch ex As Exception
+            MsgBox("Error loading student list: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If cn.State = ConnectionState.Open Then cn.Close()
+        End Try
+    End Sub
+
+    Private Sub InitSections()
+        cmbSection.Items.Clear()
+
+        Select Case Form1.LoginEmail.Trim().ToLower()
+            Case "admin1"
+                cmbSection.Items.AddRange(New String() {"Mega", "Kilo"})
+                Form1.LoginSchoolYear = "1st Year"
+            Case "admin2"
+                cmbSection.Items.AddRange(New String() {"Deca", "Penta"})
+                Form1.LoginSchoolYear = "2nd Year"
+            Case "admin3"
+                cmbSection.Items.AddRange(New String() {"Hexa", "Octa"})
+                Form1.LoginSchoolYear = "3rd Year"
+            Case "admin4"
+                cmbSection.Items.Add("Sigma")
+                Form1.LoginSchoolYear = "4th Year"
+        End Select
+
+        cmbSection.SelectedIndex = -1
+    End Sub
+
+    Private Sub LoadStudents()
+        Try
+            If cmbSection.SelectedItem Is Nothing Then Exit Sub
+
+            If cn.State = ConnectionState.Open Then cn.Close()
+            cn.Open()
+
+            sql = "SELECT UserID, Firstname FROM tblUser WHERE SchoolYear = @sy AND Section = @sec"
+            cmd = New SqlCommand(sql, cn)
+            cmd.Parameters.AddWithValue("@sy", Form1.LoginSchoolYear)
+            cmd.Parameters.AddWithValue("@sec", cmbSection.Text.Trim())
+
+            dr = cmd.ExecuteReader()
+            Dim studentList As New List(Of StudentItem)
+
+            While dr.Read()
+                Dim firstName As String = dr("Firstname").ToString()
+                Dim userID As Integer = Convert.ToInt32(dr("UserID"))
+                studentList.Add(New StudentItem(firstName, userID))
+            End While
+
+            cmbStudent.DataSource = Nothing
+            cmbStudent.DataSource = studentList
+            cmbStudent.DisplayMember = "Name"
+            cmbStudent.ValueMember = "ID"
+
+        Catch ex As Exception
+            MsgBox("Error loading students: " & ex.Message)
+        Finally
+            If cn.State = ConnectionState.Open Then cn.Close()
+        End Try
+    End Sub
+
+    Private Sub cmbSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSection.SelectedIndexChanged
+        LoadStudents()
+    End Sub
+
+    Private Class StudentItem
+        Public Property Name As String
+        Public Property ID As Integer
+
+        Public Sub New(name As String, id As Integer)
+            Me.Name = name
+            Me.ID = id
+        End Sub
+    End Class
+
+    Private Sub Logout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
+        Dim out As DialogResult = MsgBox("Would you like to log out?", MsgBoxStyle.YesNo, "Logout")
+        If out = DialogResult.Yes Then
+            Form1.LoginEmail = Nothing
+            Form1.LoginLastname = Nothing
+            Form1.LoginSection = Nothing
+            Form1.LoginUserID = Nothing
+
+            Form1.txtEmail.Clear()
+            Form1.txtPass.Clear()
+            Form1.Show()
+            Me.Hide()
         End If
     End Sub
 End Class

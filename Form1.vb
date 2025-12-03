@@ -7,7 +7,6 @@ Public Class Form1
     Public Shared LoginUserID As Integer
     Public Shared LoginSchoolYear As String
     Public Shared LoginSchoolYear2 As String
-    Public Shared LoginRole As String
 
     Dim cn As New SqlConnection("Server=.\SQLEXPRESS;Database=amsDB;Trusted_Connection=True")
     Dim cmd As SqlCommand
@@ -37,10 +36,10 @@ Public Class Form1
             Me.Hide()
 
             Dim email As String = Form1.LoginEmail.Trim().ToLower()
-            If email = "teacher1@school.com" OrElse
-           email = "teacher2@school.com" OrElse
-           email = "teacher3@school.com" OrElse
-           email = "teacher4@school.com" Then
+            If email = "admin1" OrElse
+           email = "admin2" OrElse
+           email = "admin3" OrElse
+           email = "admin4" Then
 
                 Dim fMain As New FormMain()
                 fMain.Show()
