@@ -1,7 +1,5 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class Form3
-
     Private Sub btnMain_Click(sender As Object, e As EventArgs) Handles btnMain.Click
         pnlMain.Controls.Clear()
         FormStudent.TopLevel = False
