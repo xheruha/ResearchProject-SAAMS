@@ -193,14 +193,12 @@ Public Class FormLeaderboard
         Dim filters As New List(Of String)
         If section <> "" Then filters.Add("u.Section = @Section")
         If yearLevel <> "" Then filters.Add("u.SchoolYear = @Year")
-
         If filters.Count > 0 Then
             sql &= " WHERE " & String.Join(" AND ", filters)
         End If
 
         sql &= " ORDER BY ComputedGrade DESC"
         cmd = New SqlCommand(sql, cn)
-
         If section <> "" Then cmd.Parameters.AddWithValue("@Section", section)
         If yearLevel <> "" Then cmd.Parameters.AddWithValue("@Year", yearLevel)
         cmd.Parameters.AddWithValue("@Semester", semester)
@@ -209,7 +207,6 @@ Public Class FormLeaderboard
         Dim tbl As New DataTable()
         adpt.Fill(tbl)
         dvLB.DataSource = tbl
-
         If dvLB.Columns.Contains("UserID") Then
             dvLB.Columns("UserID").Visible = False
         End If

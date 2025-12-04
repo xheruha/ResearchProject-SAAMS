@@ -13,6 +13,7 @@ Public Class Form1
     Dim dr As SqlDataReader
     Dim sql As String
 
+
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
         If txtEmail.Text = "" Or txtPass.Text = "" Then
             MsgBox("Please fill in all required fields", MsgBoxStyle.Critical)
@@ -70,10 +71,12 @@ Public Class Form1
         End If
     End Sub
 
+
     Private Sub btnSignup_Click(sender As Object, e As EventArgs) Handles btnSignup.Click
         Form2.Show()
         Me.Hide()
     End Sub
+
 
     Private Sub btnManage_Click(sender As Object, e As EventArgs) Handles btnManage.Click
         Form4.Show()

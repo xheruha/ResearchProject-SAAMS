@@ -43,6 +43,29 @@ Public Class Form2
         End If
     End Sub
 
+
+    Private Sub cmbItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbGender.Items.Clear()
+        cmbSyear.Items.Clear()
+        cmbSyear2.Items.Clear()
+
+        cmbGender.Items.Add("Male")
+        cmbGender.Items.Add("Female")
+        cmbGender.Items.Add("Other")
+
+        cmbSyear.Items.Add("1st Year")
+        cmbSyear.Items.Add("2nd Year")
+        cmbSyear.Items.Add("3rd Year")
+        cmbSyear.Items.Add("4th Year")
+
+        cmbSyear2.Items.Add("1st Year")
+        cmbSyear2.Items.Add("2nd Year")
+        cmbSyear2.Items.Add("3rd Year")
+        cmbSyear2.Items.Add("4th Year")
+        cmbSyear2.Enabled = False
+    End Sub
+
+
     Private Sub SaveUserData()
         sql = "INSERT INTO tblUser (Firstname, Lastname, Email, Gender, SchoolYear, SchoolYear2, Section, Password) " &
               "VALUES (@Firstname, @Lastname, @Email, @Gender, @SchoolYear, @SchoolYear2, @Section, @Password)"
@@ -67,6 +90,7 @@ Public Class Form2
         ClearFields()
     End Sub
 
+
     Private Sub ClearFields()
         txtFirstname.Clear()
         txtLastname.Clear()
@@ -80,26 +104,6 @@ Public Class Form2
         chkIrreg.Checked = False
     End Sub
 
-    Private Sub cmbItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cmbGender.Items.Clear()
-        cmbSyear.Items.Clear()
-        cmbSyear2.Items.Clear()
-
-        cmbGender.Items.Add("Male")
-        cmbGender.Items.Add("Female")
-        cmbGender.Items.Add("Other")
-
-        cmbSyear.Items.Add("1st Year")
-        cmbSyear.Items.Add("2nd Year")
-        cmbSyear.Items.Add("3rd Year")
-        cmbSyear.Items.Add("4th Year")
-
-        cmbSyear2.Items.Add("1st Year")
-        cmbSyear2.Items.Add("2nd Year")
-        cmbSyear2.Items.Add("3rd Year")
-        cmbSyear2.Items.Add("4th Year")
-        cmbSyear2.Enabled = False
-    End Sub
 
     Private Sub cmbSyear_Item(sender As Object, e As EventArgs) Handles cmbSyear.SelectedIndexChanged
         If cmbSyear.SelectedItem Is Nothing Then Exit Sub

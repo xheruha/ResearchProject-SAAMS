@@ -126,7 +126,7 @@ Public Class FormMain
     End Sub
 
 
-    Private Sub cmbSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbSection.SelectedIndexChanged
+    Private Sub cmbSection_List(sender As Object, e As EventArgs) Handles cmbSection.SelectedIndexChanged
         LoadStudents()
     End Sub
 
@@ -257,40 +257,24 @@ Public Class FormMain
           "FROM tblScore s INNER JOIN tblUser u ON s.UserID = u.UserID " &
           "WHERE s.UserID = @UserID"
 
-        If cmbSem.SelectedIndex <> -1 Then
-            sql &= " AND s.Semester = @Semester"
-        End If
-        If cmbSub.SelectedIndex <> -1 Then
-            sql &= " AND s.Subject = @Subject"
-        End If
-        If cmbTerm.SelectedIndex <> -1 Then
-            sql &= " AND s.Term = @Term"
-        End If
-        If cmbCat.SelectedIndex <> -1 Then
-            sql &= " AND s.Category = @Category"
-        End If
+        If cmbSem.SelectedIndex <> -1 Then sql &= " AND s.Semester = @Semester"
+        If cmbSub.SelectedIndex <> -1 Then sql &= " AND s.Subject = @Subject"
+        If cmbTerm.SelectedIndex <> -1 Then sql &= " AND s.Term = @Term"
+        If cmbCat.SelectedIndex <> -1 Then sql &= " AND s.Category = @Category"
+
 
         Using cmd As New SqlCommand(sql, cn)
             cmd.Parameters.AddWithValue("@UserID", userID)
-            If cmbSem.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
-            End If
-            If cmbSub.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
-            End If
-            If cmbTerm.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
-            End If
-            If cmbCat.SelectedIndex <> -1 Then
-                cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
-            End If
+            If cmbSem.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Semester", cmbSem.Text.Trim())
+            If cmbSub.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Subject", cmbSub.Text.Trim())
+            If cmbTerm.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Term", cmbTerm.Text.Trim())
+            If cmbCat.SelectedIndex <> -1 Then cmd.Parameters.AddWithValue("@Category", cmbCat.Text.Trim())
 
             Dim adpt As New SqlDataAdapter(cmd)
             Dim tbl As New DataTable()
             adpt.Fill(tbl)
             dvSrecord.DataSource = tbl
         End Using
-
         cn.Close()
 
         If dvSrecord.Columns.Contains("ScoreID") Then
@@ -351,7 +335,6 @@ Public Class FormMain
 
         sql = "SELECT UserID, Firstname, Lastname, Gender, SchoolYear, Section, Email, Password " &
           "FROM tblUser WHERE SchoolYear = @sy AND Section = @sec"
-
         cmd = New SqlCommand(sql, cn)
         cmd.Parameters.AddWithValue("@sy", Form1.LoginSchoolYear)
         cmd.Parameters.AddWithValue("@sec", cmbSection.Text.Trim())
@@ -361,16 +344,9 @@ Public Class FormMain
         adpt.Fill(tbl)
         dvSrecord.DataSource = tbl
 
-        If dvSrecord.Columns.Contains("UserID") Then
-            dvSrecord.Columns("UserID").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Email") Then
-            dvSrecord.Columns("Email").Visible = False
-        End If
-        If dvSrecord.Columns.Contains("Password") Then
-            dvSrecord.Columns("Password").Visible = False
-        End If
-
+        If dvSrecord.Columns.Contains("UserID") Then dvSrecord.Columns("UserID").Visible = False
+        If dvSrecord.Columns.Contains("Email") Then dvSrecord.Columns("Email").Visible = False
+        If dvSrecord.Columns.Contains("Password") Then dvSrecord.Columns("Password").Visible = False
         cn.Close()
     End Sub
 
