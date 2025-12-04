@@ -6,6 +6,7 @@ Public Class FormStudent
     Dim dr As SqlDataReader
     Dim sql As String
 
+
     Private Sub ProfileInfo()
         lblFname.Text = Form1.LoginFirstname
         lblLname.Text = Form1.LoginLastname
@@ -18,9 +19,11 @@ Public Class FormStudent
         End If
     End Sub
 
+
     Private Sub Profile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProfileInfo()
     End Sub
+
 
     Private Sub MainItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cmbSem.Items.Clear()
@@ -45,6 +48,7 @@ Public Class FormStudent
         cmbSub.SelectedIndex = -1
     End Sub
 
+
     Private Sub cmbCat_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCat.SelectedIndexChanged
         cmbNumber.Items.Clear()
         If cmbCat.Text = "Exam" Then
@@ -68,6 +72,7 @@ Public Class FormStudent
         dtpSM.Value = Date.Today
     End Sub
 
+
     Private Sub btnViewScore_Click(sender As Object, e As EventArgs) Handles btnVS.Click
         If cn.State = ConnectionState.Open Then cn.Close()
         cn.Open()
@@ -88,11 +93,12 @@ Public Class FormStudent
         cn.Close()
     End Sub
 
+
     Private Sub SubjectsCsv()
         cmbSub.Items.Clear()
         Dim filePath As String = Path.Combine(Application.StartupPath, "Subject_List.csv")
         If Not File.Exists(filePath) Then
-            MsgBox("Could not find Subject_List.csv in " & filePath, MsgBoxStyle.Critical)
+            MsgBox("Could not find file in " & filePath, MsgBoxStyle.Critical)
             Exit Sub
         End If
 
@@ -124,9 +130,11 @@ Public Class FormStudent
         End If
     End Sub
 
+
     Private Sub Subject_Items(sender As Object, e As EventArgs) Handles cmbSem.SelectedIndexChanged
         SubjectsCsv()
     End Sub
+
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
         If cn.State = ConnectionState.Open Then cn.Close()

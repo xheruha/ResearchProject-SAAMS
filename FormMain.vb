@@ -29,7 +29,7 @@ Public Class FormMain
         cmbSem.Items.Clear()
         cmbSem.Items.Add("First Semester")
         cmbSem.Items.Add("Second Semester")
-        cmbSem.SelectedIndex = 0
+        cmbSem.SelectedIndex = -1
 
         cmbTerm.Items.Clear()
         cmbTerm.Items.Add("Prelim")
