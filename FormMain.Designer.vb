@@ -39,6 +39,11 @@ Partial Class FormMain
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnVS = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCompute = New System.Windows.Forms.Button()
+        Me.txtCompute = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmbSY = New System.Windows.Forms.ComboBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.btnList = New System.Windows.Forms.Button()
         Me.cmbSection = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -68,7 +73,7 @@ Partial Class FormMain
         '
         Me.cmbSem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSem.FormattingEnabled = True
-        Me.cmbSem.Location = New System.Drawing.Point(163, 246)
+        Me.cmbSem.Location = New System.Drawing.Point(163, 269)
         Me.cmbSem.Name = "cmbSem"
         Me.cmbSem.Size = New System.Drawing.Size(204, 24)
         Me.cmbSem.TabIndex = 0
@@ -78,7 +83,7 @@ Partial Class FormMain
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(52, 246)
+        Me.Label1.Location = New System.Drawing.Point(52, 269)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(97, 25)
         Me.Label1.TabIndex = 1
@@ -89,7 +94,7 @@ Partial Class FormMain
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(67, 285)
+        Me.Label2.Location = New System.Drawing.Point(473, 188)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 3
@@ -100,7 +105,7 @@ Partial Class FormMain
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(567, 207)
+        Me.Label3.Location = New System.Drawing.Point(459, 228)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 25)
         Me.Label3.TabIndex = 5
@@ -111,7 +116,7 @@ Partial Class FormMain
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(601, 165)
+        Me.Label4.Location = New System.Drawing.Point(493, 149)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 25)
         Me.Label4.TabIndex = 7
@@ -121,7 +126,7 @@ Partial Class FormMain
         '
         Me.cmbTerm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTerm.FormattingEnabled = True
-        Me.cmbTerm.Location = New System.Drawing.Point(677, 166)
+        Me.cmbTerm.Location = New System.Drawing.Point(569, 149)
         Me.cmbTerm.Name = "cmbTerm"
         Me.cmbTerm.Size = New System.Drawing.Size(204, 24)
         Me.cmbTerm.TabIndex = 6
@@ -134,7 +139,7 @@ Partial Class FormMain
         Me.dvSrecord.Name = "dvSrecord"
         Me.dvSrecord.RowHeadersWidth = 51
         Me.dvSrecord.RowTemplate.Height = 24
-        Me.dvSrecord.Size = New System.Drawing.Size(963, 249)
+        Me.dvSrecord.Size = New System.Drawing.Size(1216, 249)
         Me.dvSrecord.TabIndex = 9
         '
         'Label5
@@ -142,7 +147,7 @@ Partial Class FormMain
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label5.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(619, 248)
+        Me.Label5.Location = New System.Drawing.Point(511, 269)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 25)
         Me.Label5.TabIndex = 11
@@ -152,7 +157,7 @@ Partial Class FormMain
         '
         Me.cmbNumber.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNumber.FormattingEnabled = True
-        Me.cmbNumber.Location = New System.Drawing.Point(677, 248)
+        Me.cmbNumber.Location = New System.Drawing.Point(569, 269)
         Me.cmbNumber.Name = "cmbNumber"
         Me.cmbNumber.Size = New System.Drawing.Size(204, 24)
         Me.cmbNumber.TabIndex = 10
@@ -161,7 +166,7 @@ Partial Class FormMain
         '
         Me.cmbCat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCat.FormattingEnabled = True
-        Me.cmbCat.Location = New System.Drawing.Point(677, 207)
+        Me.cmbCat.Location = New System.Drawing.Point(569, 228)
         Me.cmbCat.Name = "cmbCat"
         Me.cmbCat.Size = New System.Drawing.Size(204, 24)
         Me.cmbCat.TabIndex = 4
@@ -171,7 +176,7 @@ Partial Class FormMain
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(596, 291)
+        Me.Label6.Location = New System.Drawing.Point(870, 150)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 25)
         Me.Label6.TabIndex = 13
@@ -182,7 +187,7 @@ Partial Class FormMain
         Me.btnSave.BackColor = System.Drawing.Color.Goldenrod
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Location = New System.Drawing.Point(14, 346)
+        Me.btnSave.Location = New System.Drawing.Point(14, 347)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(101, 38)
         Me.btnSave.TabIndex = 14
@@ -194,7 +199,7 @@ Partial Class FormMain
         Me.btnClear.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(121, 346)
+        Me.btnClear.Location = New System.Drawing.Point(121, 345)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(101, 38)
         Me.btnClear.TabIndex = 15
@@ -203,7 +208,7 @@ Partial Class FormMain
         '
         'txtScore
         '
-        Me.txtScore.Location = New System.Drawing.Point(677, 291)
+        Me.txtScore.Location = New System.Drawing.Point(950, 154)
         Me.txtScore.Name = "txtScore"
         Me.txtScore.Size = New System.Drawing.Size(204, 22)
         Me.txtScore.TabIndex = 12
@@ -213,7 +218,7 @@ Partial Class FormMain
         Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(228, 346)
+        Me.btnDelete.Location = New System.Drawing.Point(228, 345)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(101, 38)
         Me.btnDelete.TabIndex = 17
@@ -234,7 +239,13 @@ Partial Class FormMain
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Brown
+        Me.Panel1.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel1.Controls.Add(Me.btnLogout)
+        Me.Panel1.Controls.Add(Me.btnCompute)
+        Me.Panel1.Controls.Add(Me.txtCompute)
+        Me.Panel1.Controls.Add(Me.Label11)
+        Me.Panel1.Controls.Add(Me.cmbSY)
+        Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.btnList)
         Me.Panel1.Controls.Add(Me.cmbSection)
         Me.Panel1.Controls.Add(Me.Label8)
@@ -261,15 +272,66 @@ Partial Class FormMain
         Me.Panel1.Controls.Add(Me.Label6)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(963, 395)
+        Me.Panel1.Size = New System.Drawing.Size(1216, 395)
         Me.Panel1.TabIndex = 20
+        '
+        'btnCompute
+        '
+        Me.btnCompute.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnCompute.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompute.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompute.Location = New System.Drawing.Point(1053, 231)
+        Me.btnCompute.Name = "btnCompute"
+        Me.btnCompute.Size = New System.Drawing.Size(101, 38)
+        Me.btnCompute.TabIndex = 37
+        Me.btnCompute.Text = "Compute"
+        Me.btnCompute.UseVisualStyleBackColor = False
+        '
+        'txtCompute
+        '
+        Me.txtCompute.Location = New System.Drawing.Point(950, 194)
+        Me.txtCompute.Name = "txtCompute"
+        Me.txtCompute.ReadOnly = True
+        Me.txtCompute.Size = New System.Drawing.Size(204, 22)
+        Me.txtCompute.TabIndex = 35
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label11.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(829, 190)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(106, 25)
+        Me.Label11.TabIndex = 36
+        Me.Label11.Text = "Computed:"
+        '
+        'cmbSY
+        '
+        Me.cmbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbSY.FormattingEnabled = True
+        Me.cmbSY.Location = New System.Drawing.Point(163, 151)
+        Me.cmbSY.Name = "cmbSY"
+        Me.cmbSY.Size = New System.Drawing.Size(204, 24)
+        Me.cmbSY.TabIndex = 31
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Label9.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(46, 150)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(103, 25)
+        Me.Label9.TabIndex = 32
+        Me.Label9.Text = "Year Level:"
         '
         'btnList
         '
         Me.btnList.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnList.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnList.Location = New System.Drawing.Point(846, 344)
+        Me.btnList.Location = New System.Drawing.Point(442, 346)
         Me.btnList.Name = "btnList"
         Me.btnList.Size = New System.Drawing.Size(101, 38)
         Me.btnList.TabIndex = 30
@@ -280,7 +342,7 @@ Partial Class FormMain
         '
         Me.cmbSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSection.FormattingEnabled = True
-        Me.cmbSection.Location = New System.Drawing.Point(163, 169)
+        Me.cmbSection.Location = New System.Drawing.Point(163, 192)
         Me.cmbSection.Name = "cmbSection"
         Me.cmbSection.Size = New System.Drawing.Size(204, 24)
         Me.cmbSection.TabIndex = 28
@@ -290,7 +352,7 @@ Partial Class FormMain
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label8.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(67, 168)
+        Me.Label8.Location = New System.Drawing.Point(67, 191)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(82, 25)
         Me.Label8.TabIndex = 29
@@ -300,7 +362,7 @@ Partial Class FormMain
         '
         Me.cmbStudent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbStudent.FormattingEnabled = True
-        Me.cmbStudent.Location = New System.Drawing.Point(163, 208)
+        Me.cmbStudent.Location = New System.Drawing.Point(163, 231)
         Me.cmbStudent.Name = "cmbStudent"
         Me.cmbStudent.Size = New System.Drawing.Size(204, 24)
         Me.cmbStudent.TabIndex = 26
@@ -310,7 +372,7 @@ Partial Class FormMain
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label7.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(64, 207)
+        Me.Label7.Location = New System.Drawing.Point(64, 230)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(85, 25)
         Me.Label7.TabIndex = 27
@@ -321,7 +383,7 @@ Partial Class FormMain
         Me.btnFilter.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFilter.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFilter.Location = New System.Drawing.Point(737, 345)
+        Me.btnFilter.Location = New System.Drawing.Point(918, 231)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(101, 38)
         Me.btnFilter.TabIndex = 25
@@ -332,7 +394,7 @@ Partial Class FormMain
         '
         Me.cmbSub.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSub.FormattingEnabled = True
-        Me.cmbSub.Location = New System.Drawing.Point(163, 289)
+        Me.cmbSub.Location = New System.Drawing.Point(569, 188)
         Me.cmbSub.Name = "cmbSub"
         Me.cmbSub.Size = New System.Drawing.Size(204, 24)
         Me.cmbSub.TabIndex = 24
@@ -340,7 +402,6 @@ Partial Class FormMain
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Wheat
-        Me.Panel2.Controls.Add(Me.btnLogout)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
         Me.Panel2.Controls.Add(Me.PictureBox6)
@@ -348,7 +409,7 @@ Partial Class FormMain
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.lblLname)
         Me.Panel2.Controls.Add(Me.lblFname)
-        Me.Panel2.Location = New System.Drawing.Point(14, 18)
+        Me.Panel2.Location = New System.Drawing.Point(147, 3)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(933, 127)
         Me.Panel2.TabIndex = 23
@@ -357,7 +418,7 @@ Partial Class FormMain
         '
         Me.btnLogout.BackColor = System.Drawing.Color.Red
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Location = New System.Drawing.Point(845, 6)
+        Me.btnLogout.Location = New System.Drawing.Point(1126, 9)
         Me.btnLogout.Name = "btnLogout"
         Me.btnLogout.Size = New System.Drawing.Size(76, 26)
         Me.btnLogout.TabIndex = 35
@@ -418,7 +479,7 @@ Partial Class FormMain
         '
         Me.lblLname.AutoSize = True
         Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(143, 56)
+        Me.lblLname.Location = New System.Drawing.Point(153, 79)
         Me.lblLname.Name = "lblLname"
         Me.lblLname.Size = New System.Drawing.Size(133, 34)
         Me.lblLname.TabIndex = 1
@@ -428,7 +489,7 @@ Partial Class FormMain
         '
         Me.lblFname.AutoSize = True
         Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFname.Location = New System.Drawing.Point(143, 28)
+        Me.lblFname.Location = New System.Drawing.Point(153, 51)
         Me.lblFname.Name = "lblFname"
         Me.lblFname.Size = New System.Drawing.Size(136, 34)
         Me.lblFname.TabIndex = 0
@@ -446,7 +507,7 @@ Partial Class FormMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.OldLace
-        Me.ClientSize = New System.Drawing.Size(987, 674)
+        Me.ClientSize = New System.Drawing.Size(1226, 674)
         Me.Controls.Add(Me.dvSrecord)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormMain"
@@ -498,4 +559,9 @@ Partial Class FormMain
     Friend WithEvents Label8 As Label
     Friend WithEvents btnList As Button
     Friend WithEvents btnLogout As Button
+    Friend WithEvents cmbSY As ComboBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtCompute As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents btnCompute As Button
 End Class

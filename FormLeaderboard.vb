@@ -25,28 +25,35 @@ Public Class FormLeaderboard
 
 
     Private Sub FormLeaderboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         cmbSect.Items.Clear()
         Select Case Form1.LoginSchoolYear.Trim()
             Case "1st Year"
-                cmbSect.Items.AddRange({"Mega", "Kilo"})
+                cmbSect.Items.Add("Mega")
+                cmbSect.Items.Add("Kilo")
+
             Case "2nd Year"
-                cmbSect.Items.AddRange({"Deca", "Penta"})
+                cmbSect.Items.Add("Deca")
+                cmbSect.Items.Add("Penta")
+
             Case "3rd Year"
-                cmbSect.Items.AddRange({"Hexa", "Octa"})
+                cmbSect.Items.Add("Hexa")
+                cmbSect.Items.Add("Octa")
+
             Case "4th Year"
                 cmbSect.Items.Add("Sigma")
         End Select
-        cmbSect.SelectedIndex = 0
 
+        cmbSect.SelectedIndex = 0
         cmbSem.Items.Clear()
-        cmbSem.Items.AddRange({"First Semester", "Second Semester"})
+        cmbSem.Items.Add("First Semester")
+        cmbSem.Items.Add("Second Semester")
         cmbSem.SelectedIndex = 0
 
         cmbTerm.Items.Clear()
-        cmbTerm.Items.AddRange({"Prelim", "Midterm", "Final"})
+        cmbTerm.Items.Add("Prelim")
+        cmbTerm.Items.Add("Midterm")
+        cmbTerm.Items.Add("Final")
         cmbTerm.SelectedIndex = 0
-
     End Sub
 
 

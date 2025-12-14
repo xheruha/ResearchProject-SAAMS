@@ -172,11 +172,11 @@ Partial Class Form2
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(415, 248)
+        Me.Label11.Location = New System.Drawing.Point(427, 247)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(113, 22)
+        Me.Label11.Size = New System.Drawing.Size(101, 22)
         Me.Label11.TabIndex = 23
-        Me.Label11.Text = "School Year:"
+        Me.Label11.Text = "Year Level:"
         '
         'txtCpass
         '

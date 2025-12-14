@@ -56,7 +56,7 @@ Public Class Form1
             Me.Hide()
 
             Dim mail As String = Form1.LoginEmail.Trim().ToLower()
-            If mail = "admin1" OrElse mail = "admin2" OrElse mail = "admin3" OrElse mail = "admin4" Then
+            If mail = "admin@acc.com" Then
                 Dim fMain As New FormMain()
                 fMain.Show()
             Else

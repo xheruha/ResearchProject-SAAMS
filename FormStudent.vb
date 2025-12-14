@@ -38,9 +38,8 @@ Public Class FormStudent
         cmbTerm.SelectedIndex = -1
 
         cmbCat.Items.Clear()
-        cmbCat.Items.Add("Quiz")
-        cmbCat.Items.Add("Activity")
-        cmbCat.Items.Add("Assignment")
+        cmbCat.Items.Add("Written Works")
+        cmbCat.Items.Add("Performance Task")
         cmbCat.Items.Add("Exam")
         cmbCat.SelectedIndex = -1
 
