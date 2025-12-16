@@ -24,6 +24,8 @@ Partial Class FormLeaderboard
     Private Sub InitializeComponent()
         Me.dvLB = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.btnOV = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -45,12 +47,11 @@ Partial Class FormLeaderboard
         Me.lblLname = New System.Windows.Forms.Label()
         Me.lblFname = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.lblStatus = New System.Windows.Forms.Label()
         CType(Me.dvLB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.Panel6.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +59,6 @@ Partial Class FormLeaderboard
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        Me.Panel6.SuspendLayout()
         Me.SuspendLayout()
         '
         'dvLB
@@ -73,7 +73,7 @@ Partial Class FormLeaderboard
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel1.BackColor = System.Drawing.Color.CadetBlue
         Me.Panel1.Controls.Add(Me.Panel6)
         Me.Panel1.Controls.Add(Me.btnOV)
         Me.Panel1.Controls.Add(Me.Panel3)
@@ -88,6 +88,25 @@ Partial Class FormLeaderboard
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(259, 406)
         Me.Panel1.TabIndex = 25
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel6.Controls.Add(Me.Label5)
+        Me.Panel6.Location = New System.Drawing.Point(0, 271)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(261, 132)
+        Me.Panel6.TabIndex = 40
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.Location = New System.Drawing.Point(156, 99)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(0, 16)
+        Me.Label5.TabIndex = 1
         '
         'btnOV
         '
@@ -112,7 +131,7 @@ Partial Class FormLeaderboard
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel4.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(261, 10)
@@ -135,11 +154,11 @@ Partial Class FormLeaderboard
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(49, 99)
+        Me.Label3.Location = New System.Drawing.Point(37, 99)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 25)
+        Me.Label3.Size = New System.Drawing.Size(72, 25)
         Me.Label3.TabIndex = 37
-        Me.Label3.Text = "Term:"
+        Me.Label3.Text = "Period:"
         '
         'cmbSem
         '
@@ -192,7 +211,7 @@ Partial Class FormLeaderboard
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel2.BackColor = System.Drawing.Color.CadetBlue
         Me.Panel2.Controls.Add(Me.lblSec)
         Me.Panel2.Controls.Add(Me.PictureBox5)
         Me.Panel2.Controls.Add(Me.lblSYdep)
@@ -299,33 +318,13 @@ Partial Class FormLeaderboard
         '
         'Panel5
         '
-        Me.Panel5.BackColor = System.Drawing.Color.Olive
+        Me.Panel5.BackColor = System.Drawing.Color.DarkCyan
         Me.Panel5.Controls.Add(Me.Label4)
         Me.Panel5.Controls.Add(Me.lblStatus)
         Me.Panel5.Location = New System.Drawing.Point(755, 122)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(259, 73)
         Me.Panel5.TabIndex = 27
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.BackColor = System.Drawing.Color.Orange
-        Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.Location = New System.Drawing.Point(1, 45)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(0, 16)
-        Me.lblStatus.TabIndex = 0
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Label5.Location = New System.Drawing.Point(156, 99)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(0, 16)
-        Me.Label5.TabIndex = 1
         '
         'Label4
         '
@@ -338,14 +337,15 @@ Partial Class FormLeaderboard
         Me.Label4.TabIndex = 35
         Me.Label4.Text = "Status:"
         '
-        'Panel6
+        'lblStatus
         '
-        Me.Panel6.BackColor = System.Drawing.Color.Olive
-        Me.Panel6.Controls.Add(Me.Label5)
-        Me.Panel6.Location = New System.Drawing.Point(0, 271)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(261, 132)
-        Me.Panel6.TabIndex = 40
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.BackColor = System.Drawing.Color.Orange
+        Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus.Location = New System.Drawing.Point(1, 45)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(0, 16)
+        Me.lblStatus.TabIndex = 0
         '
         'FormLeaderboard
         '
@@ -362,6 +362,8 @@ Partial Class FormLeaderboard
         CType(Me.dvLB, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel6.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
@@ -371,8 +373,6 @@ Partial Class FormLeaderboard
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

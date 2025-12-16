@@ -39,6 +39,8 @@ Partial Class FormMain
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnVS = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnCompute = New System.Windows.Forms.Button()
         Me.txtCompute = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -52,8 +54,8 @@ Partial Class FormMain
         Me.btnFilter = New System.Windows.Forms.Button()
         Me.cmbSub = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnLogout = New System.Windows.Forms.Button()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.lblSYdep = New System.Windows.Forms.Label()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.lblCollege = New System.Windows.Forms.Label()
@@ -65,6 +67,7 @@ Partial Class FormMain
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -83,7 +86,7 @@ Partial Class FormMain
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label1.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(52, 269)
+        Me.Label1.Location = New System.Drawing.Point(41, 269)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(97, 25)
         Me.Label1.TabIndex = 1
@@ -94,7 +97,7 @@ Partial Class FormMain
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label2.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(473, 188)
+        Me.Label2.Location = New System.Drawing.Point(463, 190)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 3
@@ -105,7 +108,7 @@ Partial Class FormMain
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label3.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(459, 228)
+        Me.Label3.Location = New System.Drawing.Point(451, 230)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 25)
         Me.Label3.TabIndex = 5
@@ -116,11 +119,11 @@ Partial Class FormMain
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(493, 149)
+        Me.Label4.Location = New System.Drawing.Point(473, 150)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 25)
+        Me.Label4.Size = New System.Drawing.Size(72, 25)
         Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Term:"
+        Me.Label4.Text = "Period:"
         '
         'cmbTerm
         '
@@ -133,8 +136,10 @@ Partial Class FormMain
         '
         'dvSrecord
         '
+        Me.dvSrecord.AllowUserToAddRows = False
         Me.dvSrecord.BackgroundColor = System.Drawing.SystemColors.ScrollBar
         Me.dvSrecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dvSrecord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.dvSrecord.Location = New System.Drawing.Point(12, 413)
         Me.dvSrecord.Name = "dvSrecord"
         Me.dvSrecord.RowHeadersWidth = 51
@@ -147,7 +152,7 @@ Partial Class FormMain
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label5.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(511, 269)
+        Me.Label5.Location = New System.Drawing.Point(503, 269)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 25)
         Me.Label5.TabIndex = 11
@@ -176,7 +181,7 @@ Partial Class FormMain
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label6.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(870, 150)
+        Me.Label6.Location = New System.Drawing.Point(860, 154)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 25)
         Me.Label6.TabIndex = 13
@@ -199,7 +204,7 @@ Partial Class FormMain
         Me.btnClear.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(121, 345)
+        Me.btnClear.Location = New System.Drawing.Point(228, 347)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(101, 38)
         Me.btnClear.TabIndex = 15
@@ -218,7 +223,7 @@ Partial Class FormMain
         Me.btnDelete.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(228, 345)
+        Me.btnDelete.Location = New System.Drawing.Point(335, 347)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(101, 38)
         Me.btnDelete.TabIndex = 17
@@ -230,7 +235,7 @@ Partial Class FormMain
         Me.btnVS.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnVS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnVS.Font = New System.Drawing.Font("Noto Sans JP", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnVS.Location = New System.Drawing.Point(335, 346)
+        Me.btnVS.Location = New System.Drawing.Point(442, 348)
         Me.btnVS.Name = "btnVS"
         Me.btnVS.Size = New System.Drawing.Size(101, 38)
         Me.btnVS.TabIndex = 19
@@ -240,6 +245,7 @@ Partial Class FormMain
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkSlateGray
+        Me.Panel1.Controls.Add(Me.btnEdit)
         Me.Panel1.Controls.Add(Me.btnLogout)
         Me.Panel1.Controls.Add(Me.btnCompute)
         Me.Panel1.Controls.Add(Me.txtCompute)
@@ -275,6 +281,29 @@ Partial Class FormMain
         Me.Panel1.Size = New System.Drawing.Size(1216, 395)
         Me.Panel1.TabIndex = 20
         '
+        'btnEdit
+        '
+        Me.btnEdit.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.Location = New System.Drawing.Point(121, 347)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(101, 38)
+        Me.btnEdit.TabIndex = 38
+        Me.btnEdit.Text = "Update"
+        Me.btnEdit.UseVisualStyleBackColor = False
+        '
+        'btnLogout
+        '
+        Me.btnLogout.BackColor = System.Drawing.Color.Red
+        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogout.Location = New System.Drawing.Point(1126, 9)
+        Me.btnLogout.Name = "btnLogout"
+        Me.btnLogout.Size = New System.Drawing.Size(76, 26)
+        Me.btnLogout.TabIndex = 35
+        Me.btnLogout.Text = "Logout"
+        Me.btnLogout.UseVisualStyleBackColor = False
+        '
         'btnCompute
         '
         Me.btnCompute.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -300,7 +329,7 @@ Partial Class FormMain
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label11.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(829, 190)
+        Me.Label11.Location = New System.Drawing.Point(819, 194)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(106, 25)
         Me.Label11.TabIndex = 36
@@ -320,7 +349,7 @@ Partial Class FormMain
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label9.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(46, 150)
+        Me.Label9.Location = New System.Drawing.Point(35, 150)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(103, 25)
         Me.Label9.TabIndex = 32
@@ -331,7 +360,7 @@ Partial Class FormMain
         Me.btnList.BackColor = System.Drawing.SystemColors.ActiveBorder
         Me.btnList.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnList.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnList.Location = New System.Drawing.Point(442, 346)
+        Me.btnList.Location = New System.Drawing.Point(549, 348)
         Me.btnList.Name = "btnList"
         Me.btnList.Size = New System.Drawing.Size(101, 38)
         Me.btnList.TabIndex = 30
@@ -352,7 +381,7 @@ Partial Class FormMain
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label8.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(67, 191)
+        Me.Label8.Location = New System.Drawing.Point(56, 190)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(82, 25)
         Me.Label8.TabIndex = 29
@@ -372,7 +401,7 @@ Partial Class FormMain
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label7.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(64, 230)
+        Me.Label7.Location = New System.Drawing.Point(53, 230)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(85, 25)
         Me.Label7.TabIndex = 27
@@ -403,43 +432,43 @@ Partial Class FormMain
         '
         Me.Panel2.BackColor = System.Drawing.Color.Wheat
         Me.Panel2.Controls.Add(Me.PictureBox5)
+        Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.lblSYdep)
         Me.Panel2.Controls.Add(Me.PictureBox6)
         Me.Panel2.Controls.Add(Me.lblCollege)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.lblLname)
         Me.Panel2.Controls.Add(Me.lblFname)
-        Me.Panel2.Location = New System.Drawing.Point(147, 3)
+        Me.Panel2.Location = New System.Drawing.Point(30, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(933, 127)
+        Me.Panel2.Size = New System.Drawing.Size(883, 127)
         Me.Panel2.TabIndex = 23
-        '
-        'btnLogout
-        '
-        Me.btnLogout.BackColor = System.Drawing.Color.Red
-        Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Location = New System.Drawing.Point(1126, 9)
-        Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Size = New System.Drawing.Size(76, 26)
-        Me.btnLogout.TabIndex = 35
-        Me.btnLogout.Text = "Logout"
-        Me.btnLogout.UseVisualStyleBackColor = False
         '
         'PictureBox5
         '
         Me.PictureBox5.BackgroundImage = Global.ResearchProject.My.Resources.Resources.multiple_users_silhouette
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Location = New System.Drawing.Point(369, 60)
+        Me.PictureBox5.Location = New System.Drawing.Point(299, 54)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(26, 27)
         Me.PictureBox5.TabIndex = 33
         Me.PictureBox5.TabStop = False
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImage = Global.ResearchProject.My.Resources.Resources._1761220390816
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox2.Location = New System.Drawing.Point(756, 6)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(110, 111)
+        Me.PictureBox2.TabIndex = 34
+        Me.PictureBox2.TabStop = False
+        '
         'lblSYdep
         '
         Me.lblSYdep.AutoSize = True
         Me.lblSYdep.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSYdep.Location = New System.Drawing.Point(401, 60)
+        Me.lblSYdep.Location = New System.Drawing.Point(331, 54)
         Me.lblSYdep.Name = "lblSYdep"
         Me.lblSYdep.Size = New System.Drawing.Size(70, 25)
         Me.lblSYdep.TabIndex = 32
@@ -449,7 +478,7 @@ Partial Class FormMain
         '
         Me.PictureBox6.BackgroundImage = Global.ResearchProject.My.Resources.Resources.main_page
         Me.PictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox6.Location = New System.Drawing.Point(369, 28)
+        Me.PictureBox6.Location = New System.Drawing.Point(299, 13)
         Me.PictureBox6.Name = "PictureBox6"
         Me.PictureBox6.Size = New System.Drawing.Size(26, 26)
         Me.PictureBox6.TabIndex = 31
@@ -459,7 +488,7 @@ Partial Class FormMain
         '
         Me.lblCollege.AutoSize = True
         Me.lblCollege.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCollege.Location = New System.Drawing.Point(401, 28)
+        Me.lblCollege.Location = New System.Drawing.Point(331, 13)
         Me.lblCollege.Name = "lblCollege"
         Me.lblCollege.Size = New System.Drawing.Size(398, 25)
         Me.lblCollege.TabIndex = 29
@@ -479,7 +508,7 @@ Partial Class FormMain
         '
         Me.lblLname.AutoSize = True
         Me.lblLname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(153, 79)
+        Me.lblLname.Location = New System.Drawing.Point(144, 34)
         Me.lblLname.Name = "lblLname"
         Me.lblLname.Size = New System.Drawing.Size(133, 34)
         Me.lblLname.TabIndex = 1
@@ -489,7 +518,7 @@ Partial Class FormMain
         '
         Me.lblFname.AutoSize = True
         Me.lblFname.Font = New System.Drawing.Font("Noto Sans JP", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFname.Location = New System.Drawing.Point(153, 51)
+        Me.lblFname.Location = New System.Drawing.Point(144, 6)
         Me.lblFname.Name = "lblFname"
         Me.lblFname.Size = New System.Drawing.Size(136, 34)
         Me.lblFname.TabIndex = 0
@@ -497,7 +526,7 @@ Partial Class FormMain
         '
         'dtpSM
         '
-        Me.dtpSM.Location = New System.Drawing.Point(94, 319)
+        Me.dtpSM.Location = New System.Drawing.Point(94, 308)
         Me.dtpSM.Name = "dtpSM"
         Me.dtpSM.Size = New System.Drawing.Size(273, 22)
         Me.dtpSM.TabIndex = 22
@@ -519,6 +548,7 @@ Partial Class FormMain
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -564,4 +594,6 @@ Partial Class FormMain
     Friend WithEvents txtCompute As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents btnCompute As Button
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents btnEdit As Button
 End Class

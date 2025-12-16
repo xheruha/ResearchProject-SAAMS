@@ -72,7 +72,7 @@ Partial Class FormStudent
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.DarkKhaki
+        Me.Panel1.BackColor = System.Drawing.Color.DarkSlateGray
         Me.Panel1.Controls.Add(Me.btnFilter)
         Me.Panel1.Controls.Add(Me.cmbSub)
         Me.Panel1.Controls.Add(Me.btnVS)
@@ -328,11 +328,11 @@ Partial Class FormStudent
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.Label4.Font = New System.Drawing.Font("Noto Sans JP", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(510, 127)
+        Me.Label4.Location = New System.Drawing.Point(498, 127)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 25)
+        Me.Label4.Size = New System.Drawing.Size(72, 25)
         Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Term:"
+        Me.Label4.Text = "Period:"
         '
         'Label1
         '
